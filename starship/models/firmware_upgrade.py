@@ -40,7 +40,6 @@ class FirmwareUpgrade(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'device': 'MoMoRef',
         'direct_download': 'FirmwareDirectDownload',
         'distributable': 'MoMoRef',
@@ -60,7 +59,6 @@ class FirmwareUpgrade(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'device': 'Device',
         'direct_download': 'DirectDownload',
         'distributable': 'Distributable',
@@ -70,7 +68,7 @@ class FirmwareUpgrade(object):
         'upgrade_type': 'UpgradeType'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, device=None, direct_download=None, distributable=None, network_share=None, server=None, upgrade_status=None, upgrade_type='direct_upgrade'):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, device=None, direct_download=None, distributable=None, network_share=None, server=None, upgrade_status=None, upgrade_type='direct_upgrade'):
         """
         FirmwareUpgrade - a model defined in Swagger
         """
@@ -84,7 +82,6 @@ class FirmwareUpgrade(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._device = None
         self._direct_download = None
         self._distributable = None
@@ -111,8 +108,6 @@ class FirmwareUpgrade(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if device is not None:
           self.device = device
         if direct_download is not None:
@@ -334,29 +329,6 @@ class FirmwareUpgrade(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this FirmwareUpgrade.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this FirmwareUpgrade.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this FirmwareUpgrade.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this FirmwareUpgrade.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def device(self):

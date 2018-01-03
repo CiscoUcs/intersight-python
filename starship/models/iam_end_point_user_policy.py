@@ -40,11 +40,10 @@ class IamEndPointUserPolicy(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'description': 'str',
         'name': 'str',
-        'account': 'MoMoRef',
         'end_point_user_roles': 'list[MoMoRef]',
+        'organization': 'MoMoRef',
         'password_properties': 'IamEndPointPasswordProperties',
         'profile': 'MoMoRef'
     }
@@ -59,16 +58,15 @@ class IamEndPointUserPolicy(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'description': 'Description',
         'name': 'Name',
-        'account': 'Account',
         'end_point_user_roles': 'EndPointUserRoles',
+        'organization': 'Organization',
         'password_properties': 'PasswordProperties',
         'profile': 'Profile'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, description=None, name=None, account=None, end_point_user_roles=None, password_properties=None, profile=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, description=None, name=None, end_point_user_roles=None, organization=None, password_properties=None, profile=None):
         """
         IamEndPointUserPolicy - a model defined in Swagger
         """
@@ -82,11 +80,10 @@ class IamEndPointUserPolicy(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._description = None
         self._name = None
-        self._account = None
         self._end_point_user_roles = None
+        self._organization = None
         self._password_properties = None
         self._profile = None
 
@@ -108,16 +105,14 @@ class IamEndPointUserPolicy(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if description is not None:
           self.description = description
         if name is not None:
           self.name = name
-        if account is not None:
-          self.account = account
         if end_point_user_roles is not None:
           self.end_point_user_roles = end_point_user_roles
+        if organization is not None:
+          self.organization = organization
         if password_properties is not None:
           self.password_properties = password_properties
         if profile is not None:
@@ -331,29 +326,6 @@ class IamEndPointUserPolicy(object):
         self._tags = tags
 
     @property
-    def id(self):
-        """
-        Gets the id of this IamEndPointUserPolicy.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this IamEndPointUserPolicy.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this IamEndPointUserPolicy.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this IamEndPointUserPolicy.
-        :type: str
-        """
-
-        self._id = id
-
-    @property
     def description(self):
         """
         Gets the description of this IamEndPointUserPolicy.
@@ -400,33 +372,10 @@ class IamEndPointUserPolicy(object):
         self._name = name
 
     @property
-    def account(self):
-        """
-        Gets the account of this IamEndPointUserPolicy.
-        Relationship to account 
-
-        :return: The account of this IamEndPointUserPolicy.
-        :rtype: MoMoRef
-        """
-        return self._account
-
-    @account.setter
-    def account(self, account):
-        """
-        Sets the account of this IamEndPointUserPolicy.
-        Relationship to account 
-
-        :param account: The account of this IamEndPointUserPolicy.
-        :type: MoMoRef
-        """
-
-        self._account = account
-
-    @property
     def end_point_user_roles(self):
         """
         Gets the end_point_user_roles of this IamEndPointUserPolicy.
-        Relationship to collection of EndPointUserRoles 
+        Relationship to the collection of Endpoint user roles 
 
         :return: The end_point_user_roles of this IamEndPointUserPolicy.
         :rtype: list[MoMoRef]
@@ -437,7 +386,7 @@ class IamEndPointUserPolicy(object):
     def end_point_user_roles(self, end_point_user_roles):
         """
         Sets the end_point_user_roles of this IamEndPointUserPolicy.
-        Relationship to collection of EndPointUserRoles 
+        Relationship to the collection of Endpoint user roles 
 
         :param end_point_user_roles: The end_point_user_roles of this IamEndPointUserPolicy.
         :type: list[MoMoRef]
@@ -446,10 +395,33 @@ class IamEndPointUserPolicy(object):
         self._end_point_user_roles = end_point_user_roles
 
     @property
+    def organization(self):
+        """
+        Gets the organization of this IamEndPointUserPolicy.
+        Organization 
+
+        :return: The organization of this IamEndPointUserPolicy.
+        :rtype: MoMoRef
+        """
+        return self._organization
+
+    @organization.setter
+    def organization(self, organization):
+        """
+        Sets the organization of this IamEndPointUserPolicy.
+        Organization 
+
+        :param organization: The organization of this IamEndPointUserPolicy.
+        :type: MoMoRef
+        """
+
+        self._organization = organization
+
+    @property
     def password_properties(self):
         """
         Gets the password_properties of this IamEndPointUserPolicy.
-        set password properties for endpoint users   
+        Set password properties for endpoint users   
 
         :return: The password_properties of this IamEndPointUserPolicy.
         :rtype: IamEndPointPasswordProperties
@@ -460,7 +432,7 @@ class IamEndPointUserPolicy(object):
     def password_properties(self, password_properties):
         """
         Sets the password_properties of this IamEndPointUserPolicy.
-        set password properties for endpoint users   
+        Set password properties for endpoint users   
 
         :param password_properties: The password_properties of this IamEndPointUserPolicy.
         :type: IamEndPointPasswordProperties

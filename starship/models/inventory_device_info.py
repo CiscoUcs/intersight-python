@@ -40,7 +40,6 @@ class InventoryDeviceInfo(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'event_counter': 'int',
         'event_counter_enabled': 'bool',
         'registered_device': 'MoMoRef'
@@ -56,13 +55,12 @@ class InventoryDeviceInfo(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'event_counter': 'EventCounter',
         'event_counter_enabled': 'EventCounterEnabled',
         'registered_device': 'RegisteredDevice'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, event_counter=None, event_counter_enabled=None, registered_device=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, event_counter=None, event_counter_enabled=None, registered_device=None):
         """
         InventoryDeviceInfo - a model defined in Swagger
         """
@@ -76,7 +74,6 @@ class InventoryDeviceInfo(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._event_counter = None
         self._event_counter_enabled = None
         self._registered_device = None
@@ -99,8 +96,6 @@ class InventoryDeviceInfo(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if event_counter is not None:
           self.event_counter = event_counter
         if event_counter_enabled is not None:
@@ -314,29 +309,6 @@ class InventoryDeviceInfo(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this InventoryDeviceInfo.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this InventoryDeviceInfo.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this InventoryDeviceInfo.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this InventoryDeviceInfo.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def event_counter(self):

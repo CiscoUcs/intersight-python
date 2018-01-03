@@ -40,14 +40,13 @@ class VmediaPolicy(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'description': 'str',
         'name': 'str',
-        'account': 'MoMoRef',
         'enabled': 'bool',
         'encryption': 'bool',
         'low_power_usb': 'bool',
         'mappings': 'list[VmediaMapping]',
+        'organization': 'MoMoRef',
         'profile': 'MoMoRef'
     }
 
@@ -61,18 +60,17 @@ class VmediaPolicy(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'description': 'Description',
         'name': 'Name',
-        'account': 'Account',
         'enabled': 'Enabled',
         'encryption': 'Encryption',
         'low_power_usb': 'LowPowerUsb',
         'mappings': 'Mappings',
+        'organization': 'Organization',
         'profile': 'Profile'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, description=None, name=None, account=None, enabled=None, encryption=None, low_power_usb=None, mappings=None, profile=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, description=None, name=None, enabled=None, encryption=None, low_power_usb=None, mappings=None, organization=None, profile=None):
         """
         VmediaPolicy - a model defined in Swagger
         """
@@ -86,14 +84,13 @@ class VmediaPolicy(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._description = None
         self._name = None
-        self._account = None
         self._enabled = None
         self._encryption = None
         self._low_power_usb = None
         self._mappings = None
+        self._organization = None
         self._profile = None
 
         if account_moid is not None:
@@ -114,14 +111,10 @@ class VmediaPolicy(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if description is not None:
           self.description = description
         if name is not None:
           self.name = name
-        if account is not None:
-          self.account = account
         if enabled is not None:
           self.enabled = enabled
         if encryption is not None:
@@ -130,6 +123,8 @@ class VmediaPolicy(object):
           self.low_power_usb = low_power_usb
         if mappings is not None:
           self.mappings = mappings
+        if organization is not None:
+          self.organization = organization
         if profile is not None:
           self.profile = profile
 
@@ -341,29 +336,6 @@ class VmediaPolicy(object):
         self._tags = tags
 
     @property
-    def id(self):
-        """
-        Gets the id of this VmediaPolicy.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this VmediaPolicy.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this VmediaPolicy.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this VmediaPolicy.
-        :type: str
-        """
-
-        self._id = id
-
-    @property
     def description(self):
         """
         Gets the description of this VmediaPolicy.
@@ -408,29 +380,6 @@ class VmediaPolicy(object):
         """
 
         self._name = name
-
-    @property
-    def account(self):
-        """
-        Gets the account of this VmediaPolicy.
-        Relationship to set accountMoID on policies. When \"onpeerdelete\" is set to \"cascade\", policies are deleted when the associated account is deleted. 
-
-        :return: The account of this VmediaPolicy.
-        :rtype: MoMoRef
-        """
-        return self._account
-
-    @account.setter
-    def account(self, account):
-        """
-        Sets the account of this VmediaPolicy.
-        Relationship to set accountMoID on policies. When \"onpeerdelete\" is set to \"cascade\", policies are deleted when the associated account is deleted. 
-
-        :param account: The account of this VmediaPolicy.
-        :type: MoMoRef
-        """
-
-        self._account = account
 
     @property
     def enabled(self):
@@ -523,6 +472,29 @@ class VmediaPolicy(object):
         """
 
         self._mappings = mappings
+
+    @property
+    def organization(self):
+        """
+        Gets the organization of this VmediaPolicy.
+        Organization 
+
+        :return: The organization of this VmediaPolicy.
+        :rtype: MoMoRef
+        """
+        return self._organization
+
+    @organization.setter
+    def organization(self, organization):
+        """
+        Sets the organization of this VmediaPolicy.
+        Organization 
+
+        :param organization: The organization of this VmediaPolicy.
+        :type: MoMoRef
+        """
+
+        self._organization = organization
 
     @property
     def profile(self):

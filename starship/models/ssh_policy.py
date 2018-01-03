@@ -40,11 +40,10 @@ class SshPolicy(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'description': 'str',
         'name': 'str',
-        'account': 'MoMoRef',
         'enabled': 'bool',
+        'organization': 'MoMoRef',
         'port': 'int',
         'profile': 'MoMoRef',
         'timeout': 'int'
@@ -60,17 +59,16 @@ class SshPolicy(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'description': 'Description',
         'name': 'Name',
-        'account': 'Account',
         'enabled': 'Enabled',
+        'organization': 'Organization',
         'port': 'Port',
         'profile': 'Profile',
         'timeout': 'Timeout'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, description=None, name=None, account=None, enabled=None, port=None, profile=None, timeout=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, description=None, name=None, enabled=None, organization=None, port=None, profile=None, timeout=None):
         """
         SshPolicy - a model defined in Swagger
         """
@@ -84,11 +82,10 @@ class SshPolicy(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._description = None
         self._name = None
-        self._account = None
         self._enabled = None
+        self._organization = None
         self._port = None
         self._profile = None
         self._timeout = None
@@ -111,16 +108,14 @@ class SshPolicy(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if description is not None:
           self.description = description
         if name is not None:
           self.name = name
-        if account is not None:
-          self.account = account
         if enabled is not None:
           self.enabled = enabled
+        if organization is not None:
+          self.organization = organization
         if port is not None:
           self.port = port
         if profile is not None:
@@ -336,29 +331,6 @@ class SshPolicy(object):
         self._tags = tags
 
     @property
-    def id(self):
-        """
-        Gets the id of this SshPolicy.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this SshPolicy.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this SshPolicy.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this SshPolicy.
-        :type: str
-        """
-
-        self._id = id
-
-    @property
     def description(self):
         """
         Gets the description of this SshPolicy.
@@ -405,29 +377,6 @@ class SshPolicy(object):
         self._name = name
 
     @property
-    def account(self):
-        """
-        Gets the account of this SshPolicy.
-        Relationship to set accountMoID. When the \"onpeerdelete\" property is set to \"cascade\", policies are deleted when the associated account is deleted. 
-
-        :return: The account of this SshPolicy.
-        :rtype: MoMoRef
-        """
-        return self._account
-
-    @account.setter
-    def account(self, account):
-        """
-        Sets the account of this SshPolicy.
-        Relationship to set accountMoID. When the \"onpeerdelete\" property is set to \"cascade\", policies are deleted when the associated account is deleted. 
-
-        :param account: The account of this SshPolicy.
-        :type: MoMoRef
-        """
-
-        self._account = account
-
-    @property
     def enabled(self):
         """
         Gets the enabled of this SshPolicy.
@@ -449,6 +398,29 @@ class SshPolicy(object):
         """
 
         self._enabled = enabled
+
+    @property
+    def organization(self):
+        """
+        Gets the organization of this SshPolicy.
+        Organization 
+
+        :return: The organization of this SshPolicy.
+        :rtype: MoMoRef
+        """
+        return self._organization
+
+    @organization.setter
+    def organization(self, organization):
+        """
+        Sets the organization of this SshPolicy.
+        Organization 
+
+        :param organization: The organization of this SshPolicy.
+        :type: MoMoRef
+        """
+
+        self._organization = organization
 
     @property
     def port(self):

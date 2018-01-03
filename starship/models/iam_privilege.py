@@ -40,7 +40,6 @@ class IamPrivilege(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'account': 'MoMoRef',
         'app': 'str',
         'method': 'str',
@@ -61,7 +60,6 @@ class IamPrivilege(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'account': 'Account',
         'app': 'App',
         'method': 'Method',
@@ -72,7 +70,7 @@ class IamPrivilege(object):
         'version': 'Version'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, account=None, app=None, method=None, name=None, namespace=None, rest_path=None, system=None, version=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, account=None, app=None, method=None, name=None, namespace=None, rest_path=None, system=None, version=None):
         """
         IamPrivilege - a model defined in Swagger
         """
@@ -86,7 +84,6 @@ class IamPrivilege(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._account = None
         self._app = None
         self._method = None
@@ -114,8 +111,6 @@ class IamPrivilege(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if account is not None:
           self.account = account
         if app is not None:
@@ -339,29 +334,6 @@ class IamPrivilege(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this IamPrivilege.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this IamPrivilege.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this IamPrivilege.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this IamPrivilege.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def account(self):

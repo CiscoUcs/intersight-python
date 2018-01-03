@@ -40,7 +40,6 @@ class ComputePhysical(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'device_mo_id': 'str',
         'dn': 'str',
         'rn': 'str',
@@ -80,7 +79,6 @@ class ComputePhysical(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'device_mo_id': 'DeviceMoId',
         'dn': 'Dn',
         'rn': 'Rn',
@@ -110,7 +108,7 @@ class ComputePhysical(object):
         'uuid': 'Uuid'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, device_mo_id=None, dn=None, rn=None, model=None, revision=None, serial=None, vendor=None, admin_power_state=None, available_memory=None, fault_summary=None, kvm_ip_addresses=None, memory_speed=None, num_adaptors=None, num_cpu_cores=None, num_cpu_cores_enabled=None, num_cpus=None, num_eth_host_interfaces=None, num_fc_host_interfaces=None, num_threads=None, oper_power_state=None, oper_state=None, operability=None, platform_type=None, presence=None, service_profile=None, total_memory=None, uuid=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, device_mo_id=None, dn=None, rn=None, model=None, revision=None, serial=None, vendor=None, admin_power_state=None, available_memory=None, fault_summary=None, kvm_ip_addresses=None, memory_speed=None, num_adaptors=None, num_cpu_cores=None, num_cpu_cores_enabled=None, num_cpus=None, num_eth_host_interfaces=None, num_fc_host_interfaces=None, num_threads=None, oper_power_state=None, oper_state=None, operability=None, platform_type=None, presence=None, service_profile=None, total_memory=None, uuid=None):
         """
         ComputePhysical - a model defined in Swagger
         """
@@ -124,7 +122,6 @@ class ComputePhysical(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._device_mo_id = None
         self._dn = None
         self._rn = None
@@ -171,8 +168,6 @@ class ComputePhysical(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if device_mo_id is not None:
           self.device_mo_id = device_mo_id
         if dn is not None:
@@ -434,29 +429,6 @@ class ComputePhysical(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this ComputePhysical.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this ComputePhysical.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this ComputePhysical.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this ComputePhysical.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def device_mo_id(self):

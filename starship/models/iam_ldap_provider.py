@@ -40,7 +40,6 @@ class IamLdapProvider(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'ldap_policy': 'MoMoRef',
         'port': 'int',
         'server': 'str'
@@ -56,13 +55,12 @@ class IamLdapProvider(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'ldap_policy': 'LdapPolicy',
         'port': 'Port',
         'server': 'Server'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, ldap_policy=None, port=None, server=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, ldap_policy=None, port=None, server=None):
         """
         IamLdapProvider - a model defined in Swagger
         """
@@ -76,7 +74,6 @@ class IamLdapProvider(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._ldap_policy = None
         self._port = None
         self._server = None
@@ -99,8 +96,6 @@ class IamLdapProvider(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if ldap_policy is not None:
           self.ldap_policy = ldap_policy
         if port is not None:
@@ -314,29 +309,6 @@ class IamLdapProvider(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this IamLdapProvider.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this IamLdapProvider.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this IamLdapProvider.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this IamLdapProvider.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def ldap_policy(self):

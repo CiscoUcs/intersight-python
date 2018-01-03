@@ -40,7 +40,6 @@ class EquipmentDeviceSummary(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'dn': 'str',
         'model': 'str',
         'registered_device': 'MoMoRef',
@@ -58,7 +57,6 @@ class EquipmentDeviceSummary(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'dn': 'Dn',
         'model': 'Model',
         'registered_device': 'RegisteredDevice',
@@ -66,7 +64,7 @@ class EquipmentDeviceSummary(object):
         'source_object_type': 'SourceObjectType'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, dn=None, model=None, registered_device=None, serial=None, source_object_type=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, dn=None, model=None, registered_device=None, serial=None, source_object_type=None):
         """
         EquipmentDeviceSummary - a model defined in Swagger
         """
@@ -80,7 +78,6 @@ class EquipmentDeviceSummary(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._dn = None
         self._model = None
         self._registered_device = None
@@ -105,8 +102,6 @@ class EquipmentDeviceSummary(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if dn is not None:
           self.dn = dn
         if model is not None:
@@ -324,29 +319,6 @@ class EquipmentDeviceSummary(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this EquipmentDeviceSummary.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this EquipmentDeviceSummary.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this EquipmentDeviceSummary.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this EquipmentDeviceSummary.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def dn(self):

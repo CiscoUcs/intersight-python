@@ -40,7 +40,6 @@ class ComputePhysicalSummary(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'admin_power_state': 'str',
         'available_memory': 'int',
         'chassis_id': 'str',
@@ -89,7 +88,6 @@ class ComputePhysicalSummary(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'admin_power_state': 'AdminPowerState',
         'available_memory': 'AvailableMemory',
         'chassis_id': 'ChassisId',
@@ -128,7 +126,7 @@ class ComputePhysicalSummary(object):
         'vendor': 'Vendor'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, admin_power_state=None, available_memory=None, chassis_id=None, cpu_capacity=None, device_mo_id=None, dn=None, fault_summary=None, firmware=None, ipv4_address=None, kvm_ip_addresses=None, memory_speed=None, model=None, name=None, num_adaptors=None, num_cpu_cores=None, num_cpu_cores_enabled=None, num_cpus=None, num_eth_host_interfaces=None, num_fc_host_interfaces=None, num_threads=None, oper_power_state=None, oper_state=None, operability=None, platform_type=None, presence=None, registered_device=None, revision=None, rn=None, serial=None, server_id=None, service_profile=None, slot_id=None, source_object_type=None, total_memory=None, uuid=None, vendor=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, admin_power_state=None, available_memory=None, chassis_id=None, cpu_capacity=None, device_mo_id=None, dn=None, fault_summary=None, firmware=None, ipv4_address=None, kvm_ip_addresses=None, memory_speed=None, model=None, name=None, num_adaptors=None, num_cpu_cores=None, num_cpu_cores_enabled=None, num_cpus=None, num_eth_host_interfaces=None, num_fc_host_interfaces=None, num_threads=None, oper_power_state=None, oper_state=None, operability=None, platform_type=None, presence=None, registered_device=None, revision=None, rn=None, serial=None, server_id=None, service_profile=None, slot_id=None, source_object_type=None, total_memory=None, uuid=None, vendor=None):
         """
         ComputePhysicalSummary - a model defined in Swagger
         """
@@ -142,7 +140,6 @@ class ComputePhysicalSummary(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._admin_power_state = None
         self._available_memory = None
         self._chassis_id = None
@@ -198,8 +195,6 @@ class ComputePhysicalSummary(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if admin_power_state is not None:
           self.admin_power_state = admin_power_state
         if available_memory is not None:
@@ -479,29 +474,6 @@ class ComputePhysicalSummary(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this ComputePhysicalSummary.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this ComputePhysicalSummary.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this ComputePhysicalSummary.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this ComputePhysicalSummary.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def admin_power_state(self):

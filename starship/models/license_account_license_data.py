@@ -40,14 +40,15 @@ class LicenseAccountLicenseData(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'account': 'MoMoRef',
         'account_id': 'str',
         'agent_data': 'str',
         'auth_expire_time': 'str',
         'auth_initial_time': 'str',
         'auth_next_time': 'str',
+        'category': 'str',
         'customer_op': 'MoMoRef',
+        'group': 'str',
         'last_sync': 'datetime',
         'last_updated_time': 'datetime',
         'license_state': 'str',
@@ -74,14 +75,15 @@ class LicenseAccountLicenseData(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'account': 'Account',
         'account_id': 'AccountId',
         'agent_data': 'AgentData',
         'auth_expire_time': 'AuthExpireTime',
         'auth_initial_time': 'AuthInitialTime',
         'auth_next_time': 'AuthNextTime',
+        'category': 'Category',
         'customer_op': 'CustomerOp',
+        'group': 'Group',
         'last_sync': 'LastSync',
         'last_updated_time': 'LastUpdatedTime',
         'license_state': 'LicenseState',
@@ -98,7 +100,7 @@ class LicenseAccountLicenseData(object):
         'virtual_account': 'VirtualAccount'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, account=None, account_id=None, agent_data=None, auth_expire_time=None, auth_initial_time=None, auth_next_time=None, customer_op=None, last_sync=None, last_updated_time=None, license_state=None, license_tech_support_info=None, licenseinfos=None, register_expire_time=None, register_initial_time=None, register_next_time=None, registration_status=None, renew_failure_string=None, smart_account=None, smartlicense_token=None, sync_status=None, virtual_account=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, account=None, account_id=None, agent_data=None, auth_expire_time=None, auth_initial_time=None, auth_next_time=None, category=None, customer_op=None, group=None, last_sync=None, last_updated_time=None, license_state=None, license_tech_support_info=None, licenseinfos=None, register_expire_time=None, register_initial_time=None, register_next_time=None, registration_status=None, renew_failure_string=None, smart_account=None, smartlicense_token=None, sync_status=None, virtual_account=None):
         """
         LicenseAccountLicenseData - a model defined in Swagger
         """
@@ -112,14 +114,15 @@ class LicenseAccountLicenseData(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._account = None
         self._account_id = None
         self._agent_data = None
         self._auth_expire_time = None
         self._auth_initial_time = None
         self._auth_next_time = None
+        self._category = None
         self._customer_op = None
+        self._group = None
         self._last_sync = None
         self._last_updated_time = None
         self._license_state = None
@@ -153,8 +156,6 @@ class LicenseAccountLicenseData(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if account is not None:
           self.account = account
         if account_id is not None:
@@ -167,8 +168,12 @@ class LicenseAccountLicenseData(object):
           self.auth_initial_time = auth_initial_time
         if auth_next_time is not None:
           self.auth_next_time = auth_next_time
+        if category is not None:
+          self.category = category
         if customer_op is not None:
           self.customer_op = customer_op
+        if group is not None:
+          self.group = group
         if last_sync is not None:
           self.last_sync = last_sync
         if last_updated_time is not None:
@@ -406,29 +411,6 @@ class LicenseAccountLicenseData(object):
         self._tags = tags
 
     @property
-    def id(self):
-        """
-        Gets the id of this LicenseAccountLicenseData.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this LicenseAccountLicenseData.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this LicenseAccountLicenseData.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this LicenseAccountLicenseData.
-        :type: str
-        """
-
-        self._id = id
-
-    @property
     def account(self):
         """
         Gets the account of this LicenseAccountLicenseData.
@@ -565,6 +547,29 @@ class LicenseAccountLicenseData(object):
         self._auth_next_time = auth_next_time
 
     @property
+    def category(self):
+        """
+        Gets the category of this LicenseAccountLicenseData.
+        license category  
+
+        :return: The category of this LicenseAccountLicenseData.
+        :rtype: str
+        """
+        return self._category
+
+    @category.setter
+    def category(self, category):
+        """
+        Sets the category of this LicenseAccountLicenseData.
+        license category  
+
+        :param category: The category of this LicenseAccountLicenseData.
+        :type: str
+        """
+
+        self._category = category
+
+    @property
     def customer_op(self):
         """
         Gets the customer_op of this LicenseAccountLicenseData.
@@ -584,6 +589,29 @@ class LicenseAccountLicenseData(object):
         """
 
         self._customer_op = customer_op
+
+    @property
+    def group(self):
+        """
+        Gets the group of this LicenseAccountLicenseData.
+        group  
+
+        :return: The group of this LicenseAccountLicenseData.
+        :rtype: str
+        """
+        return self._group
+
+    @group.setter
+    def group(self, group):
+        """
+        Sets the group of this LicenseAccountLicenseData.
+        group  
+
+        :param group: The group of this LicenseAccountLicenseData.
+        :type: str
+        """
+
+        self._group = group
 
     @property
     def last_sync(self):

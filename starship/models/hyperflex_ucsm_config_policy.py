@@ -40,7 +40,6 @@ class HyperflexUcsmConfigPolicy(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'description': 'str',
         'name': 'str',
         'account': 'MoMoRef',
@@ -60,7 +59,6 @@ class HyperflexUcsmConfigPolicy(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'description': 'Description',
         'name': 'Name',
         'account': 'Account',
@@ -70,7 +68,7 @@ class HyperflexUcsmConfigPolicy(object):
         'service_profile_org': 'ServiceProfileOrg'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, description=None, name=None, account=None, cluster_profile=None, kvm_ip_range=None, mac_prefix_range=None, service_profile_org=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, description=None, name=None, account=None, cluster_profile=None, kvm_ip_range=None, mac_prefix_range=None, service_profile_org=None):
         """
         HyperflexUcsmConfigPolicy - a model defined in Swagger
         """
@@ -84,7 +82,6 @@ class HyperflexUcsmConfigPolicy(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._description = None
         self._name = None
         self._account = None
@@ -111,8 +108,6 @@ class HyperflexUcsmConfigPolicy(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if description is not None:
           self.description = description
         if name is not None:
@@ -334,29 +329,6 @@ class HyperflexUcsmConfigPolicy(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this HyperflexUcsmConfigPolicy.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this HyperflexUcsmConfigPolicy.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this HyperflexUcsmConfigPolicy.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this HyperflexUcsmConfigPolicy.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def description(self):

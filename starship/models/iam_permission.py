@@ -40,7 +40,6 @@ class IamPermission(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'account': 'MoMoRef',
         'end_point_roles': 'list[MoMoRef]',
         'roles': 'list[MoMoRef]',
@@ -58,7 +57,6 @@ class IamPermission(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'account': 'Account',
         'end_point_roles': 'EndPointRoles',
         'roles': 'Roles',
@@ -66,7 +64,7 @@ class IamPermission(object):
         'type': 'Type'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, account=None, end_point_roles=None, roles=None, subject=None, type=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, account=None, end_point_roles=None, roles=None, subject=None, type=None):
         """
         IamPermission - a model defined in Swagger
         """
@@ -80,7 +78,6 @@ class IamPermission(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._account = None
         self._end_point_roles = None
         self._roles = None
@@ -105,8 +102,6 @@ class IamPermission(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if account is not None:
           self.account = account
         if end_point_roles is not None:
@@ -324,29 +319,6 @@ class IamPermission(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this IamPermission.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this IamPermission.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this IamPermission.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this IamPermission.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def account(self):

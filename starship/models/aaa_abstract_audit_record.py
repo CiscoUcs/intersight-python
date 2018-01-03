@@ -40,7 +40,6 @@ class AaaAbstractAuditRecord(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'event': 'str',
         'mo_type': 'str',
         'object_moid': 'str',
@@ -58,7 +57,6 @@ class AaaAbstractAuditRecord(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'event': 'Event',
         'mo_type': 'MoType',
         'object_moid': 'ObjectMoid',
@@ -66,7 +64,7 @@ class AaaAbstractAuditRecord(object):
         'trace_id': 'TraceId'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, event=None, mo_type=None, object_moid=None, request=None, trace_id=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, event=None, mo_type=None, object_moid=None, request=None, trace_id=None):
         """
         AaaAbstractAuditRecord - a model defined in Swagger
         """
@@ -80,7 +78,6 @@ class AaaAbstractAuditRecord(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._event = None
         self._mo_type = None
         self._object_moid = None
@@ -105,8 +102,6 @@ class AaaAbstractAuditRecord(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if event is not None:
           self.event = event
         if mo_type is not None:
@@ -324,29 +319,6 @@ class AaaAbstractAuditRecord(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this AaaAbstractAuditRecord.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this AaaAbstractAuditRecord.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this AaaAbstractAuditRecord.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this AaaAbstractAuditRecord.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def event(self):

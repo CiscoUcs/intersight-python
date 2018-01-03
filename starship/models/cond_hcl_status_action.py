@@ -40,7 +40,6 @@ class CondHclStatusAction(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'component': 'MoMoRef',
         'description': 'str',
         'driver_name': 'str',
@@ -61,7 +60,6 @@ class CondHclStatusAction(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'component': 'Component',
         'description': 'Description',
         'driver_name': 'DriverName',
@@ -72,7 +70,7 @@ class CondHclStatusAction(object):
         'type': 'Type'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, component=None, description=None, driver_name=None, driver_version=None, firmware_version=None, hcl_status_detail=None, model=None, type=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, component=None, description=None, driver_name=None, driver_version=None, firmware_version=None, hcl_status_detail=None, model=None, type=None):
         """
         CondHclStatusAction - a model defined in Swagger
         """
@@ -86,7 +84,6 @@ class CondHclStatusAction(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._component = None
         self._description = None
         self._driver_name = None
@@ -114,8 +111,6 @@ class CondHclStatusAction(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if component is not None:
           self.component = component
         if description is not None:
@@ -339,29 +334,6 @@ class CondHclStatusAction(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this CondHclStatusAction.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this CondHclStatusAction.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this CondHclStatusAction.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this CondHclStatusAction.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def component(self):

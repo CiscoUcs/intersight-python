@@ -40,7 +40,6 @@ class CondHclStatusDetail(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'actions': 'list[MoMoRef]',
         'component': 'MoMoRef',
         'hcl_driver_name': 'str',
@@ -68,7 +67,6 @@ class CondHclStatusDetail(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'actions': 'Actions',
         'component': 'Component',
         'hcl_driver_name': 'HclDriverName',
@@ -86,7 +84,7 @@ class CondHclStatusDetail(object):
         'status': 'Status'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, actions=None, component=None, hcl_driver_name=None, hcl_driver_version=None, hcl_firmware_version=None, hcl_model=None, hcl_status=None, hcl_ucs_version=None, inv_driver_name=None, inv_driver_version=None, inv_firmware_version=None, inv_model=None, inv_ucs_version=None, reason=None, status=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, actions=None, component=None, hcl_driver_name=None, hcl_driver_version=None, hcl_firmware_version=None, hcl_model=None, hcl_status=None, hcl_ucs_version=None, inv_driver_name=None, inv_driver_version=None, inv_firmware_version=None, inv_model=None, inv_ucs_version=None, reason=None, status=None):
         """
         CondHclStatusDetail - a model defined in Swagger
         """
@@ -100,7 +98,6 @@ class CondHclStatusDetail(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._actions = None
         self._component = None
         self._hcl_driver_name = None
@@ -135,8 +132,6 @@ class CondHclStatusDetail(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if actions is not None:
           self.actions = actions
         if component is not None:
@@ -374,29 +369,6 @@ class CondHclStatusDetail(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this CondHclStatusDetail.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this CondHclStatusDetail.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this CondHclStatusDetail.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this CondHclStatusDetail.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def actions(self):

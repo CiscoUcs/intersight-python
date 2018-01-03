@@ -40,13 +40,12 @@ class SolPolicy(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'description': 'str',
         'name': 'str',
-        'account': 'MoMoRef',
         'baud_rate': 'int',
         'com_port': 'str',
         'enabled': 'bool',
+        'organization': 'MoMoRef',
         'profile': 'MoMoRef',
         'ssh_port': 'int'
     }
@@ -61,18 +60,17 @@ class SolPolicy(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'description': 'Description',
         'name': 'Name',
-        'account': 'Account',
         'baud_rate': 'BaudRate',
         'com_port': 'ComPort',
         'enabled': 'Enabled',
+        'organization': 'Organization',
         'profile': 'Profile',
         'ssh_port': 'SshPort'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, description=None, name=None, account=None, baud_rate=None, com_port='com0', enabled=None, profile=None, ssh_port=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, description=None, name=None, baud_rate=None, com_port='com0', enabled=None, organization=None, profile=None, ssh_port=None):
         """
         SolPolicy - a model defined in Swagger
         """
@@ -86,13 +84,12 @@ class SolPolicy(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._description = None
         self._name = None
-        self._account = None
         self._baud_rate = None
         self._com_port = None
         self._enabled = None
+        self._organization = None
         self._profile = None
         self._ssh_port = None
 
@@ -114,20 +111,18 @@ class SolPolicy(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if description is not None:
           self.description = description
         if name is not None:
           self.name = name
-        if account is not None:
-          self.account = account
         if baud_rate is not None:
           self.baud_rate = baud_rate
         if com_port is not None:
           self.com_port = com_port
         if enabled is not None:
           self.enabled = enabled
+        if organization is not None:
+          self.organization = organization
         if profile is not None:
           self.profile = profile
         if ssh_port is not None:
@@ -341,29 +336,6 @@ class SolPolicy(object):
         self._tags = tags
 
     @property
-    def id(self):
-        """
-        Gets the id of this SolPolicy.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this SolPolicy.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this SolPolicy.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this SolPolicy.
-        :type: str
-        """
-
-        self._id = id
-
-    @property
     def description(self):
         """
         Gets the description of this SolPolicy.
@@ -408,29 +380,6 @@ class SolPolicy(object):
         """
 
         self._name = name
-
-    @property
-    def account(self):
-        """
-        Gets the account of this SolPolicy.
-        Relationship to set accountMoID. When the \"onpeerdelete\" property is set to \"cascade\", policies are deleted when the associated account is deleted. 
-
-        :return: The account of this SolPolicy.
-        :rtype: MoMoRef
-        """
-        return self._account
-
-    @account.setter
-    def account(self, account):
-        """
-        Sets the account of this SolPolicy.
-        Relationship to set accountMoID. When the \"onpeerdelete\" property is set to \"cascade\", policies are deleted when the associated account is deleted. 
-
-        :param account: The account of this SolPolicy.
-        :type: MoMoRef
-        """
-
-        self._account = account
 
     @property
     def baud_rate(self):
@@ -506,6 +455,29 @@ class SolPolicy(object):
         """
 
         self._enabled = enabled
+
+    @property
+    def organization(self):
+        """
+        Gets the organization of this SolPolicy.
+        Organization 
+
+        :return: The organization of this SolPolicy.
+        :rtype: MoMoRef
+        """
+        return self._organization
+
+    @organization.setter
+    def organization(self, organization):
+        """
+        Sets the organization of this SolPolicy.
+        Organization 
+
+        :param organization: The organization of this SolPolicy.
+        :type: MoMoRef
+        """
+
+        self._organization = organization
 
     @property
     def profile(self):

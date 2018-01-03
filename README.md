@@ -91,11 +91,6 @@ Class | Method | HTTP request | Description
 *AdapterUnitApi* | [**adapter_units_moid_get**](docs/AdapterUnitApi.md#adapter_units_moid_get) | **GET** /adapter/Units/{moid} | A instance of adapterUnit
 *AssetDeviceClaimApi* | [**asset_device_claims_moid_delete**](docs/AssetDeviceClaimApi.md#asset_device_claims_moid_delete) | **DELETE** /asset/DeviceClaims/{moid} | Delete an instance of assetDeviceClaim
 *AssetDeviceClaimApi* | [**asset_device_claims_post**](docs/AssetDeviceClaimApi.md#asset_device_claims_post) | **POST** /asset/DeviceClaims | Create a assetDeviceClaim
-*AssetDeviceRegistrationApi* | [**asset_device_registrations_get**](docs/AssetDeviceRegistrationApi.md#asset_device_registrations_get) | **GET** /asset/DeviceRegistrations | List of assetDeviceRegistrations
-*AssetDeviceRegistrationApi* | [**asset_device_registrations_moid_delete**](docs/AssetDeviceRegistrationApi.md#asset_device_registrations_moid_delete) | **DELETE** /asset/DeviceRegistrations/{moid} | Delete an instance of assetDeviceRegistration
-*AssetDeviceRegistrationApi* | [**asset_device_registrations_moid_get**](docs/AssetDeviceRegistrationApi.md#asset_device_registrations_moid_get) | **GET** /asset/DeviceRegistrations/{moid} | A instance of assetDeviceRegistration
-*AssetDeviceRegistrationApi* | [**asset_device_registrations_moid_patch**](docs/AssetDeviceRegistrationApi.md#asset_device_registrations_moid_patch) | **PATCH** /asset/DeviceRegistrations/{moid} | Update an instance of assetDeviceRegistration
-*AssetDeviceRegistrationApi* | [**asset_device_registrations_moid_post**](docs/AssetDeviceRegistrationApi.md#asset_device_registrations_moid_post) | **POST** /asset/DeviceRegistrations/{moid} | Update an instance of assetDeviceRegistration
 *BiosPolicyApi* | [**bios_policies_get**](docs/BiosPolicyApi.md#bios_policies_get) | **GET** /bios/Policies | List of biosPolicies
 *BiosPolicyApi* | [**bios_policies_moid_delete**](docs/BiosPolicyApi.md#bios_policies_moid_delete) | **DELETE** /bios/Policies/{moid} | Delete an instance of biosPolicy
 *BiosPolicyApi* | [**bios_policies_moid_get**](docs/BiosPolicyApi.md#bios_policies_moid_get) | **GET** /bios/Policies/{moid} | A instance of biosPolicy
@@ -279,12 +274,6 @@ Class | Method | HTTP request | Description
 *HyperflexExtIscsiStoragePolicyApi* | [**hyperflex_ext_iscsi_storage_policies_moid_patch**](docs/HyperflexExtIscsiStoragePolicyApi.md#hyperflex_ext_iscsi_storage_policies_moid_patch) | **PATCH** /hyperflex/ExtIscsiStoragePolicies/{moid} | Update an instance of hyperflexExtIscsiStoragePolicy
 *HyperflexExtIscsiStoragePolicyApi* | [**hyperflex_ext_iscsi_storage_policies_moid_post**](docs/HyperflexExtIscsiStoragePolicyApi.md#hyperflex_ext_iscsi_storage_policies_moid_post) | **POST** /hyperflex/ExtIscsiStoragePolicies/{moid} | Update an instance of hyperflexExtIscsiStoragePolicy
 *HyperflexExtIscsiStoragePolicyApi* | [**hyperflex_ext_iscsi_storage_policies_post**](docs/HyperflexExtIscsiStoragePolicyApi.md#hyperflex_ext_iscsi_storage_policies_post) | **POST** /hyperflex/ExtIscsiStoragePolicies | Create a hyperflexExtIscsiStoragePolicy
-*HyperflexFirmwarePolicyApi* | [**hyperflex_firmware_policies_get**](docs/HyperflexFirmwarePolicyApi.md#hyperflex_firmware_policies_get) | **GET** /hyperflex/FirmwarePolicies | List of hyperflexFirmwarePolicies
-*HyperflexFirmwarePolicyApi* | [**hyperflex_firmware_policies_moid_delete**](docs/HyperflexFirmwarePolicyApi.md#hyperflex_firmware_policies_moid_delete) | **DELETE** /hyperflex/FirmwarePolicies/{moid} | Delete an instance of hyperflexFirmwarePolicy
-*HyperflexFirmwarePolicyApi* | [**hyperflex_firmware_policies_moid_get**](docs/HyperflexFirmwarePolicyApi.md#hyperflex_firmware_policies_moid_get) | **GET** /hyperflex/FirmwarePolicies/{moid} | A instance of hyperflexFirmwarePolicy
-*HyperflexFirmwarePolicyApi* | [**hyperflex_firmware_policies_moid_patch**](docs/HyperflexFirmwarePolicyApi.md#hyperflex_firmware_policies_moid_patch) | **PATCH** /hyperflex/FirmwarePolicies/{moid} | Update an instance of hyperflexFirmwarePolicy
-*HyperflexFirmwarePolicyApi* | [**hyperflex_firmware_policies_moid_post**](docs/HyperflexFirmwarePolicyApi.md#hyperflex_firmware_policies_moid_post) | **POST** /hyperflex/FirmwarePolicies/{moid} | Update an instance of hyperflexFirmwarePolicy
-*HyperflexFirmwarePolicyApi* | [**hyperflex_firmware_policies_post**](docs/HyperflexFirmwarePolicyApi.md#hyperflex_firmware_policies_post) | **POST** /hyperflex/FirmwarePolicies | Create a hyperflexFirmwarePolicy
 *HyperflexLocalCredentialPolicyApi* | [**hyperflex_local_credential_policies_get**](docs/HyperflexLocalCredentialPolicyApi.md#hyperflex_local_credential_policies_get) | **GET** /hyperflex/LocalCredentialPolicies | List of hyperflexLocalCredentialPolicies
 *HyperflexLocalCredentialPolicyApi* | [**hyperflex_local_credential_policies_moid_delete**](docs/HyperflexLocalCredentialPolicyApi.md#hyperflex_local_credential_policies_moid_delete) | **DELETE** /hyperflex/LocalCredentialPolicies/{moid} | Delete an instance of hyperflexLocalCredentialPolicy
 *HyperflexLocalCredentialPolicyApi* | [**hyperflex_local_credential_policies_moid_get**](docs/HyperflexLocalCredentialPolicyApi.md#hyperflex_local_credential_policies_moid_get) | **GET** /hyperflex/LocalCredentialPolicies/{moid} | A instance of hyperflexLocalCredentialPolicy
@@ -334,11 +323,7 @@ Class | Method | HTTP request | Description
 *IamEndPointPrivilegeApi* | [**iam_end_point_privileges_get**](docs/IamEndPointPrivilegeApi.md#iam_end_point_privileges_get) | **GET** /iam/EndPointPrivileges | List of iamEndPointPrivileges
 *IamEndPointPrivilegeApi* | [**iam_end_point_privileges_moid_get**](docs/IamEndPointPrivilegeApi.md#iam_end_point_privileges_moid_get) | **GET** /iam/EndPointPrivileges/{moid} | A instance of iamEndPointPrivilege
 *IamEndPointRoleApi* | [**iam_end_point_roles_get**](docs/IamEndPointRoleApi.md#iam_end_point_roles_get) | **GET** /iam/EndPointRoles | List of iamEndPointRoles
-*IamEndPointRoleApi* | [**iam_end_point_roles_moid_delete**](docs/IamEndPointRoleApi.md#iam_end_point_roles_moid_delete) | **DELETE** /iam/EndPointRoles/{moid} | Delete an instance of iamEndPointRole
 *IamEndPointRoleApi* | [**iam_end_point_roles_moid_get**](docs/IamEndPointRoleApi.md#iam_end_point_roles_moid_get) | **GET** /iam/EndPointRoles/{moid} | A instance of iamEndPointRole
-*IamEndPointRoleApi* | [**iam_end_point_roles_moid_patch**](docs/IamEndPointRoleApi.md#iam_end_point_roles_moid_patch) | **PATCH** /iam/EndPointRoles/{moid} | Update an instance of iamEndPointRole
-*IamEndPointRoleApi* | [**iam_end_point_roles_moid_post**](docs/IamEndPointRoleApi.md#iam_end_point_roles_moid_post) | **POST** /iam/EndPointRoles/{moid} | Update an instance of iamEndPointRole
-*IamEndPointRoleApi* | [**iam_end_point_roles_post**](docs/IamEndPointRoleApi.md#iam_end_point_roles_post) | **POST** /iam/EndPointRoles | Create a iamEndPointRole
 *IamEndPointUserApi* | [**iam_end_point_users_get**](docs/IamEndPointUserApi.md#iam_end_point_users_get) | **GET** /iam/EndPointUsers | List of iamEndPointUsers
 *IamEndPointUserApi* | [**iam_end_point_users_moid_delete**](docs/IamEndPointUserApi.md#iam_end_point_users_moid_delete) | **DELETE** /iam/EndPointUsers/{moid} | Delete an instance of iamEndPointUser
 *IamEndPointUserApi* | [**iam_end_point_users_moid_get**](docs/IamEndPointUserApi.md#iam_end_point_users_moid_get) | **GET** /iam/EndPointUsers/{moid} | A instance of iamEndPointUser
@@ -388,31 +373,18 @@ Class | Method | HTTP request | Description
 *IamPrivilegeApi* | [**iam_privileges_get**](docs/IamPrivilegeApi.md#iam_privileges_get) | **GET** /iam/Privileges | List of iamPrivileges
 *IamPrivilegeApi* | [**iam_privileges_moid_get**](docs/IamPrivilegeApi.md#iam_privileges_moid_get) | **GET** /iam/Privileges/{moid} | A instance of iamPrivilege
 *IamPrivilegeSetApi* | [**iam_privilege_sets_get**](docs/IamPrivilegeSetApi.md#iam_privilege_sets_get) | **GET** /iam/PrivilegeSets | List of iamPrivilegeSets
-*IamPrivilegeSetApi* | [**iam_privilege_sets_moid_delete**](docs/IamPrivilegeSetApi.md#iam_privilege_sets_moid_delete) | **DELETE** /iam/PrivilegeSets/{moid} | Delete an instance of iamPrivilegeSet
 *IamPrivilegeSetApi* | [**iam_privilege_sets_moid_get**](docs/IamPrivilegeSetApi.md#iam_privilege_sets_moid_get) | **GET** /iam/PrivilegeSets/{moid} | A instance of iamPrivilegeSet
-*IamPrivilegeSetApi* | [**iam_privilege_sets_moid_patch**](docs/IamPrivilegeSetApi.md#iam_privilege_sets_moid_patch) | **PATCH** /iam/PrivilegeSets/{moid} | Update an instance of iamPrivilegeSet
-*IamPrivilegeSetApi* | [**iam_privilege_sets_moid_post**](docs/IamPrivilegeSetApi.md#iam_privilege_sets_moid_post) | **POST** /iam/PrivilegeSets/{moid} | Update an instance of iamPrivilegeSet
-*IamPrivilegeSetApi* | [**iam_privilege_sets_post**](docs/IamPrivilegeSetApi.md#iam_privilege_sets_post) | **POST** /iam/PrivilegeSets | Create a iamPrivilegeSet
 *IamQualifierApi* | [**iam_qualifiers_get**](docs/IamQualifierApi.md#iam_qualifiers_get) | **GET** /iam/Qualifiers | List of iamQualifiers
 *IamQualifierApi* | [**iam_qualifiers_moid_get**](docs/IamQualifierApi.md#iam_qualifiers_moid_get) | **GET** /iam/Qualifiers/{moid} | A instance of iamQualifier
 *IamResourceLimitsApi* | [**iam_resource_limits_get**](docs/IamResourceLimitsApi.md#iam_resource_limits_get) | **GET** /iam/ResourceLimits | List of iamResourceLimits
 *IamResourceLimitsApi* | [**iam_resource_limits_moid_get**](docs/IamResourceLimitsApi.md#iam_resource_limits_moid_get) | **GET** /iam/ResourceLimits/{moid} | A instance of iamResourceLimits
-*IamResourceLimitsApi* | [**iam_resource_limits_moid_patch**](docs/IamResourceLimitsApi.md#iam_resource_limits_moid_patch) | **PATCH** /iam/ResourceLimits/{moid} | Update an instance of iamResourceLimits
-*IamResourceLimitsApi* | [**iam_resource_limits_moid_post**](docs/IamResourceLimitsApi.md#iam_resource_limits_moid_post) | **POST** /iam/ResourceLimits/{moid} | Update an instance of iamResourceLimits
 *IamRoleApi* | [**iam_roles_get**](docs/IamRoleApi.md#iam_roles_get) | **GET** /iam/Roles | List of iamRoles
-*IamRoleApi* | [**iam_roles_moid_delete**](docs/IamRoleApi.md#iam_roles_moid_delete) | **DELETE** /iam/Roles/{moid} | Delete an instance of iamRole
 *IamRoleApi* | [**iam_roles_moid_get**](docs/IamRoleApi.md#iam_roles_moid_get) | **GET** /iam/Roles/{moid} | A instance of iamRole
-*IamRoleApi* | [**iam_roles_moid_patch**](docs/IamRoleApi.md#iam_roles_moid_patch) | **PATCH** /iam/Roles/{moid} | Update an instance of iamRole
-*IamRoleApi* | [**iam_roles_moid_post**](docs/IamRoleApi.md#iam_roles_moid_post) | **POST** /iam/Roles/{moid} | Update an instance of iamRole
-*IamRoleApi* | [**iam_roles_post**](docs/IamRoleApi.md#iam_roles_post) | **POST** /iam/Roles | Create a iamRole
 *IamSessionApi* | [**iam_sessions_get**](docs/IamSessionApi.md#iam_sessions_get) | **GET** /iam/Sessions | List of iamSessions
 *IamSessionApi* | [**iam_sessions_moid_delete**](docs/IamSessionApi.md#iam_sessions_moid_delete) | **DELETE** /iam/Sessions/{moid} | Delete an instance of iamSession
 *IamSessionApi* | [**iam_sessions_moid_get**](docs/IamSessionApi.md#iam_sessions_moid_get) | **GET** /iam/Sessions/{moid} | A instance of iamSession
 *IamSessionLimitsApi* | [**iam_session_limits_get**](docs/IamSessionLimitsApi.md#iam_session_limits_get) | **GET** /iam/SessionLimits | List of iamSessionLimits
 *IamSessionLimitsApi* | [**iam_session_limits_moid_get**](docs/IamSessionLimitsApi.md#iam_session_limits_moid_get) | **GET** /iam/SessionLimits/{moid} | A instance of iamSessionLimits
-*IamSessionLimitsApi* | [**iam_session_limits_moid_patch**](docs/IamSessionLimitsApi.md#iam_session_limits_moid_patch) | **PATCH** /iam/SessionLimits/{moid} | Update an instance of iamSessionLimits
-*IamSessionLimitsApi* | [**iam_session_limits_moid_post**](docs/IamSessionLimitsApi.md#iam_session_limits_moid_post) | **POST** /iam/SessionLimits/{moid} | Update an instance of iamSessionLimits
-*IamSessionLimitsApi* | [**iam_session_limits_post**](docs/IamSessionLimitsApi.md#iam_session_limits_post) | **POST** /iam/SessionLimits | Create a iamSessionLimits
 *IamSystemApi* | [**iam_systems_get**](docs/IamSystemApi.md#iam_systems_get) | **GET** /iam/Systems | List of iamSystems
 *IamSystemApi* | [**iam_systems_moid_get**](docs/IamSystemApi.md#iam_systems_moid_get) | **GET** /iam/Systems/{moid} | A instance of iamSystem
 *IamUserApi* | [**iam_users_get**](docs/IamUserApi.md#iam_users_get) | **GET** /iam/Users | List of iamUsers
@@ -455,6 +427,11 @@ Class | Method | HTTP request | Description
 *LicenseCustomerOpApi* | [**license_customer_ops_moid_get**](docs/LicenseCustomerOpApi.md#license_customer_ops_moid_get) | **GET** /license/CustomerOps/{moid} | A instance of licenseCustomerOp
 *LicenseCustomerOpApi* | [**license_customer_ops_moid_patch**](docs/LicenseCustomerOpApi.md#license_customer_ops_moid_patch) | **PATCH** /license/CustomerOps/{moid} | Update an instance of licenseCustomerOp
 *LicenseCustomerOpApi* | [**license_customer_ops_moid_post**](docs/LicenseCustomerOpApi.md#license_customer_ops_moid_post) | **POST** /license/CustomerOps/{moid} | Update an instance of licenseCustomerOp
+*LicenseLicenseInfoApi* | [**license_license_infos_get**](docs/LicenseLicenseInfoApi.md#license_license_infos_get) | **GET** /license/LicenseInfos | List of licenseLicenseInfos
+*LicenseLicenseInfoApi* | [**license_license_infos_moid_get**](docs/LicenseLicenseInfoApi.md#license_license_infos_moid_get) | **GET** /license/LicenseInfos/{moid} | A instance of licenseLicenseInfo
+*LicenseLicenseInfoApi* | [**license_license_infos_moid_patch**](docs/LicenseLicenseInfoApi.md#license_license_infos_moid_patch) | **PATCH** /license/LicenseInfos/{moid} | Update an instance of licenseLicenseInfo
+*LicenseLicenseInfoApi* | [**license_license_infos_moid_post**](docs/LicenseLicenseInfoApi.md#license_license_infos_moid_post) | **POST** /license/LicenseInfos/{moid} | Update an instance of licenseLicenseInfo
+*LicenseLicenseInfoApi* | [**license_license_infos_post**](docs/LicenseLicenseInfoApi.md#license_license_infos_post) | **POST** /license/LicenseInfos | Create a licenseLicenseInfo
 *LicenseSmartlicenseTokenApi* | [**license_smartlicense_tokens_get**](docs/LicenseSmartlicenseTokenApi.md#license_smartlicense_tokens_get) | **GET** /license/SmartlicenseTokens | List of licenseSmartlicenseTokens
 *LicenseSmartlicenseTokenApi* | [**license_smartlicense_tokens_moid_get**](docs/LicenseSmartlicenseTokenApi.md#license_smartlicense_tokens_moid_get) | **GET** /license/SmartlicenseTokens/{moid} | A instance of licenseSmartlicenseToken
 *LicenseSmartlicenseTokenApi* | [**license_smartlicense_tokens_moid_patch**](docs/LicenseSmartlicenseTokenApi.md#license_smartlicense_tokens_moid_patch) | **PATCH** /license/SmartlicenseTokens/{moid} | Update an instance of licenseSmartlicenseToken
@@ -503,29 +480,8 @@ Class | Method | HTTP request | Description
 *NtpPolicyApi* | [**ntp_policies_moid_patch**](docs/NtpPolicyApi.md#ntp_policies_moid_patch) | **PATCH** /ntp/Policies/{moid} | Update an instance of ntpPolicy
 *NtpPolicyApi* | [**ntp_policies_moid_post**](docs/NtpPolicyApi.md#ntp_policies_moid_post) | **POST** /ntp/Policies/{moid} | Update an instance of ntpPolicy
 *NtpPolicyApi* | [**ntp_policies_post**](docs/NtpPolicyApi.md#ntp_policies_post) | **POST** /ntp/Policies | Create a ntpPolicy
-*PackagemanagementConnectorDeployPolicyApi* | [**packagemanagement_connector_deploy_policies_get**](docs/PackagemanagementConnectorDeployPolicyApi.md#packagemanagement_connector_deploy_policies_get) | **GET** /packagemanagement/ConnectorDeployPolicies | List of packagemanagementConnectorDeployPolicies
-*PackagemanagementConnectorDeployPolicyApi* | [**packagemanagement_connector_deploy_policies_moid_delete**](docs/PackagemanagementConnectorDeployPolicyApi.md#packagemanagement_connector_deploy_policies_moid_delete) | **DELETE** /packagemanagement/ConnectorDeployPolicies/{moid} | Delete an instance of packagemanagementConnectorDeployPolicy
-*PackagemanagementConnectorDeployPolicyApi* | [**packagemanagement_connector_deploy_policies_moid_get**](docs/PackagemanagementConnectorDeployPolicyApi.md#packagemanagement_connector_deploy_policies_moid_get) | **GET** /packagemanagement/ConnectorDeployPolicies/{moid} | A instance of packagemanagementConnectorDeployPolicy
-*PackagemanagementConnectorDeployPolicyApi* | [**packagemanagement_connector_deploy_policies_moid_patch**](docs/PackagemanagementConnectorDeployPolicyApi.md#packagemanagement_connector_deploy_policies_moid_patch) | **PATCH** /packagemanagement/ConnectorDeployPolicies/{moid} | Update an instance of packagemanagementConnectorDeployPolicy
-*PackagemanagementConnectorDeployPolicyApi* | [**packagemanagement_connector_deploy_policies_moid_post**](docs/PackagemanagementConnectorDeployPolicyApi.md#packagemanagement_connector_deploy_policies_moid_post) | **POST** /packagemanagement/ConnectorDeployPolicies/{moid} | Update an instance of packagemanagementConnectorDeployPolicy
-*PackagemanagementConnectorDeployPolicyApi* | [**packagemanagement_connector_deploy_policies_post**](docs/PackagemanagementConnectorDeployPolicyApi.md#packagemanagement_connector_deploy_policies_post) | **POST** /packagemanagement/ConnectorDeployPolicies | Create a packagemanagementConnectorDeployPolicy
-*PackagemanagementConnectorImageApi* | [**packagemanagement_connector_images_get**](docs/PackagemanagementConnectorImageApi.md#packagemanagement_connector_images_get) | **GET** /packagemanagement/ConnectorImages | List of packagemanagementConnectorImages
-*PackagemanagementConnectorImageApi* | [**packagemanagement_connector_images_moid_delete**](docs/PackagemanagementConnectorImageApi.md#packagemanagement_connector_images_moid_delete) | **DELETE** /packagemanagement/ConnectorImages/{moid} | Delete an instance of packagemanagementConnectorImage
-*PackagemanagementConnectorImageApi* | [**packagemanagement_connector_images_moid_get**](docs/PackagemanagementConnectorImageApi.md#packagemanagement_connector_images_moid_get) | **GET** /packagemanagement/ConnectorImages/{moid} | A instance of packagemanagementConnectorImage
-*PackagemanagementConnectorImageApi* | [**packagemanagement_connector_images_post**](docs/PackagemanagementConnectorImageApi.md#packagemanagement_connector_images_post) | **POST** /packagemanagement/ConnectorImages | Create a packagemanagementConnectorImage
-*PackagemanagementConnectorInstallApi* | [**packagemanagement_connector_installs_get**](docs/PackagemanagementConnectorInstallApi.md#packagemanagement_connector_installs_get) | **GET** /packagemanagement/ConnectorInstalls | List of packagemanagementConnectorInstalls
-*PackagemanagementConnectorInstallApi* | [**packagemanagement_connector_installs_moid_get**](docs/PackagemanagementConnectorInstallApi.md#packagemanagement_connector_installs_moid_get) | **GET** /packagemanagement/ConnectorInstalls/{moid} | A instance of packagemanagementConnectorInstall
-*PackagemanagementConnectorInstallApi* | [**packagemanagement_connector_installs_moid_patch**](docs/PackagemanagementConnectorInstallApi.md#packagemanagement_connector_installs_moid_patch) | **PATCH** /packagemanagement/ConnectorInstalls/{moid} | Update an instance of packagemanagementConnectorInstall
-*PackagemanagementConnectorInstallApi* | [**packagemanagement_connector_installs_moid_post**](docs/PackagemanagementConnectorInstallApi.md#packagemanagement_connector_installs_moid_post) | **POST** /packagemanagement/ConnectorInstalls/{moid} | Update an instance of packagemanagementConnectorInstall
-*PackagemanagementConnectorInstallApi* | [**packagemanagement_connector_installs_post**](docs/PackagemanagementConnectorInstallApi.md#packagemanagement_connector_installs_post) | **POST** /packagemanagement/ConnectorInstalls | Create a packagemanagementConnectorInstall
 *PolicyPolicyMetaApi* | [**policy_policy_meta_get**](docs/PolicyPolicyMetaApi.md#policy_policy_meta_get) | **GET** /policy/PolicyMeta | List of policyPolicyMeta
 *PolicyPolicyMetaApi* | [**policy_policy_meta_moid_get**](docs/PolicyPolicyMetaApi.md#policy_policy_meta_moid_get) | **GET** /policy/PolicyMeta/{moid} | A instance of policyPolicyMeta
-*PolicySampleConfigProfileApi* | [**policy_sample_config_profiles_get**](docs/PolicySampleConfigProfileApi.md#policy_sample_config_profiles_get) | **GET** /policy/SampleConfigProfiles | List of policySampleConfigProfiles
-*PolicySampleConfigProfileApi* | [**policy_sample_config_profiles_moid_delete**](docs/PolicySampleConfigProfileApi.md#policy_sample_config_profiles_moid_delete) | **DELETE** /policy/SampleConfigProfiles/{moid} | Delete an instance of policySampleConfigProfile
-*PolicySampleConfigProfileApi* | [**policy_sample_config_profiles_moid_get**](docs/PolicySampleConfigProfileApi.md#policy_sample_config_profiles_moid_get) | **GET** /policy/SampleConfigProfiles/{moid} | A instance of policySampleConfigProfile
-*PolicySampleConfigProfileApi* | [**policy_sample_config_profiles_moid_patch**](docs/PolicySampleConfigProfileApi.md#policy_sample_config_profiles_moid_patch) | **PATCH** /policy/SampleConfigProfiles/{moid} | Update an instance of policySampleConfigProfile
-*PolicySampleConfigProfileApi* | [**policy_sample_config_profiles_moid_post**](docs/PolicySampleConfigProfileApi.md#policy_sample_config_profiles_moid_post) | **POST** /policy/SampleConfigProfiles/{moid} | Update an instance of policySampleConfigProfile
-*PolicySampleConfigProfileApi* | [**policy_sample_config_profiles_post**](docs/PolicySampleConfigProfileApi.md#policy_sample_config_profiles_post) | **POST** /policy/SampleConfigProfiles | Create a policySampleConfigProfile
 *PortGroupApi* | [**port_groups_get**](docs/PortGroupApi.md#port_groups_get) | **GET** /port/Groups | List of portGroups
 *PortGroupApi* | [**port_groups_moid_get**](docs/PortGroupApi.md#port_groups_moid_get) | **GET** /port/Groups/{moid} | A instance of portGroup
 *PortGroupApi* | [**port_groups_moid_patch**](docs/PortGroupApi.md#port_groups_moid_patch) | **PATCH** /port/Groups/{moid} | Update an instance of portGroup
@@ -540,8 +496,6 @@ Class | Method | HTTP request | Description
 *ProcessorUnitApi* | [**processor_units_moid_post**](docs/ProcessorUnitApi.md#processor_units_moid_post) | **POST** /processor/Units/{moid} | Update an instance of processorUnit
 *SearchSearchItemApi* | [**search_search_items_get**](docs/SearchSearchItemApi.md#search_search_items_get) | **GET** /search/SearchItems | List of searchSearchItems
 *SearchSearchItemApi* | [**search_search_items_moid_get**](docs/SearchSearchItemApi.md#search_search_items_moid_get) | **GET** /search/SearchItems/{moid} | A instance of searchSearchItem
-*SearchServerViewItemApi* | [**search_server_view_items_get**](docs/SearchServerViewItemApi.md#search_server_view_items_get) | **GET** /search/ServerViewItems | List of searchServerViewItems
-*SearchServerViewItemApi* | [**search_server_view_items_moid_get**](docs/SearchServerViewItemApi.md#search_server_view_items_moid_get) | **GET** /search/ServerViewItems/{moid} | A instance of searchServerViewItem
 *SearchSuggestItemApi* | [**search_suggest_items_post**](docs/SearchSuggestItemApi.md#search_suggest_items_post) | **POST** /search/SuggestItems | Create a searchSuggestItem
 *SearchTagItemApi* | [**search_tag_items_get**](docs/SearchTagItemApi.md#search_tag_items_get) | **GET** /search/TagItems | List of searchTagItems
 *SearchTagItemApi* | [**search_tag_items_moid_get**](docs/SearchTagItemApi.md#search_tag_items_moid_get) | **GET** /search/TagItems/{moid} | A instance of searchTagItem
@@ -599,6 +553,10 @@ Class | Method | HTTP request | Description
 *StorageFlexFlashPhysicalDriveApi* | [**storage_flex_flash_physical_drives_moid_get**](docs/StorageFlexFlashPhysicalDriveApi.md#storage_flex_flash_physical_drives_moid_get) | **GET** /storage/FlexFlashPhysicalDrives/{moid} | A instance of storageFlexFlashPhysicalDrive
 *StorageFlexFlashPhysicalDriveApi* | [**storage_flex_flash_physical_drives_moid_patch**](docs/StorageFlexFlashPhysicalDriveApi.md#storage_flex_flash_physical_drives_moid_patch) | **PATCH** /storage/FlexFlashPhysicalDrives/{moid} | Update an instance of storageFlexFlashPhysicalDrive
 *StorageFlexFlashPhysicalDriveApi* | [**storage_flex_flash_physical_drives_moid_post**](docs/StorageFlexFlashPhysicalDriveApi.md#storage_flex_flash_physical_drives_moid_post) | **POST** /storage/FlexFlashPhysicalDrives/{moid} | Update an instance of storageFlexFlashPhysicalDrive
+*StorageFlexUtilControllerApi* | [**storage_flex_util_controllers_get**](docs/StorageFlexUtilControllerApi.md#storage_flex_util_controllers_get) | **GET** /storage/FlexUtilControllers | List of storageFlexUtilControllers
+*StorageFlexUtilControllerApi* | [**storage_flex_util_controllers_moid_get**](docs/StorageFlexUtilControllerApi.md#storage_flex_util_controllers_moid_get) | **GET** /storage/FlexUtilControllers/{moid} | A instance of storageFlexUtilController
+*StorageFlexUtilControllerApi* | [**storage_flex_util_controllers_moid_patch**](docs/StorageFlexUtilControllerApi.md#storage_flex_util_controllers_moid_patch) | **PATCH** /storage/FlexUtilControllers/{moid} | Update an instance of storageFlexUtilController
+*StorageFlexUtilControllerApi* | [**storage_flex_util_controllers_moid_post**](docs/StorageFlexUtilControllerApi.md#storage_flex_util_controllers_moid_post) | **POST** /storage/FlexUtilControllers/{moid} | Update an instance of storageFlexUtilController
 *StoragePhysicalDiskApi* | [**storage_physical_disks_get**](docs/StoragePhysicalDiskApi.md#storage_physical_disks_get) | **GET** /storage/PhysicalDisks | List of storagePhysicalDisks
 *StoragePhysicalDiskApi* | [**storage_physical_disks_moid_get**](docs/StoragePhysicalDiskApi.md#storage_physical_disks_moid_get) | **GET** /storage/PhysicalDisks/{moid} | A instance of storagePhysicalDisk
 *StoragePhysicalDiskApi* | [**storage_physical_disks_moid_patch**](docs/StoragePhysicalDiskApi.md#storage_physical_disks_moid_patch) | **PATCH** /storage/PhysicalDisks/{moid} | Update an instance of storagePhysicalDisk
@@ -617,14 +575,11 @@ Class | Method | HTTP request | Description
 *StorageVirtualDriveApi* | [**storage_virtual_drives_moid_get**](docs/StorageVirtualDriveApi.md#storage_virtual_drives_moid_get) | **GET** /storage/VirtualDrives/{moid} | A instance of storageVirtualDrive
 *StorageVirtualDriveApi* | [**storage_virtual_drives_moid_patch**](docs/StorageVirtualDriveApi.md#storage_virtual_drives_moid_patch) | **PATCH** /storage/VirtualDrives/{moid} | Update an instance of storageVirtualDrive
 *StorageVirtualDriveApi* | [**storage_virtual_drives_moid_post**](docs/StorageVirtualDriveApi.md#storage_virtual_drives_moid_post) | **POST** /storage/VirtualDrives/{moid} | Update an instance of storageVirtualDrive
-*TechsupportmanagementDownloadApi* | [**techsupportmanagement_downloads_get**](docs/TechsupportmanagementDownloadApi.md#techsupportmanagement_downloads_get) | **GET** /techsupportmanagement/Downloads | List of techsupportmanagementDownloads
-*TechsupportmanagementDownloadApi* | [**techsupportmanagement_downloads_moid_get**](docs/TechsupportmanagementDownloadApi.md#techsupportmanagement_downloads_moid_get) | **GET** /techsupportmanagement/Downloads/{moid} | A instance of techsupportmanagementDownload
-*TechsupportmanagementTechSupportBundleApi* | [**techsupportmanagement_tech_support_bundles_get**](docs/TechsupportmanagementTechSupportBundleApi.md#techsupportmanagement_tech_support_bundles_get) | **GET** /techsupportmanagement/TechSupportBundles | List of techsupportmanagementTechSupportBundles
-*TechsupportmanagementTechSupportBundleApi* | [**techsupportmanagement_tech_support_bundles_moid_delete**](docs/TechsupportmanagementTechSupportBundleApi.md#techsupportmanagement_tech_support_bundles_moid_delete) | **DELETE** /techsupportmanagement/TechSupportBundles/{moid} | Delete an instance of techsupportmanagementTechSupportBundle
-*TechsupportmanagementTechSupportBundleApi* | [**techsupportmanagement_tech_support_bundles_moid_get**](docs/TechsupportmanagementTechSupportBundleApi.md#techsupportmanagement_tech_support_bundles_moid_get) | **GET** /techsupportmanagement/TechSupportBundles/{moid} | A instance of techsupportmanagementTechSupportBundle
-*TechsupportmanagementTechSupportBundleApi* | [**techsupportmanagement_tech_support_bundles_post**](docs/TechsupportmanagementTechSupportBundleApi.md#techsupportmanagement_tech_support_bundles_post) | **POST** /techsupportmanagement/TechSupportBundles | Create a techsupportmanagementTechSupportBundle
-*TechsupportmanagementTechSupportStatusApi* | [**techsupportmanagement_tech_support_statuses_get**](docs/TechsupportmanagementTechSupportStatusApi.md#techsupportmanagement_tech_support_statuses_get) | **GET** /techsupportmanagement/TechSupportStatuses | List of techsupportmanagementTechSupportStatuses
-*TechsupportmanagementTechSupportStatusApi* | [**techsupportmanagement_tech_support_statuses_moid_get**](docs/TechsupportmanagementTechSupportStatusApi.md#techsupportmanagement_tech_support_statuses_moid_get) | **GET** /techsupportmanagement/TechSupportStatuses/{moid} | A instance of techsupportmanagementTechSupportStatus
+*TaskWorkflowActionApi* | [**task_workflow_actions_get**](docs/TaskWorkflowActionApi.md#task_workflow_actions_get) | **GET** /task/WorkflowActions | List of taskWorkflowActions
+*TaskWorkflowActionApi* | [**task_workflow_actions_moid_get**](docs/TaskWorkflowActionApi.md#task_workflow_actions_moid_get) | **GET** /task/WorkflowActions/{moid} | A instance of taskWorkflowAction
+*TaskWorkflowActionApi* | [**task_workflow_actions_moid_patch**](docs/TaskWorkflowActionApi.md#task_workflow_actions_moid_patch) | **PATCH** /task/WorkflowActions/{moid} | Update an instance of taskWorkflowAction
+*TaskWorkflowActionApi* | [**task_workflow_actions_moid_post**](docs/TaskWorkflowActionApi.md#task_workflow_actions_moid_post) | **POST** /task/WorkflowActions/{moid} | Update an instance of taskWorkflowAction
+*TaskWorkflowActionApi* | [**task_workflow_actions_post**](docs/TaskWorkflowActionApi.md#task_workflow_actions_post) | **POST** /task/WorkflowActions | Create a taskWorkflowAction
 *TerminalAuditLogApi* | [**terminal_audit_logs_get**](docs/TerminalAuditLogApi.md#terminal_audit_logs_get) | **GET** /terminal/AuditLogs | List of terminalAuditLogs
 *TerminalAuditLogApi* | [**terminal_audit_logs_moid_get**](docs/TerminalAuditLogApi.md#terminal_audit_logs_moid_get) | **GET** /terminal/AuditLogs/{moid} | A instance of terminalAuditLog
 *TopSystemApi* | [**top_systems_get**](docs/TopSystemApi.md#top_systems_get) | **GET** /top/Systems | List of topSystems
@@ -659,7 +614,6 @@ Class | Method | HTTP request | Description
  - [AdapterHostFcInterfaceList](docs/AdapterHostFcInterfaceList.md)
  - [AdapterHostIscsiInterfaceList](docs/AdapterHostIscsiInterfaceList.md)
  - [AdapterUnitList](docs/AdapterUnitList.md)
- - [AssetDeviceRegistrationList](docs/AssetDeviceRegistrationList.md)
  - [BiosInputOutput](docs/BiosInputOutput.md)
  - [BiosLomAndPcieSlotsConfiguration](docs/BiosLomAndPcieSlotsConfiguration.md)
  - [BiosMemory](docs/BiosMemory.md)
@@ -727,7 +681,6 @@ Class | Method | HTTP request | Description
  - [HyperflexConfigResultList](docs/HyperflexConfigResultList.md)
  - [HyperflexExtFcStoragePolicyList](docs/HyperflexExtFcStoragePolicyList.md)
  - [HyperflexExtIscsiStoragePolicyList](docs/HyperflexExtIscsiStoragePolicyList.md)
- - [HyperflexFirmwarePolicyList](docs/HyperflexFirmwarePolicyList.md)
  - [HyperflexIpAddrRange](docs/HyperflexIpAddrRange.md)
  - [HyperflexIteratorString](docs/HyperflexIteratorString.md)
  - [HyperflexLocalCredentialPolicyList](docs/HyperflexLocalCredentialPolicyList.md)
@@ -779,6 +732,7 @@ Class | Method | HTTP request | Description
  - [KvmPolicyList](docs/KvmPolicyList.md)
  - [LicenseAccountLicenseDataList](docs/LicenseAccountLicenseDataList.md)
  - [LicenseCustomerOpList](docs/LicenseCustomerOpList.md)
+ - [LicenseLicenseInfoList](docs/LicenseLicenseInfoList.md)
  - [LicenseSmartlicenseTokenList](docs/LicenseSmartlicenseTokenList.md)
  - [LsServiceProfileList](docs/LsServiceProfileList.md)
  - [ManagementControllerList](docs/ManagementControllerList.md)
@@ -789,6 +743,7 @@ Class | Method | HTTP request | Description
  - [MetaDefinitionList](docs/MetaDefinitionList.md)
  - [MetaPropDefinition](docs/MetaPropDefinition.md)
  - [MetaRelationshipDefinition](docs/MetaRelationshipDefinition.md)
+ - [MoBaseComplexType](docs/MoBaseComplexType.md)
  - [MoBaseMo](docs/MoBaseMo.md)
  - [MoMoRef](docs/MoMoRef.md)
  - [MoTag](docs/MoTag.md)
@@ -796,9 +751,6 @@ Class | Method | HTTP request | Description
  - [NetworkElementSummaryList](docs/NetworkElementSummaryList.md)
  - [NetworkconfigPolicyList](docs/NetworkconfigPolicyList.md)
  - [NtpPolicyList](docs/NtpPolicyList.md)
- - [PackagemanagementConnectorDeployPolicyList](docs/PackagemanagementConnectorDeployPolicyList.md)
- - [PackagemanagementConnectorImageList](docs/PackagemanagementConnectorImageList.md)
- - [PackagemanagementConnectorInstallList](docs/PackagemanagementConnectorInstallList.md)
  - [PolicyAttachableServiceObject](docs/PolicyAttachableServiceObject.md)
  - [PolicyCategory](docs/PolicyCategory.md)
  - [PolicyConfigContext](docs/PolicyConfigContext.md)
@@ -807,12 +759,10 @@ Class | Method | HTTP request | Description
  - [PolicyHardwarePlatform](docs/PolicyHardwarePlatform.md)
  - [PolicyManagementPlatform](docs/PolicyManagementPlatform.md)
  - [PolicyPolicyMetaList](docs/PolicyPolicyMetaList.md)
- - [PolicySampleConfigProfileList](docs/PolicySampleConfigProfileList.md)
  - [PortGroupList](docs/PortGroupList.md)
  - [PortSubGroupList](docs/PortSubGroupList.md)
  - [ProcessorUnitList](docs/ProcessorUnitList.md)
  - [SearchSearchItemList](docs/SearchSearchItemList.md)
- - [SearchServerViewItemList](docs/SearchServerViewItemList.md)
  - [SearchTagItemList](docs/SearchTagItemList.md)
  - [SecurityUnitList](docs/SecurityUnitList.md)
  - [ServerConfigChange](docs/ServerConfigChange.md)
@@ -829,6 +779,7 @@ Class | Method | HTTP request | Description
  - [StorageDiskGroupPolicyList](docs/StorageDiskGroupPolicyList.md)
  - [StorageFlexFlashControllerList](docs/StorageFlexFlashControllerList.md)
  - [StorageFlexFlashPhysicalDriveList](docs/StorageFlexFlashPhysicalDriveList.md)
+ - [StorageFlexUtilControllerList](docs/StorageFlexUtilControllerList.md)
  - [StorageLocalDisk](docs/StorageLocalDisk.md)
  - [StoragePhysicalDiskList](docs/StoragePhysicalDiskList.md)
  - [StorageRemoteKeySetting](docs/StorageRemoteKeySetting.md)
@@ -836,9 +787,8 @@ Class | Method | HTTP request | Description
  - [StorageStoragePolicyList](docs/StorageStoragePolicyList.md)
  - [StorageVdMemberEpList](docs/StorageVdMemberEpList.md)
  - [StorageVirtualDriveList](docs/StorageVirtualDriveList.md)
- - [TechsupportmanagementDownloadList](docs/TechsupportmanagementDownloadList.md)
- - [TechsupportmanagementTechSupportBundleList](docs/TechsupportmanagementTechSupportBundleList.md)
- - [TechsupportmanagementTechSupportStatusList](docs/TechsupportmanagementTechSupportStatusList.md)
+ - [TaskFileDownloadInfo](docs/TaskFileDownloadInfo.md)
+ - [TaskWorkflowActionList](docs/TaskWorkflowActionList.md)
  - [TerminalAuditLogList](docs/TerminalAuditLogList.md)
  - [TopSystemList](docs/TopSystemList.md)
  - [VmediaMapping](docs/VmediaMapping.md)
@@ -851,7 +801,6 @@ Class | Method | HTTP request | Description
  - [WorkflowWorkflowTaskList](docs/WorkflowWorkflowTaskList.md)
  - [AaaAbstractAuditRecord](docs/AaaAbstractAuditRecord.md)
  - [AssetDeviceClaim](docs/AssetDeviceClaim.md)
- - [AssetDeviceRegistration](docs/AssetDeviceRegistration.md)
  - [CondAlarm](docs/CondAlarm.md)
  - [CondHclStatus](docs/CondHclStatus.md)
  - [CondHclStatusAction](docs/CondHclStatusAction.md)
@@ -898,22 +847,17 @@ Class | Method | HTTP request | Description
  - [InventoryDnMoBinding](docs/InventoryDnMoBinding.md)
  - [LicenseAccountLicenseData](docs/LicenseAccountLicenseData.md)
  - [LicenseCustomerOp](docs/LicenseCustomerOp.md)
+ - [LicenseLicenseInfo](docs/LicenseLicenseInfo.md)
  - [LicenseSmartlicenseToken](docs/LicenseSmartlicenseToken.md)
  - [MetaDefinition](docs/MetaDefinition.md)
- - [PackagemanagementConnectorDeployPolicy](docs/PackagemanagementConnectorDeployPolicy.md)
- - [PackagemanagementConnectorImage](docs/PackagemanagementConnectorImage.md)
- - [PackagemanagementConnectorInstall](docs/PackagemanagementConnectorInstall.md)
  - [PolicyAbstractConfigResult](docs/PolicyAbstractConfigResult.md)
  - [PolicyAbstractPolicy](docs/PolicyAbstractPolicy.md)
  - [PolicyAbstractProfile](docs/PolicyAbstractProfile.md)
  - [PolicyPolicyMeta](docs/PolicyPolicyMeta.md)
  - [SearchSearchItem](docs/SearchSearchItem.md)
- - [SearchServerViewItem](docs/SearchServerViewItem.md)
  - [SearchSuggestItem](docs/SearchSuggestItem.md)
  - [SearchTagItem](docs/SearchTagItem.md)
- - [TechsupportmanagementDownload](docs/TechsupportmanagementDownload.md)
- - [TechsupportmanagementTechSupportBundle](docs/TechsupportmanagementTechSupportBundle.md)
- - [TechsupportmanagementTechSupportStatus](docs/TechsupportmanagementTechSupportStatus.md)
+ - [TaskWorkflowAction](docs/TaskWorkflowAction.md)
  - [TerminalAuditLog](docs/TerminalAuditLog.md)
  - [ViewsView](docs/ViewsView.md)
  - [WorkflowBuildTaskMeta](docs/WorkflowBuildTaskMeta.md)
@@ -937,7 +881,6 @@ Class | Method | HTTP request | Description
  - [HyperflexConfigResult](docs/HyperflexConfigResult.md)
  - [HyperflexExtFcStoragePolicy](docs/HyperflexExtFcStoragePolicy.md)
  - [HyperflexExtIscsiStoragePolicy](docs/HyperflexExtIscsiStoragePolicy.md)
- - [HyperflexFirmwarePolicy](docs/HyperflexFirmwarePolicy.md)
  - [HyperflexLocalCredentialPolicy](docs/HyperflexLocalCredentialPolicy.md)
  - [HyperflexNodeConfigPolicy](docs/HyperflexNodeConfigPolicy.md)
  - [HyperflexNodeProfile](docs/HyperflexNodeProfile.md)
@@ -967,6 +910,7 @@ Class | Method | HTTP request | Description
  - [SolPolicy](docs/SolPolicy.md)
  - [SshPolicy](docs/SshPolicy.md)
  - [StorageDiskGroupPolicy](docs/StorageDiskGroupPolicy.md)
+ - [StorageFlexUtilController](docs/StorageFlexUtilController.md)
  - [StorageStoragePolicy](docs/StorageStoragePolicy.md)
  - [StorageVdMemberEp](docs/StorageVdMemberEp.md)
  - [TopSystem](docs/TopSystem.md)
@@ -994,7 +938,6 @@ Class | Method | HTTP request | Description
  - [MemoryArray](docs/MemoryArray.md)
  - [MemoryUnit](docs/MemoryUnit.md)
  - [NetworkElement](docs/NetworkElement.md)
- - [PolicySampleConfigProfile](docs/PolicySampleConfigProfile.md)
  - [ProcessorUnit](docs/ProcessorUnit.md)
  - [SecurityUnit](docs/SecurityUnit.md)
  - [ServerProfile](docs/ServerProfile.md)

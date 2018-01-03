@@ -40,7 +40,6 @@ class ServerProfile(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'description': 'str',
         'name': 'str',
         'src_template': 'MoMoRef',
@@ -65,7 +64,6 @@ class ServerProfile(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'description': 'Description',
         'name': 'Name',
         'src_template': 'SrcTemplate',
@@ -80,7 +78,7 @@ class ServerProfile(object):
         'config_result': 'ConfigResult'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, description=None, name=None, src_template=None, type='instance', action=None, config_context=None, account=None, assigned_server=None, associated_server=None, config_change_details=None, config_changes=None, config_result=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, description=None, name=None, src_template=None, type='instance', action=None, config_context=None, account=None, assigned_server=None, associated_server=None, config_change_details=None, config_changes=None, config_result=None):
         """
         ServerProfile - a model defined in Swagger
         """
@@ -94,7 +92,6 @@ class ServerProfile(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._description = None
         self._name = None
         self._src_template = None
@@ -126,8 +123,6 @@ class ServerProfile(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if description is not None:
           self.description = description
         if name is not None:
@@ -359,29 +354,6 @@ class ServerProfile(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this ServerProfile.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this ServerProfile.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this ServerProfile.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this ServerProfile.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def description(self):

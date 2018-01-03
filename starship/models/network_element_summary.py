@@ -40,7 +40,6 @@ class NetworkElementSummary(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'admin_inband_interface_state': 'str',
         'device_mo_id': 'str',
         'dn': 'str',
@@ -86,7 +85,6 @@ class NetworkElementSummary(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'admin_inband_interface_state': 'AdminInbandInterfaceState',
         'device_mo_id': 'DeviceMoId',
         'dn': 'Dn',
@@ -122,7 +120,7 @@ class NetworkElementSummary(object):
         'version': 'Version'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, admin_inband_interface_state=None, device_mo_id=None, dn=None, fault_summary=None, firmware=None, inband_ip_address=None, inband_ip_gateway=None, inband_ip_mask=None, inband_vlan=None, ipv4_address=None, leadership=None, management_entity=None, model=None, name=None, num_ether_ports=None, num_ether_ports_configured=None, num_ether_ports_link_up=None, num_expansion_modules=None, num_fc_ports=None, num_fc_ports_configured=None, num_fc_ports_link_up=None, out_of_band_ip_address=None, out_of_band_ip_gateway=None, out_of_band_ip_mask=None, out_of_band_mac=None, registered_device=None, revision=None, rn=None, serial=None, source_object_type=None, switch_id=None, vendor=None, version=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, admin_inband_interface_state=None, device_mo_id=None, dn=None, fault_summary=None, firmware=None, inband_ip_address=None, inband_ip_gateway=None, inband_ip_mask=None, inband_vlan=None, ipv4_address=None, leadership=None, management_entity=None, model=None, name=None, num_ether_ports=None, num_ether_ports_configured=None, num_ether_ports_link_up=None, num_expansion_modules=None, num_fc_ports=None, num_fc_ports_configured=None, num_fc_ports_link_up=None, out_of_band_ip_address=None, out_of_band_ip_gateway=None, out_of_band_ip_mask=None, out_of_band_mac=None, registered_device=None, revision=None, rn=None, serial=None, source_object_type=None, switch_id=None, vendor=None, version=None):
         """
         NetworkElementSummary - a model defined in Swagger
         """
@@ -136,7 +134,6 @@ class NetworkElementSummary(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._admin_inband_interface_state = None
         self._device_mo_id = None
         self._dn = None
@@ -189,8 +186,6 @@ class NetworkElementSummary(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if admin_inband_interface_state is not None:
           self.admin_inband_interface_state = admin_inband_interface_state
         if device_mo_id is not None:
@@ -464,29 +459,6 @@ class NetworkElementSummary(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this NetworkElementSummary.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this NetworkElementSummary.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this NetworkElementSummary.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this NetworkElementSummary.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def admin_inband_interface_state(self):

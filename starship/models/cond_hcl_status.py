@@ -40,7 +40,6 @@ class CondHclStatus(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'details': 'list[MoMoRef]',
         'hcl_model': 'str',
         'hcl_os_vendor': 'str',
@@ -66,7 +65,6 @@ class CondHclStatus(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'details': 'Details',
         'hcl_model': 'HclModel',
         'hcl_os_vendor': 'HclOsVendor',
@@ -82,7 +80,7 @@ class CondHclStatus(object):
         'status': 'Status'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, details=None, hcl_model=None, hcl_os_vendor=None, hcl_os_version=None, hcl_processor=None, inv_model=None, inv_os_vendor=None, inv_os_version=None, inv_processor=None, managed_object=None, reason=None, registered_device=None, status=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, details=None, hcl_model=None, hcl_os_vendor=None, hcl_os_version=None, hcl_processor=None, inv_model=None, inv_os_vendor=None, inv_os_version=None, inv_processor=None, managed_object=None, reason=None, registered_device=None, status=None):
         """
         CondHclStatus - a model defined in Swagger
         """
@@ -96,7 +94,6 @@ class CondHclStatus(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._details = None
         self._hcl_model = None
         self._hcl_os_vendor = None
@@ -129,8 +126,6 @@ class CondHclStatus(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if details is not None:
           self.details = details
         if hcl_model is not None:
@@ -364,29 +359,6 @@ class CondHclStatus(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this CondHclStatus.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this CondHclStatus.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this CondHclStatus.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this CondHclStatus.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def details(self):

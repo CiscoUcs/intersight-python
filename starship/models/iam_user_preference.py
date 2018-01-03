@@ -40,7 +40,6 @@ class IamUserPreference(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'idp_reference': 'MoMoRef',
         'preference': 'object'
     }
@@ -55,12 +54,11 @@ class IamUserPreference(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'idp_reference': 'IdpReference',
         'preference': 'Preference'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, idp_reference=None, preference=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, idp_reference=None, preference=None):
         """
         IamUserPreference - a model defined in Swagger
         """
@@ -74,7 +72,6 @@ class IamUserPreference(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._idp_reference = None
         self._preference = None
 
@@ -96,8 +93,6 @@ class IamUserPreference(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if idp_reference is not None:
           self.idp_reference = idp_reference
         if preference is not None:
@@ -309,29 +304,6 @@ class IamUserPreference(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this IamUserPreference.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this IamUserPreference.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this IamUserPreference.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this IamUserPreference.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def idp_reference(self):

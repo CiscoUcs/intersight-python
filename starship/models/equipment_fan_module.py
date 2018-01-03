@@ -40,7 +40,6 @@ class EquipmentFanModule(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'device_mo_id': 'str',
         'dn': 'str',
         'rn': 'str',
@@ -53,6 +52,7 @@ class EquipmentFanModule(object):
         'fans': 'list[MoMoRef]',
         'network_element': 'MoMoRef',
         'oper_state': 'str',
+        'presence': 'str',
         'registered_device': 'MoMoRef'
     }
 
@@ -66,7 +66,6 @@ class EquipmentFanModule(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'device_mo_id': 'DeviceMoId',
         'dn': 'Dn',
         'rn': 'Rn',
@@ -79,10 +78,11 @@ class EquipmentFanModule(object):
         'fans': 'Fans',
         'network_element': 'NetworkElement',
         'oper_state': 'OperState',
+        'presence': 'Presence',
         'registered_device': 'RegisteredDevice'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, device_mo_id=None, dn=None, rn=None, model=None, revision=None, serial=None, vendor=None, compute_rack_unit=None, equipment_chassis=None, fans=None, network_element=None, oper_state=None, registered_device=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, device_mo_id=None, dn=None, rn=None, model=None, revision=None, serial=None, vendor=None, compute_rack_unit=None, equipment_chassis=None, fans=None, network_element=None, oper_state=None, presence=None, registered_device=None):
         """
         EquipmentFanModule - a model defined in Swagger
         """
@@ -96,7 +96,6 @@ class EquipmentFanModule(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._device_mo_id = None
         self._dn = None
         self._rn = None
@@ -109,6 +108,7 @@ class EquipmentFanModule(object):
         self._fans = None
         self._network_element = None
         self._oper_state = None
+        self._presence = None
         self._registered_device = None
 
         if account_moid is not None:
@@ -129,8 +129,6 @@ class EquipmentFanModule(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if device_mo_id is not None:
           self.device_mo_id = device_mo_id
         if dn is not None:
@@ -155,6 +153,8 @@ class EquipmentFanModule(object):
           self.network_element = network_element
         if oper_state is not None:
           self.oper_state = oper_state
+        if presence is not None:
+          self.presence = presence
         if registered_device is not None:
           self.registered_device = registered_device
 
@@ -364,29 +364,6 @@ class EquipmentFanModule(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this EquipmentFanModule.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this EquipmentFanModule.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this EquipmentFanModule.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this EquipmentFanModule.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def device_mo_id(self):
@@ -639,6 +616,27 @@ class EquipmentFanModule(object):
         """
 
         self._oper_state = oper_state
+
+    @property
+    def presence(self):
+        """
+        Gets the presence of this EquipmentFanModule.
+
+        :return: The presence of this EquipmentFanModule.
+        :rtype: str
+        """
+        return self._presence
+
+    @presence.setter
+    def presence(self, presence):
+        """
+        Sets the presence of this EquipmentFanModule.
+
+        :param presence: The presence of this EquipmentFanModule.
+        :type: str
+        """
+
+        self._presence = presence
 
     @property
     def registered_device(self):

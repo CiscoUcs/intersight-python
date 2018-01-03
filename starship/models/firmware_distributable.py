@@ -40,7 +40,6 @@ class FirmwareDistributable(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'bundle_type': 'str',
         'description': 'str',
         'guid': 'str',
@@ -68,7 +67,6 @@ class FirmwareDistributable(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'bundle_type': 'BundleType',
         'description': 'Description',
         'guid': 'Guid',
@@ -86,7 +84,7 @@ class FirmwareDistributable(object):
         'version': 'Version'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, bundle_type=None, description=None, guid=None, md5sum=None, mdfid=None, model=None, name=None, platform_type=None, release_date=None, size=None, software_type_id=None, source='CCO', supported_models=None, vendor=None, version=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, bundle_type=None, description=None, guid=None, md5sum=None, mdfid=None, model=None, name=None, platform_type=None, release_date=None, size=None, software_type_id=None, source='CCO', supported_models=None, vendor=None, version=None):
         """
         FirmwareDistributable - a model defined in Swagger
         """
@@ -100,7 +98,6 @@ class FirmwareDistributable(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._bundle_type = None
         self._description = None
         self._guid = None
@@ -135,8 +132,6 @@ class FirmwareDistributable(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if bundle_type is not None:
           self.bundle_type = bundle_type
         if description is not None:
@@ -374,29 +369,6 @@ class FirmwareDistributable(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this FirmwareDistributable.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this FirmwareDistributable.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this FirmwareDistributable.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this FirmwareDistributable.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def bundle_type(self):

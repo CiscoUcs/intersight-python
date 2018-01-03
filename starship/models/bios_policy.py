@@ -40,13 +40,12 @@ class BiosPolicy(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'description': 'str',
         'name': 'str',
-        'account': 'MoMoRef',
         'input_output': 'BiosInputOutput',
         'lom_and_pcie_slots_configuration': 'BiosLomAndPcieSlotsConfiguration',
         'memory': 'BiosMemory',
+        'organization': 'MoMoRef',
         'power_or_performance': 'BiosPowerOrPerformance',
         'processor': 'BiosProcessor',
         'profile': 'MoMoRef',
@@ -65,13 +64,12 @@ class BiosPolicy(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'description': 'Description',
         'name': 'Name',
-        'account': 'Account',
         'input_output': 'InputOutput',
         'lom_and_pcie_slots_configuration': 'LomAndPcieSlotsConfiguration',
         'memory': 'Memory',
+        'organization': 'Organization',
         'power_or_performance': 'PowerOrPerformance',
         'processor': 'Processor',
         'profile': 'Profile',
@@ -80,7 +78,7 @@ class BiosPolicy(object):
         'server_management': 'ServerManagement'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, description=None, name=None, account=None, input_output=None, lom_and_pcie_slots_configuration=None, memory=None, power_or_performance=None, processor=None, profile=None, security=None, serial_configuration=None, server_management=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, description=None, name=None, input_output=None, lom_and_pcie_slots_configuration=None, memory=None, organization=None, power_or_performance=None, processor=None, profile=None, security=None, serial_configuration=None, server_management=None):
         """
         BiosPolicy - a model defined in Swagger
         """
@@ -94,13 +92,12 @@ class BiosPolicy(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._description = None
         self._name = None
-        self._account = None
         self._input_output = None
         self._lom_and_pcie_slots_configuration = None
         self._memory = None
+        self._organization = None
         self._power_or_performance = None
         self._processor = None
         self._profile = None
@@ -126,20 +123,18 @@ class BiosPolicy(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if description is not None:
           self.description = description
         if name is not None:
           self.name = name
-        if account is not None:
-          self.account = account
         if input_output is not None:
           self.input_output = input_output
         if lom_and_pcie_slots_configuration is not None:
           self.lom_and_pcie_slots_configuration = lom_and_pcie_slots_configuration
         if memory is not None:
           self.memory = memory
+        if organization is not None:
+          self.organization = organization
         if power_or_performance is not None:
           self.power_or_performance = power_or_performance
         if processor is not None:
@@ -361,29 +356,6 @@ class BiosPolicy(object):
         self._tags = tags
 
     @property
-    def id(self):
-        """
-        Gets the id of this BiosPolicy.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this BiosPolicy.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this BiosPolicy.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this BiosPolicy.
-        :type: str
-        """
-
-        self._id = id
-
-    @property
     def description(self):
         """
         Gets the description of this BiosPolicy.
@@ -428,29 +400,6 @@ class BiosPolicy(object):
         """
 
         self._name = name
-
-    @property
-    def account(self):
-        """
-        Gets the account of this BiosPolicy.
-        Relationship to set accountMoid on policies. With \"onpeerdelete\" set to \"cascade\", policies get deleted when the associated account is deleted. 
-
-        :return: The account of this BiosPolicy.
-        :rtype: MoMoRef
-        """
-        return self._account
-
-    @account.setter
-    def account(self, account):
-        """
-        Sets the account of this BiosPolicy.
-        Relationship to set accountMoid on policies. With \"onpeerdelete\" set to \"cascade\", policies get deleted when the associated account is deleted. 
-
-        :param account: The account of this BiosPolicy.
-        :type: MoMoRef
-        """
-
-        self._account = account
 
     @property
     def input_output(self):
@@ -520,6 +469,29 @@ class BiosPolicy(object):
         """
 
         self._memory = memory
+
+    @property
+    def organization(self):
+        """
+        Gets the organization of this BiosPolicy.
+        Organization 
+
+        :return: The organization of this BiosPolicy.
+        :rtype: MoMoRef
+        """
+        return self._organization
+
+    @organization.setter
+    def organization(self, organization):
+        """
+        Sets the organization of this BiosPolicy.
+        Organization 
+
+        :param organization: The organization of this BiosPolicy.
+        :type: MoMoRef
+        """
+
+        self._organization = organization
 
     @property
     def power_or_performance(self):

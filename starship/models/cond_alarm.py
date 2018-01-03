@@ -40,7 +40,6 @@ class CondAlarm(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'affected_mo_id': 'str',
         'affected_mo_type': 'str',
         'affected_object': 'str',
@@ -67,7 +66,6 @@ class CondAlarm(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'affected_mo_id': 'AffectedMoId',
         'affected_mo_type': 'AffectedMoType',
         'affected_object': 'AffectedObject',
@@ -84,7 +82,7 @@ class CondAlarm(object):
         'severity': 'Severity'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, affected_mo_id=None, affected_mo_type=None, affected_object=None, ancestor_mo_id=None, ancestor_mo_type=None, code=None, creation_time=None, description=None, last_transition_time=None, ms_affected_object=None, name=None, orig_severity=None, registered_device=None, severity=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, affected_mo_id=None, affected_mo_type=None, affected_object=None, ancestor_mo_id=None, ancestor_mo_type=None, code=None, creation_time=None, description=None, last_transition_time=None, ms_affected_object=None, name=None, orig_severity=None, registered_device=None, severity=None):
         """
         CondAlarm - a model defined in Swagger
         """
@@ -98,7 +96,6 @@ class CondAlarm(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._affected_mo_id = None
         self._affected_mo_type = None
         self._affected_object = None
@@ -132,8 +129,6 @@ class CondAlarm(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if affected_mo_id is not None:
           self.affected_mo_id = affected_mo_id
         if affected_mo_type is not None:
@@ -369,29 +364,6 @@ class CondAlarm(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this CondAlarm.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this CondAlarm.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this CondAlarm.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this CondAlarm.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def affected_mo_id(self):

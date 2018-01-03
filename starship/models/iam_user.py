@@ -40,7 +40,6 @@ class IamUser(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'api_keys': 'list[MoMoRef]',
         'client_ip_address': 'str',
         'email': 'str',
@@ -63,7 +62,6 @@ class IamUser(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'api_keys': 'ApiKeys',
         'client_ip_address': 'ClientIpAddress',
         'email': 'Email',
@@ -76,7 +74,7 @@ class IamUser(object):
         'user_type': 'UserType'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, api_keys=None, client_ip_address=None, email=None, first_name=None, idpreference=None, last_login_time=None, last_name=None, name=None, sessions=None, user_type=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, api_keys=None, client_ip_address=None, email=None, first_name=None, idpreference=None, last_login_time=None, last_name=None, name=None, sessions=None, user_type=None):
         """
         IamUser - a model defined in Swagger
         """
@@ -90,7 +88,6 @@ class IamUser(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._api_keys = None
         self._client_ip_address = None
         self._email = None
@@ -120,8 +117,6 @@ class IamUser(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if api_keys is not None:
           self.api_keys = api_keys
         if client_ip_address is not None:
@@ -349,29 +344,6 @@ class IamUser(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this IamUser.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this IamUser.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this IamUser.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this IamUser.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def api_keys(self):

@@ -40,7 +40,6 @@ class TerminalAuditLog(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'device_registration': 'MoMoRef',
         'end_time': 'datetime',
         'start_time': 'datetime',
@@ -57,14 +56,13 @@ class TerminalAuditLog(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'device_registration': 'DeviceRegistration',
         'end_time': 'EndTime',
         'start_time': 'StartTime',
         'user': 'User'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, device_registration=None, end_time=None, start_time=None, user=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, device_registration=None, end_time=None, start_time=None, user=None):
         """
         TerminalAuditLog - a model defined in Swagger
         """
@@ -78,7 +76,6 @@ class TerminalAuditLog(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._device_registration = None
         self._end_time = None
         self._start_time = None
@@ -102,8 +99,6 @@ class TerminalAuditLog(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if device_registration is not None:
           self.device_registration = device_registration
         if end_time is not None:
@@ -319,29 +314,6 @@ class TerminalAuditLog(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this TerminalAuditLog.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this TerminalAuditLog.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this TerminalAuditLog.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this TerminalAuditLog.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def device_registration(self):

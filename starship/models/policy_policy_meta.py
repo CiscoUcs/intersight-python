@@ -40,7 +40,6 @@ class PolicyPolicyMeta(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'account': 'MoMoRef',
         'attachable_service_objects': 'list[PolicyAttachableServiceObject]',
         'categories': 'list[PolicyCategory]',
@@ -59,7 +58,6 @@ class PolicyPolicyMeta(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'account': 'Account',
         'attachable_service_objects': 'AttachableServiceObjects',
         'categories': 'Categories',
@@ -68,7 +66,7 @@ class PolicyPolicyMeta(object):
         'name': 'Name'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, account=None, attachable_service_objects=None, categories=None, hardware_platforms=None, management_platforms=None, name=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, account=None, attachable_service_objects=None, categories=None, hardware_platforms=None, management_platforms=None, name=None):
         """
         PolicyPolicyMeta - a model defined in Swagger
         """
@@ -82,7 +80,6 @@ class PolicyPolicyMeta(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._account = None
         self._attachable_service_objects = None
         self._categories = None
@@ -108,8 +105,6 @@ class PolicyPolicyMeta(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if account is not None:
           self.account = account
         if attachable_service_objects is not None:
@@ -329,29 +324,6 @@ class PolicyPolicyMeta(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this PolicyPolicyMeta.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this PolicyPolicyMeta.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this PolicyPolicyMeta.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this PolicyPolicyMeta.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def account(self):

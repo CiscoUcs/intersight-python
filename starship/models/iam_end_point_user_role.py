@@ -40,7 +40,6 @@ class IamEndPointUserRole(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'enabled': 'bool',
         'end_point_role': 'MoMoRef',
         'end_point_user': 'MoMoRef',
@@ -58,7 +57,6 @@ class IamEndPointUserRole(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'enabled': 'Enabled',
         'end_point_role': 'EndPointRole',
         'end_point_user': 'EndPointUser',
@@ -66,7 +64,7 @@ class IamEndPointUserRole(object):
         'password': 'Password'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, enabled=None, end_point_role=None, end_point_user=None, end_point_user_policy=None, password=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, enabled=None, end_point_role=None, end_point_user=None, end_point_user_policy=None, password=None):
         """
         IamEndPointUserRole - a model defined in Swagger
         """
@@ -80,7 +78,6 @@ class IamEndPointUserRole(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._enabled = None
         self._end_point_role = None
         self._end_point_user = None
@@ -105,8 +102,6 @@ class IamEndPointUserRole(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if enabled is not None:
           self.enabled = enabled
         if end_point_role is not None:
@@ -326,29 +321,6 @@ class IamEndPointUserRole(object):
         self._tags = tags
 
     @property
-    def id(self):
-        """
-        Gets the id of this IamEndPointUserRole.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this IamEndPointUserRole.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this IamEndPointUserRole.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this IamEndPointUserRole.
-        :type: str
-        """
-
-        self._id = id
-
-    @property
     def enabled(self):
         """
         Gets the enabled of this IamEndPointUserRole.
@@ -375,7 +347,7 @@ class IamEndPointUserRole(object):
     def end_point_role(self):
         """
         Gets the end_point_role of this IamEndPointUserRole.
-        Relationship to EndPointRole 
+        Relationship to the Endpoint role 
 
         :return: The end_point_role of this IamEndPointUserRole.
         :rtype: MoMoRef
@@ -386,7 +358,7 @@ class IamEndPointUserRole(object):
     def end_point_role(self, end_point_role):
         """
         Sets the end_point_role of this IamEndPointUserRole.
-        Relationship to EndPointRole 
+        Relationship to the Endpoint role 
 
         :param end_point_role: The end_point_role of this IamEndPointUserRole.
         :type: MoMoRef
@@ -398,7 +370,7 @@ class IamEndPointUserRole(object):
     def end_point_user(self):
         """
         Gets the end_point_user of this IamEndPointUserRole.
-        Relationship to EndPointUser 
+        Relationship to the Endpoint user 
 
         :return: The end_point_user of this IamEndPointUserRole.
         :rtype: MoMoRef
@@ -409,7 +381,7 @@ class IamEndPointUserRole(object):
     def end_point_user(self, end_point_user):
         """
         Sets the end_point_user of this IamEndPointUserRole.
-        Relationship to EndPointUser 
+        Relationship to the Endpoint user 
 
         :param end_point_user: The end_point_user of this IamEndPointUserRole.
         :type: MoMoRef

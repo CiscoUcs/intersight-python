@@ -40,7 +40,6 @@ class IamSession(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'client_ip_address': 'str',
         'expiration': 'datetime',
         'idle_time_expiration': 'datetime',
@@ -59,7 +58,6 @@ class IamSession(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'client_ip_address': 'ClientIpAddress',
         'expiration': 'Expiration',
         'idle_time_expiration': 'IdleTimeExpiration',
@@ -68,7 +66,7 @@ class IamSession(object):
         'user': 'User'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, client_ip_address=None, expiration=None, idle_time_expiration=None, last_login_client=None, last_login_time=None, user=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, client_ip_address=None, expiration=None, idle_time_expiration=None, last_login_client=None, last_login_time=None, user=None):
         """
         IamSession - a model defined in Swagger
         """
@@ -82,7 +80,6 @@ class IamSession(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._client_ip_address = None
         self._expiration = None
         self._idle_time_expiration = None
@@ -108,8 +105,6 @@ class IamSession(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if client_ip_address is not None:
           self.client_ip_address = client_ip_address
         if expiration is not None:
@@ -329,29 +324,6 @@ class IamSession(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this IamSession.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this IamSession.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this IamSession.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this IamSession.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def client_ip_address(self):

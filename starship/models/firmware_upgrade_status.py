@@ -40,7 +40,6 @@ class FirmwareUpgradeStatus(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'download_error': 'str',
         'download_percentage': 'int',
         'download_stage': 'str',
@@ -61,7 +60,6 @@ class FirmwareUpgradeStatus(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'download_error': 'DownloadError',
         'download_percentage': 'DownloadPercentage',
         'download_stage': 'DownloadStage',
@@ -72,7 +70,7 @@ class FirmwareUpgradeStatus(object):
         'upgrade': 'Upgrade'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, download_error=None, download_percentage=None, download_stage=None, download_status=None, overall_error=None, overall_percentage=None, overallstatus=None, upgrade=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, download_error=None, download_percentage=None, download_stage=None, download_status=None, overall_error=None, overall_percentage=None, overallstatus=None, upgrade=None):
         """
         FirmwareUpgradeStatus - a model defined in Swagger
         """
@@ -86,7 +84,6 @@ class FirmwareUpgradeStatus(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._download_error = None
         self._download_percentage = None
         self._download_stage = None
@@ -114,8 +111,6 @@ class FirmwareUpgradeStatus(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if download_error is not None:
           self.download_error = download_error
         if download_percentage is not None:
@@ -339,29 +334,6 @@ class FirmwareUpgradeStatus(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this FirmwareUpgradeStatus.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this FirmwareUpgradeStatus.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this FirmwareUpgradeStatus.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this FirmwareUpgradeStatus.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def download_error(self):

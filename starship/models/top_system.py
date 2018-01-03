@@ -40,7 +40,6 @@ class TopSystem(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'device_mo_id': 'str',
         'dn': 'str',
         'rn': 'str',
@@ -65,7 +64,6 @@ class TopSystem(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'device_mo_id': 'DeviceMoId',
         'dn': 'Dn',
         'rn': 'Rn',
@@ -80,7 +78,7 @@ class TopSystem(object):
         'registered_device': 'RegisteredDevice'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, device_mo_id=None, dn=None, rn=None, compute_blades=None, compute_rack_units=None, ipv4_address=None, ipv6_address=None, management_controller=None, mode=None, name=None, network_elements=None, registered_device=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, device_mo_id=None, dn=None, rn=None, compute_blades=None, compute_rack_units=None, ipv4_address=None, ipv6_address=None, management_controller=None, mode=None, name=None, network_elements=None, registered_device=None):
         """
         TopSystem - a model defined in Swagger
         """
@@ -94,7 +92,6 @@ class TopSystem(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._device_mo_id = None
         self._dn = None
         self._rn = None
@@ -126,8 +123,6 @@ class TopSystem(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if device_mo_id is not None:
           self.device_mo_id = device_mo_id
         if dn is not None:
@@ -359,29 +354,6 @@ class TopSystem(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this TopSystem.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this TopSystem.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this TopSystem.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this TopSystem.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def device_mo_id(self):

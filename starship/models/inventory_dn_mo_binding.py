@@ -40,7 +40,6 @@ class InventoryDnMoBinding(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'dn': 'str',
         'registered_device': 'MoMoRef',
         'target_mo_id': 'str',
@@ -57,14 +56,13 @@ class InventoryDnMoBinding(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'dn': 'Dn',
         'registered_device': 'RegisteredDevice',
         'target_mo_id': 'TargetMoId',
         'target_mo_type': 'TargetMoType'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, dn=None, registered_device=None, target_mo_id=None, target_mo_type=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, dn=None, registered_device=None, target_mo_id=None, target_mo_type=None):
         """
         InventoryDnMoBinding - a model defined in Swagger
         """
@@ -78,7 +76,6 @@ class InventoryDnMoBinding(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._dn = None
         self._registered_device = None
         self._target_mo_id = None
@@ -102,8 +99,6 @@ class InventoryDnMoBinding(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if dn is not None:
           self.dn = dn
         if registered_device is not None:
@@ -319,29 +314,6 @@ class InventoryDnMoBinding(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this InventoryDnMoBinding.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this InventoryDnMoBinding.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this InventoryDnMoBinding.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this InventoryDnMoBinding.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def dn(self):

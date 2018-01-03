@@ -40,12 +40,10 @@ class HyperflexVcenterConfigPolicy(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'description': 'str',
         'name': 'str',
         'account': 'MoMoRef',
         'cluster_profile': 'list[MoMoRef]',
-        'config_rdm': 'bool',
         'data_center': 'str',
         'hostname': 'str',
         'passwd': 'str',
@@ -63,12 +61,10 @@ class HyperflexVcenterConfigPolicy(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'description': 'Description',
         'name': 'Name',
         'account': 'Account',
         'cluster_profile': 'ClusterProfile',
-        'config_rdm': 'ConfigRdm',
         'data_center': 'DataCenter',
         'hostname': 'Hostname',
         'passwd': 'Passwd',
@@ -76,7 +72,7 @@ class HyperflexVcenterConfigPolicy(object):
         'user_name': 'UserName'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, description=None, name=None, account=None, cluster_profile=None, config_rdm=None, data_center=None, hostname=None, passwd=None, sso_url=None, user_name=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, description=None, name=None, account=None, cluster_profile=None, data_center=None, hostname=None, passwd=None, sso_url=None, user_name=None):
         """
         HyperflexVcenterConfigPolicy - a model defined in Swagger
         """
@@ -90,12 +86,10 @@ class HyperflexVcenterConfigPolicy(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._description = None
         self._name = None
         self._account = None
         self._cluster_profile = None
-        self._config_rdm = None
         self._data_center = None
         self._hostname = None
         self._passwd = None
@@ -120,8 +114,6 @@ class HyperflexVcenterConfigPolicy(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if description is not None:
           self.description = description
         if name is not None:
@@ -130,8 +122,6 @@ class HyperflexVcenterConfigPolicy(object):
           self.account = account
         if cluster_profile is not None:
           self.cluster_profile = cluster_profile
-        if config_rdm is not None:
-          self.config_rdm = config_rdm
         if data_center is not None:
           self.data_center = data_center
         if hostname is not None:
@@ -351,29 +341,6 @@ class HyperflexVcenterConfigPolicy(object):
         self._tags = tags
 
     @property
-    def id(self):
-        """
-        Gets the id of this HyperflexVcenterConfigPolicy.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this HyperflexVcenterConfigPolicy.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this HyperflexVcenterConfigPolicy.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this HyperflexVcenterConfigPolicy.
-        :type: str
-        """
-
-        self._id = id
-
-    @property
     def description(self):
         """
         Gets the description of this HyperflexVcenterConfigPolicy.
@@ -462,30 +429,10 @@ class HyperflexVcenterConfigPolicy(object):
         self._cluster_profile = cluster_profile
 
     @property
-    def config_rdm(self):
-        """
-        Gets the config_rdm of this HyperflexVcenterConfigPolicy.
-
-        :return: The config_rdm of this HyperflexVcenterConfigPolicy.
-        :rtype: bool
-        """
-        return self._config_rdm
-
-    @config_rdm.setter
-    def config_rdm(self, config_rdm):
-        """
-        Sets the config_rdm of this HyperflexVcenterConfigPolicy.
-
-        :param config_rdm: The config_rdm of this HyperflexVcenterConfigPolicy.
-        :type: bool
-        """
-
-        self._config_rdm = config_rdm
-
-    @property
     def data_center(self):
         """
         Gets the data_center of this HyperflexVcenterConfigPolicy.
+        vCenter Datacenter name for the HyperFlex cluster  
 
         :return: The data_center of this HyperflexVcenterConfigPolicy.
         :rtype: str
@@ -496,6 +443,7 @@ class HyperflexVcenterConfigPolicy(object):
     def data_center(self, data_center):
         """
         Sets the data_center of this HyperflexVcenterConfigPolicy.
+        vCenter Datacenter name for the HyperFlex cluster  
 
         :param data_center: The data_center of this HyperflexVcenterConfigPolicy.
         :type: str
@@ -528,6 +476,7 @@ class HyperflexVcenterConfigPolicy(object):
     def passwd(self):
         """
         Gets the passwd of this HyperflexVcenterConfigPolicy.
+        vCenter password  
 
         :return: The passwd of this HyperflexVcenterConfigPolicy.
         :rtype: str
@@ -538,6 +487,7 @@ class HyperflexVcenterConfigPolicy(object):
     def passwd(self, passwd):
         """
         Sets the passwd of this HyperflexVcenterConfigPolicy.
+        vCenter password  
 
         :param passwd: The passwd of this HyperflexVcenterConfigPolicy.
         :type: str
@@ -549,6 +499,7 @@ class HyperflexVcenterConfigPolicy(object):
     def sso_url(self):
         """
         Gets the sso_url of this HyperflexVcenterConfigPolicy.
+        vCenter Single-Sign-On URL  
 
         :return: The sso_url of this HyperflexVcenterConfigPolicy.
         :rtype: str
@@ -559,6 +510,7 @@ class HyperflexVcenterConfigPolicy(object):
     def sso_url(self, sso_url):
         """
         Sets the sso_url of this HyperflexVcenterConfigPolicy.
+        vCenter Single-Sign-On URL  
 
         :param sso_url: The sso_url of this HyperflexVcenterConfigPolicy.
         :type: str
@@ -570,6 +522,7 @@ class HyperflexVcenterConfigPolicy(object):
     def user_name(self):
         """
         Gets the user_name of this HyperflexVcenterConfigPolicy.
+        vCenter user name   
 
         :return: The user_name of this HyperflexVcenterConfigPolicy.
         :rtype: str
@@ -580,6 +533,7 @@ class HyperflexVcenterConfigPolicy(object):
     def user_name(self, user_name):
         """
         Sets the user_name of this HyperflexVcenterConfigPolicy.
+        vCenter user name   
 
         :param user_name: The user_name of this HyperflexVcenterConfigPolicy.
         :type: str

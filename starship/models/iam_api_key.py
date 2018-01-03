@@ -40,7 +40,6 @@ class IamApiKey(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'private_key': 'str',
         'purpose': 'str',
         'user': 'MoMoRef'
@@ -56,13 +55,12 @@ class IamApiKey(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'private_key': 'PrivateKey',
         'purpose': 'Purpose',
         'user': 'User'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, private_key=None, purpose=None, user=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, private_key=None, purpose=None, user=None):
         """
         IamApiKey - a model defined in Swagger
         """
@@ -76,7 +74,6 @@ class IamApiKey(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._private_key = None
         self._purpose = None
         self._user = None
@@ -99,8 +96,6 @@ class IamApiKey(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if private_key is not None:
           self.private_key = private_key
         if purpose is not None:
@@ -314,29 +309,6 @@ class IamApiKey(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this IamApiKey.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this IamApiKey.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this IamApiKey.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this IamApiKey.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def private_key(self):

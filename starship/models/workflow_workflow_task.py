@@ -40,7 +40,6 @@ class WorkflowWorkflowTask(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'input_params': 'object',
         'name': 'str',
         'optional': 'bool',
@@ -59,7 +58,6 @@ class WorkflowWorkflowTask(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'input_params': 'InputParams',
         'name': 'Name',
         'optional': 'Optional',
@@ -68,7 +66,7 @@ class WorkflowWorkflowTask(object):
         'workflowmeta': 'Workflowmeta'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, input_params=None, name=None, optional=None, task_ref_name=None, type=None, workflowmeta=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, input_params=None, name=None, optional=None, task_ref_name=None, type=None, workflowmeta=None):
         """
         WorkflowWorkflowTask - a model defined in Swagger
         """
@@ -82,7 +80,6 @@ class WorkflowWorkflowTask(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._input_params = None
         self._name = None
         self._optional = None
@@ -108,8 +105,6 @@ class WorkflowWorkflowTask(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if input_params is not None:
           self.input_params = input_params
         if name is not None:
@@ -329,29 +324,6 @@ class WorkflowWorkflowTask(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this WorkflowWorkflowTask.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this WorkflowWorkflowTask.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this WorkflowWorkflowTask.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this WorkflowWorkflowTask.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def input_params(self):

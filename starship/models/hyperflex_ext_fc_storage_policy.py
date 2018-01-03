@@ -40,7 +40,6 @@ class HyperflexExtFcStoragePolicy(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'description': 'str',
         'name': 'str',
         'account': 'MoMoRef',
@@ -61,7 +60,6 @@ class HyperflexExtFcStoragePolicy(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'description': 'Description',
         'name': 'Name',
         'account': 'Account',
@@ -72,7 +70,7 @@ class HyperflexExtFcStoragePolicy(object):
         'wwxn_range': 'WwxnRange'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, description=None, name=None, account=None, admin_state=None, cluster_profile=None, exta_traffic=None, extb_traffic=None, wwxn_range=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, description=None, name=None, account=None, admin_state=None, cluster_profile=None, exta_traffic=None, extb_traffic=None, wwxn_range=None):
         """
         HyperflexExtFcStoragePolicy - a model defined in Swagger
         """
@@ -86,7 +84,6 @@ class HyperflexExtFcStoragePolicy(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._description = None
         self._name = None
         self._account = None
@@ -114,8 +111,6 @@ class HyperflexExtFcStoragePolicy(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if description is not None:
           self.description = description
         if name is not None:
@@ -341,29 +336,6 @@ class HyperflexExtFcStoragePolicy(object):
         self._tags = tags
 
     @property
-    def id(self):
-        """
-        Gets the id of this HyperflexExtFcStoragePolicy.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this HyperflexExtFcStoragePolicy.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this HyperflexExtFcStoragePolicy.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this HyperflexExtFcStoragePolicy.
-        :type: str
-        """
-
-        self._id = id
-
-    @property
     def description(self):
         """
         Gets the description of this HyperflexExtFcStoragePolicy.
@@ -434,6 +406,7 @@ class HyperflexExtFcStoragePolicy(object):
     def admin_state(self):
         """
         Gets the admin_state of this HyperflexExtFcStoragePolicy.
+        Flag to determine if external FC storage configuration is enabled or disabled  
 
         :return: The admin_state of this HyperflexExtFcStoragePolicy.
         :rtype: bool
@@ -444,6 +417,7 @@ class HyperflexExtFcStoragePolicy(object):
     def admin_state(self, admin_state):
         """
         Sets the admin_state of this HyperflexExtFcStoragePolicy.
+        Flag to determine if external FC storage configuration is enabled or disabled  
 
         :param admin_state: The admin_state of this HyperflexExtFcStoragePolicy.
         :type: bool
@@ -476,6 +450,7 @@ class HyperflexExtFcStoragePolicy(object):
     def exta_traffic(self):
         """
         Gets the exta_traffic of this HyperflexExtFcStoragePolicy.
+        VSAN for Primary Fabric Interconnect external FC storage traffic  
 
         :return: The exta_traffic of this HyperflexExtFcStoragePolicy.
         :rtype: HyperflexNamedVsan
@@ -486,6 +461,7 @@ class HyperflexExtFcStoragePolicy(object):
     def exta_traffic(self, exta_traffic):
         """
         Sets the exta_traffic of this HyperflexExtFcStoragePolicy.
+        VSAN for Primary Fabric Interconnect external FC storage traffic  
 
         :param exta_traffic: The exta_traffic of this HyperflexExtFcStoragePolicy.
         :type: HyperflexNamedVsan
@@ -497,6 +473,7 @@ class HyperflexExtFcStoragePolicy(object):
     def extb_traffic(self):
         """
         Gets the extb_traffic of this HyperflexExtFcStoragePolicy.
+        VSAN for Secondary Fabric Interconnect external FC storage traffic  
 
         :return: The extb_traffic of this HyperflexExtFcStoragePolicy.
         :rtype: HyperflexNamedVsan
@@ -507,6 +484,7 @@ class HyperflexExtFcStoragePolicy(object):
     def extb_traffic(self, extb_traffic):
         """
         Sets the extb_traffic of this HyperflexExtFcStoragePolicy.
+        VSAN for Secondary Fabric Interconnect external FC storage traffic  
 
         :param extb_traffic: The extb_traffic of this HyperflexExtFcStoragePolicy.
         :type: HyperflexNamedVsan

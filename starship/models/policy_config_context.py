@@ -67,7 +67,7 @@ class PolicyConfigContext(object):
     def config_state(self):
         """
         Gets the config_state of this PolicyConfigContext.
-        Indicates a profile's configuration deploying state Values -- not-assigned, pending-changes, in-progress, ok, validation-failed, config-failed  
+        Indicates a profile's configuration deploying state Values -- Assigned, Not-assigned, Associated, Pending-changes, Validating, Configuring, Errored  
 
         :return: The config_state of this PolicyConfigContext.
         :rtype: str
@@ -78,7 +78,7 @@ class PolicyConfigContext(object):
     def config_state(self, config_state):
         """
         Sets the config_state of this PolicyConfigContext.
-        Indicates a profile's configuration deploying state Values -- not-assigned, pending-changes, in-progress, ok, validation-failed, config-failed  
+        Indicates a profile's configuration deploying state Values -- Assigned, Not-assigned, Associated, Pending-changes, Validating, Configuring, Errored  
 
         :param config_state: The config_state of this PolicyConfigContext.
         :type: str
@@ -90,7 +90,7 @@ class PolicyConfigContext(object):
     def control_action(self):
         """
         Gets the control_action of this PolicyConfigContext.
-        Internal action to trigger the appropriate workflow. Values -- no_op, policyChange, deploy, dryRun, undeploy  
+        Internal action to trigger the appropriate workflow. Values -- No_op, ConfigChange, Deploy, Unbind  
 
         :return: The control_action of this PolicyConfigContext.
         :rtype: str
@@ -101,7 +101,7 @@ class PolicyConfigContext(object):
     def control_action(self, control_action):
         """
         Sets the control_action of this PolicyConfigContext.
-        Internal action to trigger the appropriate workflow. Values -- no_op, policyChange, deploy, dryRun, undeploy  
+        Internal action to trigger the appropriate workflow. Values -- No_op, ConfigChange, Deploy, Unbind  
 
         :param control_action: The control_action of this PolicyConfigContext.
         :type: str

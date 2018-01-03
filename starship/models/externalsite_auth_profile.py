@@ -40,7 +40,6 @@ class ExternalsiteAuthProfile(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'account': 'MoMoRef',
         'password': 'str',
         'repository_type': 'str',
@@ -57,14 +56,13 @@ class ExternalsiteAuthProfile(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'account': 'Account',
         'password': 'Password',
         'repository_type': 'RepositoryType',
         'user_id': 'UserId'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, account=None, password=None, repository_type='cisco', user_id=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, account=None, password=None, repository_type='cisco', user_id=None):
         """
         ExternalsiteAuthProfile - a model defined in Swagger
         """
@@ -78,7 +76,6 @@ class ExternalsiteAuthProfile(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._account = None
         self._password = None
         self._repository_type = None
@@ -102,8 +99,6 @@ class ExternalsiteAuthProfile(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if account is not None:
           self.account = account
         if password is not None:
@@ -319,29 +314,6 @@ class ExternalsiteAuthProfile(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this ExternalsiteAuthProfile.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this ExternalsiteAuthProfile.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this ExternalsiteAuthProfile.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this ExternalsiteAuthProfile.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def account(self):

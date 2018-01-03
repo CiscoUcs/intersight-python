@@ -40,7 +40,6 @@ class FirmwareEula(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'accepted': 'bool',
         'account': 'MoMoRef',
         'content': 'str'
@@ -56,13 +55,12 @@ class FirmwareEula(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'accepted': 'Accepted',
         'account': 'Account',
         'content': 'Content'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, accepted=None, account=None, content=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, accepted=None, account=None, content=None):
         """
         FirmwareEula - a model defined in Swagger
         """
@@ -76,7 +74,6 @@ class FirmwareEula(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._accepted = None
         self._account = None
         self._content = None
@@ -99,8 +96,6 @@ class FirmwareEula(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if accepted is not None:
           self.accepted = accepted
         if account is not None:
@@ -314,29 +309,6 @@ class FirmwareEula(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this FirmwareEula.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this FirmwareEula.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this FirmwareEula.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this FirmwareEula.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def accepted(self):

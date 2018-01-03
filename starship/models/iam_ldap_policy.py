@@ -40,15 +40,14 @@ class IamLdapPolicy(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'description': 'str',
         'name': 'str',
-        'account': 'MoMoRef',
         'base_properties': 'IamLdapBaseProperties',
         'dns_parameters': 'IamLdapDnsParameters',
         'enable_dns': 'bool',
         'enabled': 'bool',
         'groups': 'list[MoMoRef]',
+        'organization': 'MoMoRef',
         'profile': 'MoMoRef',
         'providers': 'list[MoMoRef]',
         'user_search_precedence': 'str'
@@ -64,21 +63,20 @@ class IamLdapPolicy(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'description': 'Description',
         'name': 'Name',
-        'account': 'Account',
         'base_properties': 'BaseProperties',
         'dns_parameters': 'DnsParameters',
         'enable_dns': 'EnableDns',
         'enabled': 'Enabled',
         'groups': 'Groups',
+        'organization': 'Organization',
         'profile': 'Profile',
         'providers': 'Providers',
         'user_search_precedence': 'UserSearchPrecedence'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, description=None, name=None, account=None, base_properties=None, dns_parameters=None, enable_dns=None, enabled=None, groups=None, profile=None, providers=None, user_search_precedence='LocalUserDb'):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, description=None, name=None, base_properties=None, dns_parameters=None, enable_dns=None, enabled=None, groups=None, organization=None, profile=None, providers=None, user_search_precedence='LocalUserDb'):
         """
         IamLdapPolicy - a model defined in Swagger
         """
@@ -92,15 +90,14 @@ class IamLdapPolicy(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._description = None
         self._name = None
-        self._account = None
         self._base_properties = None
         self._dns_parameters = None
         self._enable_dns = None
         self._enabled = None
         self._groups = None
+        self._organization = None
         self._profile = None
         self._providers = None
         self._user_search_precedence = None
@@ -123,14 +120,10 @@ class IamLdapPolicy(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if description is not None:
           self.description = description
         if name is not None:
           self.name = name
-        if account is not None:
-          self.account = account
         if base_properties is not None:
           self.base_properties = base_properties
         if dns_parameters is not None:
@@ -141,6 +134,8 @@ class IamLdapPolicy(object):
           self.enabled = enabled
         if groups is not None:
           self.groups = groups
+        if organization is not None:
+          self.organization = organization
         if profile is not None:
           self.profile = profile
         if providers is not None:
@@ -356,29 +351,6 @@ class IamLdapPolicy(object):
         self._tags = tags
 
     @property
-    def id(self):
-        """
-        Gets the id of this IamLdapPolicy.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this IamLdapPolicy.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this IamLdapPolicy.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this IamLdapPolicy.
-        :type: str
-        """
-
-        self._id = id
-
-    @property
     def description(self):
         """
         Gets the description of this IamLdapPolicy.
@@ -423,29 +395,6 @@ class IamLdapPolicy(object):
         """
 
         self._name = name
-
-    @property
-    def account(self):
-        """
-        Gets the account of this IamLdapPolicy.
-        Relationship to account 
-
-        :return: The account of this IamLdapPolicy.
-        :rtype: MoMoRef
-        """
-        return self._account
-
-    @account.setter
-    def account(self, account):
-        """
-        Sets the account of this IamLdapPolicy.
-        Relationship to account 
-
-        :param account: The account of this IamLdapPolicy.
-        :type: MoMoRef
-        """
-
-        self._account = account
 
     @property
     def base_properties(self):
@@ -561,6 +510,29 @@ class IamLdapPolicy(object):
         """
 
         self._groups = groups
+
+    @property
+    def organization(self):
+        """
+        Gets the organization of this IamLdapPolicy.
+        Organization 
+
+        :return: The organization of this IamLdapPolicy.
+        :rtype: MoMoRef
+        """
+        return self._organization
+
+    @organization.setter
+    def organization(self, organization):
+        """
+        Sets the organization of this IamLdapPolicy.
+        Organization 
+
+        :param organization: The organization of this IamLdapPolicy.
+        :type: MoMoRef
+        """
+
+        self._organization = organization
 
     @property
     def profile(self):

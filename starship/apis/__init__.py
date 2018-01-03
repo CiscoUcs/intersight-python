@@ -8,7 +8,6 @@ from .adapter_host_fc_interface_api import AdapterHostFcInterfaceApi
 from .adapter_host_iscsi_interface_api import AdapterHostIscsiInterfaceApi
 from .adapter_unit_api import AdapterUnitApi
 from .asset_device_claim_api import AssetDeviceClaimApi
-from .asset_device_registration_api import AssetDeviceRegistrationApi
 from .bios_policy_api import BiosPolicyApi
 from .compute_blade_api import ComputeBladeApi
 from .compute_board_api import ComputeBoardApi
@@ -57,7 +56,6 @@ from .hyperflex_cluster_storage_policy_api import HyperflexClusterStoragePolicyA
 from .hyperflex_config_result_api import HyperflexConfigResultApi
 from .hyperflex_ext_fc_storage_policy_api import HyperflexExtFcStoragePolicyApi
 from .hyperflex_ext_iscsi_storage_policy_api import HyperflexExtIscsiStoragePolicyApi
-from .hyperflex_firmware_policy_api import HyperflexFirmwarePolicyApi
 from .hyperflex_local_credential_policy_api import HyperflexLocalCredentialPolicyApi
 from .hyperflex_node_config_policy_api import HyperflexNodeConfigPolicyApi
 from .hyperflex_node_profile_api import HyperflexNodeProfileApi
@@ -96,6 +94,7 @@ from .ipmioverlan_policy_api import IpmioverlanPolicyApi
 from .kvm_policy_api import KvmPolicyApi
 from .license_account_license_data_api import LicenseAccountLicenseDataApi
 from .license_customer_op_api import LicenseCustomerOpApi
+from .license_license_info_api import LicenseLicenseInfoApi
 from .license_smartlicense_token_api import LicenseSmartlicenseTokenApi
 from .ls_service_profile_api import LsServiceProfileApi
 from .management_controller_api import ManagementControllerApi
@@ -108,16 +107,11 @@ from .network_element_api import NetworkElementApi
 from .network_element_summary_api import NetworkElementSummaryApi
 from .networkconfig_policy_api import NetworkconfigPolicyApi
 from .ntp_policy_api import NtpPolicyApi
-from .packagemanagement_connector_deploy_policy_api import PackagemanagementConnectorDeployPolicyApi
-from .packagemanagement_connector_image_api import PackagemanagementConnectorImageApi
-from .packagemanagement_connector_install_api import PackagemanagementConnectorInstallApi
 from .policy_policy_meta_api import PolicyPolicyMetaApi
-from .policy_sample_config_profile_api import PolicySampleConfigProfileApi
 from .port_group_api import PortGroupApi
 from .port_sub_group_api import PortSubGroupApi
 from .processor_unit_api import ProcessorUnitApi
 from .search_search_item_api import SearchSearchItemApi
-from .search_server_view_item_api import SearchServerViewItemApi
 from .search_suggest_item_api import SearchSuggestItemApi
 from .search_tag_item_api import SearchTagItemApi
 from .security_unit_api import SecurityUnitApi
@@ -131,13 +125,12 @@ from .storage_controller_api import StorageControllerApi
 from .storage_disk_group_policy_api import StorageDiskGroupPolicyApi
 from .storage_flex_flash_controller_api import StorageFlexFlashControllerApi
 from .storage_flex_flash_physical_drive_api import StorageFlexFlashPhysicalDriveApi
+from .storage_flex_util_controller_api import StorageFlexUtilControllerApi
 from .storage_physical_disk_api import StoragePhysicalDiskApi
 from .storage_storage_policy_api import StorageStoragePolicyApi
 from .storage_vd_member_ep_api import StorageVdMemberEpApi
 from .storage_virtual_drive_api import StorageVirtualDriveApi
-from .techsupportmanagement_download_api import TechsupportmanagementDownloadApi
-from .techsupportmanagement_tech_support_bundle_api import TechsupportmanagementTechSupportBundleApi
-from .techsupportmanagement_tech_support_status_api import TechsupportmanagementTechSupportStatusApi
+from .task_workflow_action_api import TaskWorkflowActionApi
 from .terminal_audit_log_api import TerminalAuditLogApi
 from .top_system_api import TopSystemApi
 from .vmedia_policy_api import VmediaPolicyApi

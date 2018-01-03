@@ -40,7 +40,6 @@ class HyperflexClusterNetworkPolicy(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'description': 'str',
         'name': 'str',
         'account': 'MoMoRef',
@@ -61,7 +60,6 @@ class HyperflexClusterNetworkPolicy(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'description': 'Description',
         'name': 'Name',
         'account': 'Account',
@@ -72,7 +70,7 @@ class HyperflexClusterNetworkPolicy(object):
         'vm_network_vlans': 'VmNetworkVlans'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, description=None, name=None, account=None, cluster_profile=None, jumbo_frame=None, mgmt_vlan=None, vm_migration_vlan=None, vm_network_vlans=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, description=None, name=None, account=None, cluster_profile=None, jumbo_frame=None, mgmt_vlan=None, vm_migration_vlan=None, vm_network_vlans=None):
         """
         HyperflexClusterNetworkPolicy - a model defined in Swagger
         """
@@ -86,7 +84,6 @@ class HyperflexClusterNetworkPolicy(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._description = None
         self._name = None
         self._account = None
@@ -114,8 +111,6 @@ class HyperflexClusterNetworkPolicy(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if description is not None:
           self.description = description
         if name is not None:
@@ -341,29 +336,6 @@ class HyperflexClusterNetworkPolicy(object):
         self._tags = tags
 
     @property
-    def id(self):
-        """
-        Gets the id of this HyperflexClusterNetworkPolicy.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this HyperflexClusterNetworkPolicy.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this HyperflexClusterNetworkPolicy.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this HyperflexClusterNetworkPolicy.
-        :type: str
-        """
-
-        self._id = id
-
-    @property
     def description(self):
         """
         Gets the description of this HyperflexClusterNetworkPolicy.
@@ -455,6 +427,7 @@ class HyperflexClusterNetworkPolicy(object):
     def jumbo_frame(self):
         """
         Gets the jumbo_frame of this HyperflexClusterNetworkPolicy.
+        Flag to indicate whether Jumbo Frames are enabled or disabled  
 
         :return: The jumbo_frame of this HyperflexClusterNetworkPolicy.
         :rtype: bool
@@ -465,6 +438,7 @@ class HyperflexClusterNetworkPolicy(object):
     def jumbo_frame(self, jumbo_frame):
         """
         Sets the jumbo_frame of this HyperflexClusterNetworkPolicy.
+        Flag to indicate whether Jumbo Frames are enabled or disabled  
 
         :param jumbo_frame: The jumbo_frame of this HyperflexClusterNetworkPolicy.
         :type: bool
@@ -476,6 +450,7 @@ class HyperflexClusterNetworkPolicy(object):
     def mgmt_vlan(self):
         """
         Gets the mgmt_vlan of this HyperflexClusterNetworkPolicy.
+        Represents the VLAN for Management traffic  
 
         :return: The mgmt_vlan of this HyperflexClusterNetworkPolicy.
         :rtype: HyperflexNamedVlan
@@ -486,6 +461,7 @@ class HyperflexClusterNetworkPolicy(object):
     def mgmt_vlan(self, mgmt_vlan):
         """
         Sets the mgmt_vlan of this HyperflexClusterNetworkPolicy.
+        Represents the VLAN for Management traffic  
 
         :param mgmt_vlan: The mgmt_vlan of this HyperflexClusterNetworkPolicy.
         :type: HyperflexNamedVlan
@@ -497,6 +473,7 @@ class HyperflexClusterNetworkPolicy(object):
     def vm_migration_vlan(self):
         """
         Gets the vm_migration_vlan of this HyperflexClusterNetworkPolicy.
+        Represents the VLAN for VM migration traffic  
 
         :return: The vm_migration_vlan of this HyperflexClusterNetworkPolicy.
         :rtype: HyperflexNamedVlan
@@ -507,6 +484,7 @@ class HyperflexClusterNetworkPolicy(object):
     def vm_migration_vlan(self, vm_migration_vlan):
         """
         Sets the vm_migration_vlan of this HyperflexClusterNetworkPolicy.
+        Represents the VLAN for VM migration traffic  
 
         :param vm_migration_vlan: The vm_migration_vlan of this HyperflexClusterNetworkPolicy.
         :type: HyperflexNamedVlan
@@ -518,6 +496,7 @@ class HyperflexClusterNetworkPolicy(object):
     def vm_network_vlans(self):
         """
         Gets the vm_network_vlans of this HyperflexClusterNetworkPolicy.
+        List of VLANs for VM traffic   
 
         :return: The vm_network_vlans of this HyperflexClusterNetworkPolicy.
         :rtype: list[HyperflexNamedVlan]
@@ -528,6 +507,7 @@ class HyperflexClusterNetworkPolicy(object):
     def vm_network_vlans(self, vm_network_vlans):
         """
         Sets the vm_network_vlans of this HyperflexClusterNetworkPolicy.
+        List of VLANs for VM traffic   
 
         :param vm_network_vlans: The vm_network_vlans of this HyperflexClusterNetworkPolicy.
         :type: list[HyperflexNamedVlan]

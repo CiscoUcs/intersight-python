@@ -40,12 +40,11 @@ class SmtpPolicy(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'description': 'str',
         'name': 'str',
-        'account': 'MoMoRef',
         'enabled': 'bool',
         'min_severity': 'str',
+        'organization': 'MoMoRef',
         'profile': 'MoMoRef',
         'smtp_port': 'int',
         'smtp_recipients': 'list[str]',
@@ -62,19 +61,18 @@ class SmtpPolicy(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'description': 'Description',
         'name': 'Name',
-        'account': 'Account',
         'enabled': 'Enabled',
         'min_severity': 'MinSeverity',
+        'organization': 'Organization',
         'profile': 'Profile',
         'smtp_port': 'SmtpPort',
         'smtp_recipients': 'SmtpRecipients',
         'smtp_server': 'SmtpServer'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, description=None, name=None, account=None, enabled=None, min_severity='critical', profile=None, smtp_port=None, smtp_recipients=None, smtp_server=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, description=None, name=None, enabled=None, min_severity='critical', organization=None, profile=None, smtp_port=None, smtp_recipients=None, smtp_server=None):
         """
         SmtpPolicy - a model defined in Swagger
         """
@@ -88,12 +86,11 @@ class SmtpPolicy(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._description = None
         self._name = None
-        self._account = None
         self._enabled = None
         self._min_severity = None
+        self._organization = None
         self._profile = None
         self._smtp_port = None
         self._smtp_recipients = None
@@ -117,18 +114,16 @@ class SmtpPolicy(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if description is not None:
           self.description = description
         if name is not None:
           self.name = name
-        if account is not None:
-          self.account = account
         if enabled is not None:
           self.enabled = enabled
         if min_severity is not None:
           self.min_severity = min_severity
+        if organization is not None:
+          self.organization = organization
         if profile is not None:
           self.profile = profile
         if smtp_port is not None:
@@ -346,29 +341,6 @@ class SmtpPolicy(object):
         self._tags = tags
 
     @property
-    def id(self):
-        """
-        Gets the id of this SmtpPolicy.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this SmtpPolicy.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this SmtpPolicy.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this SmtpPolicy.
-        :type: str
-        """
-
-        self._id = id
-
-    @property
     def description(self):
         """
         Gets the description of this SmtpPolicy.
@@ -413,29 +385,6 @@ class SmtpPolicy(object):
         """
 
         self._name = name
-
-    @property
-    def account(self):
-        """
-        Gets the account of this SmtpPolicy.
-        Relationship to set accountMoID on policies. When \"onpeerdelete\" set to \"cascade\", policies are deleted when the associated account is deleted. 
-
-        :return: The account of this SmtpPolicy.
-        :rtype: MoMoRef
-        """
-        return self._account
-
-    @account.setter
-    def account(self, account):
-        """
-        Sets the account of this SmtpPolicy.
-        Relationship to set accountMoID on policies. When \"onpeerdelete\" set to \"cascade\", policies are deleted when the associated account is deleted. 
-
-        :param account: The account of this SmtpPolicy.
-        :type: MoMoRef
-        """
-
-        self._account = account
 
     @property
     def enabled(self):
@@ -488,6 +437,29 @@ class SmtpPolicy(object):
             )
 
         self._min_severity = min_severity
+
+    @property
+    def organization(self):
+        """
+        Gets the organization of this SmtpPolicy.
+        Organization 
+
+        :return: The organization of this SmtpPolicy.
+        :rtype: MoMoRef
+        """
+        return self._organization
+
+    @organization.setter
+    def organization(self, organization):
+        """
+        Sets the organization of this SmtpPolicy.
+        Organization 
+
+        :param organization: The organization of this SmtpPolicy.
+        :type: MoMoRef
+        """
+
+        self._organization = organization
 
     @property
     def profile(self):

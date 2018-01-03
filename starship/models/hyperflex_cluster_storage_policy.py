@@ -40,13 +40,12 @@ class HyperflexClusterStoragePolicy(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'description': 'str',
         'name': 'str',
         'account': 'MoMoRef',
         'cluster_profile': 'list[MoMoRef]',
         'disk_partition_cleanup': 'bool',
-        'vdi_optimiazation': 'bool'
+        'vdi_optimization': 'bool'
     }
 
     attribute_map = {
@@ -59,16 +58,15 @@ class HyperflexClusterStoragePolicy(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'description': 'Description',
         'name': 'Name',
         'account': 'Account',
         'cluster_profile': 'ClusterProfile',
         'disk_partition_cleanup': 'DiskPartitionCleanup',
-        'vdi_optimiazation': 'VdiOptimiazation'
+        'vdi_optimization': 'VdiOptimization'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, description=None, name=None, account=None, cluster_profile=None, disk_partition_cleanup=None, vdi_optimiazation=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, description=None, name=None, account=None, cluster_profile=None, disk_partition_cleanup=None, vdi_optimization=None):
         """
         HyperflexClusterStoragePolicy - a model defined in Swagger
         """
@@ -82,13 +80,12 @@ class HyperflexClusterStoragePolicy(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._description = None
         self._name = None
         self._account = None
         self._cluster_profile = None
         self._disk_partition_cleanup = None
-        self._vdi_optimiazation = None
+        self._vdi_optimization = None
 
         if account_moid is not None:
           self.account_moid = account_moid
@@ -108,8 +105,6 @@ class HyperflexClusterStoragePolicy(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if description is not None:
           self.description = description
         if name is not None:
@@ -120,8 +115,8 @@ class HyperflexClusterStoragePolicy(object):
           self.cluster_profile = cluster_profile
         if disk_partition_cleanup is not None:
           self.disk_partition_cleanup = disk_partition_cleanup
-        if vdi_optimiazation is not None:
-          self.vdi_optimiazation = vdi_optimiazation
+        if vdi_optimization is not None:
+          self.vdi_optimization = vdi_optimization
 
     @property
     def account_moid(self):
@@ -331,29 +326,6 @@ class HyperflexClusterStoragePolicy(object):
         self._tags = tags
 
     @property
-    def id(self):
-        """
-        Gets the id of this HyperflexClusterStoragePolicy.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this HyperflexClusterStoragePolicy.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this HyperflexClusterStoragePolicy.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this HyperflexClusterStoragePolicy.
-        :type: str
-        """
-
-        self._id = id
-
-    @property
     def description(self):
         """
         Gets the description of this HyperflexClusterStoragePolicy.
@@ -445,6 +417,7 @@ class HyperflexClusterStoragePolicy(object):
     def disk_partition_cleanup(self):
         """
         Gets the disk_partition_cleanup of this HyperflexClusterStoragePolicy.
+        Flag to determine if the existing disk partitions need to be cleaned up  
 
         :return: The disk_partition_cleanup of this HyperflexClusterStoragePolicy.
         :rtype: bool
@@ -455,6 +428,7 @@ class HyperflexClusterStoragePolicy(object):
     def disk_partition_cleanup(self, disk_partition_cleanup):
         """
         Sets the disk_partition_cleanup of this HyperflexClusterStoragePolicy.
+        Flag to determine if the existing disk partitions need to be cleaned up  
 
         :param disk_partition_cleanup: The disk_partition_cleanup of this HyperflexClusterStoragePolicy.
         :type: bool
@@ -463,25 +437,27 @@ class HyperflexClusterStoragePolicy(object):
         self._disk_partition_cleanup = disk_partition_cleanup
 
     @property
-    def vdi_optimiazation(self):
+    def vdi_optimization(self):
         """
-        Gets the vdi_optimiazation of this HyperflexClusterStoragePolicy.
+        Gets the vdi_optimization of this HyperflexClusterStoragePolicy.
+        Flag to determine if VDI Optimization needs to be enabled or disabled   
 
-        :return: The vdi_optimiazation of this HyperflexClusterStoragePolicy.
+        :return: The vdi_optimization of this HyperflexClusterStoragePolicy.
         :rtype: bool
         """
-        return self._vdi_optimiazation
+        return self._vdi_optimization
 
-    @vdi_optimiazation.setter
-    def vdi_optimiazation(self, vdi_optimiazation):
+    @vdi_optimization.setter
+    def vdi_optimization(self, vdi_optimization):
         """
-        Sets the vdi_optimiazation of this HyperflexClusterStoragePolicy.
+        Sets the vdi_optimization of this HyperflexClusterStoragePolicy.
+        Flag to determine if VDI Optimization needs to be enabled or disabled   
 
-        :param vdi_optimiazation: The vdi_optimiazation of this HyperflexClusterStoragePolicy.
+        :param vdi_optimization: The vdi_optimization of this HyperflexClusterStoragePolicy.
         :type: bool
         """
 
-        self._vdi_optimiazation = vdi_optimiazation
+        self._vdi_optimization = vdi_optimization
 
     def to_dict(self):
         """

@@ -40,7 +40,6 @@ class SearchSuggestItem(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'complete_mo': 'bool',
         'rawquery': 'str',
         'skip': 'int',
@@ -59,7 +58,6 @@ class SearchSuggestItem(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'complete_mo': 'CompleteMo',
         'rawquery': 'Rawquery',
         'skip': 'Skip',
@@ -68,7 +66,7 @@ class SearchSuggestItem(object):
         'type': 'Type'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, complete_mo=None, rawquery=None, skip=None, suggest_term=None, top=None, type=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, complete_mo=None, rawquery=None, skip=None, suggest_term=None, top=None, type=None):
         """
         SearchSuggestItem - a model defined in Swagger
         """
@@ -82,7 +80,6 @@ class SearchSuggestItem(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._complete_mo = None
         self._rawquery = None
         self._skip = None
@@ -108,8 +105,6 @@ class SearchSuggestItem(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if complete_mo is not None:
           self.complete_mo = complete_mo
         if rawquery is not None:
@@ -329,29 +324,6 @@ class SearchSuggestItem(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this SearchSuggestItem.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this SearchSuggestItem.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this SearchSuggestItem.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this SearchSuggestItem.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def complete_mo(self):

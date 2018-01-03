@@ -40,7 +40,6 @@ class ComputeBoard(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'device_mo_id': 'str',
         'dn': 'str',
         'rn': 'str',
@@ -60,7 +59,8 @@ class ComputeBoard(object):
         'registered_device': 'MoMoRef',
         'security_units': 'list[MoMoRef]',
         'storage_controllers': 'list[MoMoRef]',
-        'storage_flex_flash_controllers': 'list[MoMoRef]'
+        'storage_flex_flash_controllers': 'list[MoMoRef]',
+        'storage_flex_util_controllers': 'list[MoMoRef]'
     }
 
     attribute_map = {
@@ -73,7 +73,6 @@ class ComputeBoard(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'device_mo_id': 'DeviceMoId',
         'dn': 'Dn',
         'rn': 'Rn',
@@ -93,10 +92,11 @@ class ComputeBoard(object):
         'registered_device': 'RegisteredDevice',
         'security_units': 'SecurityUnits',
         'storage_controllers': 'StorageControllers',
-        'storage_flex_flash_controllers': 'StorageFlexFlashControllers'
+        'storage_flex_flash_controllers': 'StorageFlexFlashControllers',
+        'storage_flex_util_controllers': 'StorageFlexUtilControllers'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, device_mo_id=None, dn=None, rn=None, model=None, revision=None, serial=None, vendor=None, board_id=None, compute_blade=None, compute_rack_unit=None, cpu_type_controller=None, graphics_cards=None, memory_arrays=None, oper_power_state=None, presence=None, processors=None, registered_device=None, security_units=None, storage_controllers=None, storage_flex_flash_controllers=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, device_mo_id=None, dn=None, rn=None, model=None, revision=None, serial=None, vendor=None, board_id=None, compute_blade=None, compute_rack_unit=None, cpu_type_controller=None, graphics_cards=None, memory_arrays=None, oper_power_state=None, presence=None, processors=None, registered_device=None, security_units=None, storage_controllers=None, storage_flex_flash_controllers=None, storage_flex_util_controllers=None):
         """
         ComputeBoard - a model defined in Swagger
         """
@@ -110,7 +110,6 @@ class ComputeBoard(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._device_mo_id = None
         self._dn = None
         self._rn = None
@@ -131,6 +130,7 @@ class ComputeBoard(object):
         self._security_units = None
         self._storage_controllers = None
         self._storage_flex_flash_controllers = None
+        self._storage_flex_util_controllers = None
 
         if account_moid is not None:
           self.account_moid = account_moid
@@ -150,8 +150,6 @@ class ComputeBoard(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if device_mo_id is not None:
           self.device_mo_id = device_mo_id
         if dn is not None:
@@ -192,6 +190,8 @@ class ComputeBoard(object):
           self.storage_controllers = storage_controllers
         if storage_flex_flash_controllers is not None:
           self.storage_flex_flash_controllers = storage_flex_flash_controllers
+        if storage_flex_util_controllers is not None:
+          self.storage_flex_util_controllers = storage_flex_util_controllers
 
     @property
     def account_moid(self):
@@ -399,29 +399,6 @@ class ComputeBoard(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this ComputeBoard.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this ComputeBoard.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this ComputeBoard.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this ComputeBoard.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def device_mo_id(self):
@@ -842,6 +819,27 @@ class ComputeBoard(object):
         """
 
         self._storage_flex_flash_controllers = storage_flex_flash_controllers
+
+    @property
+    def storage_flex_util_controllers(self):
+        """
+        Gets the storage_flex_util_controllers of this ComputeBoard.
+
+        :return: The storage_flex_util_controllers of this ComputeBoard.
+        :rtype: list[MoMoRef]
+        """
+        return self._storage_flex_util_controllers
+
+    @storage_flex_util_controllers.setter
+    def storage_flex_util_controllers(self, storage_flex_util_controllers):
+        """
+        Sets the storage_flex_util_controllers of this ComputeBoard.
+
+        :param storage_flex_util_controllers: The storage_flex_util_controllers of this ComputeBoard.
+        :type: list[MoMoRef]
+        """
+
+        self._storage_flex_util_controllers = storage_flex_util_controllers
 
     def to_dict(self):
         """

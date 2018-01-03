@@ -40,7 +40,6 @@ class IamIdpReference(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'account': 'MoMoRef',
         'idp': 'MoMoRef',
         'name': 'str',
@@ -60,7 +59,6 @@ class IamIdpReference(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'account': 'Account',
         'idp': 'Idp',
         'name': 'Name',
@@ -70,7 +68,7 @@ class IamIdpReference(object):
         'users': 'Users'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, account=None, idp=None, name=None, user_login_time=None, user_preferences=None, usergroups=None, users=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, account=None, idp=None, name=None, user_login_time=None, user_preferences=None, usergroups=None, users=None):
         """
         IamIdpReference - a model defined in Swagger
         """
@@ -84,7 +82,6 @@ class IamIdpReference(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._account = None
         self._idp = None
         self._name = None
@@ -111,8 +108,6 @@ class IamIdpReference(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if account is not None:
           self.account = account
         if idp is not None:
@@ -334,29 +329,6 @@ class IamIdpReference(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this IamIdpReference.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this IamIdpReference.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this IamIdpReference.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this IamIdpReference.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def account(self):

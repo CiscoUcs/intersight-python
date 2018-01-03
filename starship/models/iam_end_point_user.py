@@ -40,10 +40,9 @@ class IamEndPointUser(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
-        'account': 'MoMoRef',
         'end_point_user_role': 'list[MoMoRef]',
-        'name': 'str'
+        'name': 'str',
+        'organization': 'MoMoRef'
     }
 
     attribute_map = {
@@ -56,13 +55,12 @@ class IamEndPointUser(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
-        'account': 'Account',
         'end_point_user_role': 'EndPointUserRole',
-        'name': 'Name'
+        'name': 'Name',
+        'organization': 'Organization'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, account=None, end_point_user_role=None, name=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, end_point_user_role=None, name=None, organization=None):
         """
         IamEndPointUser - a model defined in Swagger
         """
@@ -76,10 +74,9 @@ class IamEndPointUser(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
-        self._account = None
         self._end_point_user_role = None
         self._name = None
+        self._organization = None
 
         if account_moid is not None:
           self.account_moid = account_moid
@@ -99,14 +96,12 @@ class IamEndPointUser(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
-        if account is not None:
-          self.account = account
         if end_point_user_role is not None:
           self.end_point_user_role = end_point_user_role
         if name is not None:
           self.name = name
+        if organization is not None:
+          self.organization = organization
 
     @property
     def account_moid(self):
@@ -316,52 +311,6 @@ class IamEndPointUser(object):
         self._tags = tags
 
     @property
-    def id(self):
-        """
-        Gets the id of this IamEndPointUser.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this IamEndPointUser.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this IamEndPointUser.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this IamEndPointUser.
-        :type: str
-        """
-
-        self._id = id
-
-    @property
-    def account(self):
-        """
-        Gets the account of this IamEndPointUser.
-        Relationship to account 
-
-        :return: The account of this IamEndPointUser.
-        :rtype: MoMoRef
-        """
-        return self._account
-
-    @account.setter
-    def account(self, account):
-        """
-        Sets the account of this IamEndPointUser.
-        Relationship to account 
-
-        :param account: The account of this IamEndPointUser.
-        :type: MoMoRef
-        """
-
-        self._account = account
-
-    @property
     def end_point_user_role(self):
         """
         Gets the end_point_user_role of this IamEndPointUser.
@@ -404,6 +353,29 @@ class IamEndPointUser(object):
         """
 
         self._name = name
+
+    @property
+    def organization(self):
+        """
+        Gets the organization of this IamEndPointUser.
+        Organization 
+
+        :return: The organization of this IamEndPointUser.
+        :rtype: MoMoRef
+        """
+        return self._organization
+
+    @organization.setter
+    def organization(self, organization):
+        """
+        Sets the organization of this IamEndPointUser.
+        Organization 
+
+        :param organization: The organization of this IamEndPointUser.
+        :type: MoMoRef
+        """
+
+        self._organization = organization
 
     def to_dict(self):
         """

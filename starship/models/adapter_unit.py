@@ -40,7 +40,6 @@ class AdapterUnit(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'device_mo_id': 'str',
         'dn': 'str',
         'rn': 'str',
@@ -79,7 +78,6 @@ class AdapterUnit(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'device_mo_id': 'DeviceMoId',
         'dn': 'Dn',
         'rn': 'Rn',
@@ -108,7 +106,7 @@ class AdapterUnit(object):
         'vid': 'Vid'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, device_mo_id=None, dn=None, rn=None, model=None, revision=None, serial=None, vendor=None, adapter_id=None, base_mac_address=None, compute_blade=None, compute_rack_unit=None, controller=None, ext_eth_ifs=None, host_eth_ifs=None, host_fc_ifs=None, host_iscsi_ifs=None, integrated=None, oper_state=None, operability=None, part_number=None, pci_slot=None, power=None, presence=None, registered_device=None, thermal=None, vid=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, device_mo_id=None, dn=None, rn=None, model=None, revision=None, serial=None, vendor=None, adapter_id=None, base_mac_address=None, compute_blade=None, compute_rack_unit=None, controller=None, ext_eth_ifs=None, host_eth_ifs=None, host_fc_ifs=None, host_iscsi_ifs=None, integrated=None, oper_state=None, operability=None, part_number=None, pci_slot=None, power=None, presence=None, registered_device=None, thermal=None, vid=None):
         """
         AdapterUnit - a model defined in Swagger
         """
@@ -122,7 +120,6 @@ class AdapterUnit(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._device_mo_id = None
         self._dn = None
         self._rn = None
@@ -168,8 +165,6 @@ class AdapterUnit(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if device_mo_id is not None:
           self.device_mo_id = device_mo_id
         if dn is not None:
@@ -429,29 +424,6 @@ class AdapterUnit(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this AdapterUnit.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this AdapterUnit.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this AdapterUnit.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this AdapterUnit.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def device_mo_id(self):

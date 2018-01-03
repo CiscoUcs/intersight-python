@@ -40,12 +40,11 @@ class IpmioverlanPolicy(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'description': 'str',
         'name': 'str',
-        'account': 'MoMoRef',
         'enabled': 'bool',
         'encryption_key': 'str',
+        'organization': 'MoMoRef',
         'privilege': 'str',
         'profile': 'MoMoRef'
     }
@@ -60,17 +59,16 @@ class IpmioverlanPolicy(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'description': 'Description',
         'name': 'Name',
-        'account': 'Account',
         'enabled': 'Enabled',
         'encryption_key': 'EncryptionKey',
+        'organization': 'Organization',
         'privilege': 'Privilege',
         'profile': 'Profile'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, description=None, name=None, account=None, enabled=None, encryption_key=None, privilege='admin', profile=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, description=None, name=None, enabled=None, encryption_key=None, organization=None, privilege='admin', profile=None):
         """
         IpmioverlanPolicy - a model defined in Swagger
         """
@@ -84,12 +82,11 @@ class IpmioverlanPolicy(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._description = None
         self._name = None
-        self._account = None
         self._enabled = None
         self._encryption_key = None
+        self._organization = None
         self._privilege = None
         self._profile = None
 
@@ -111,18 +108,16 @@ class IpmioverlanPolicy(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if description is not None:
           self.description = description
         if name is not None:
           self.name = name
-        if account is not None:
-          self.account = account
         if enabled is not None:
           self.enabled = enabled
         if encryption_key is not None:
           self.encryption_key = encryption_key
+        if organization is not None:
+          self.organization = organization
         if privilege is not None:
           self.privilege = privilege
         if profile is not None:
@@ -336,29 +331,6 @@ class IpmioverlanPolicy(object):
         self._tags = tags
 
     @property
-    def id(self):
-        """
-        Gets the id of this IpmioverlanPolicy.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this IpmioverlanPolicy.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this IpmioverlanPolicy.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this IpmioverlanPolicy.
-        :type: str
-        """
-
-        self._id = id
-
-    @property
     def description(self):
         """
         Gets the description of this IpmioverlanPolicy.
@@ -405,29 +377,6 @@ class IpmioverlanPolicy(object):
         self._name = name
 
     @property
-    def account(self):
-        """
-        Gets the account of this IpmioverlanPolicy.
-        Relationship to set accountMoID on policies. When \"onpeerdelete\" is set to \"cascade\", policies are deleted when the associated account is deleted. 
-
-        :return: The account of this IpmioverlanPolicy.
-        :rtype: MoMoRef
-        """
-        return self._account
-
-    @account.setter
-    def account(self, account):
-        """
-        Sets the account of this IpmioverlanPolicy.
-        Relationship to set accountMoID on policies. When \"onpeerdelete\" is set to \"cascade\", policies are deleted when the associated account is deleted. 
-
-        :param account: The account of this IpmioverlanPolicy.
-        :type: MoMoRef
-        """
-
-        self._account = account
-
-    @property
     def enabled(self):
         """
         Gets the enabled of this IpmioverlanPolicy.
@@ -472,6 +421,29 @@ class IpmioverlanPolicy(object):
         """
 
         self._encryption_key = encryption_key
+
+    @property
+    def organization(self):
+        """
+        Gets the organization of this IpmioverlanPolicy.
+        Organization 
+
+        :return: The organization of this IpmioverlanPolicy.
+        :rtype: MoMoRef
+        """
+        return self._organization
+
+    @organization.setter
+    def organization(self, organization):
+        """
+        Sets the organization of this IpmioverlanPolicy.
+        Organization 
+
+        :param organization: The organization of this IpmioverlanPolicy.
+        :type: MoMoRef
+        """
+
+        self._organization = organization
 
     @property
     def privilege(self):

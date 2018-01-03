@@ -40,7 +40,6 @@ class MetaDefinition(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'ancestor_classes': 'list[str]',
         'external_type': 'bool',
         'is_concrete': 'bool',
@@ -64,7 +63,6 @@ class MetaDefinition(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'ancestor_classes': 'AncestorClasses',
         'external_type': 'ExternalType',
         'is_concrete': 'IsConcrete',
@@ -78,7 +76,7 @@ class MetaDefinition(object):
         'version': 'Version'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, ancestor_classes=None, external_type=None, is_concrete=None, name=None, namespace=None, observe=None, parent_class=None, properties=None, relationships=None, rest_path=None, version=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, ancestor_classes=None, external_type=None, is_concrete=None, name=None, namespace=None, observe=None, parent_class=None, properties=None, relationships=None, rest_path=None, version=None):
         """
         MetaDefinition - a model defined in Swagger
         """
@@ -92,7 +90,6 @@ class MetaDefinition(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._ancestor_classes = None
         self._external_type = None
         self._is_concrete = None
@@ -123,8 +120,6 @@ class MetaDefinition(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if ancestor_classes is not None:
           self.ancestor_classes = ancestor_classes
         if external_type is not None:
@@ -354,29 +349,6 @@ class MetaDefinition(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this MetaDefinition.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this MetaDefinition.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this MetaDefinition.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this MetaDefinition.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def ancestor_classes(self):

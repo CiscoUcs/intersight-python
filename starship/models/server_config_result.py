@@ -40,7 +40,6 @@ class ServerConfigResult(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'config_stage': 'str',
         'config_state': 'str',
         'result_entries': 'list[PolicyConfigResultEntry]',
@@ -58,7 +57,6 @@ class ServerConfigResult(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'config_stage': 'ConfigStage',
         'config_state': 'ConfigState',
         'result_entries': 'ResultEntries',
@@ -66,7 +64,7 @@ class ServerConfigResult(object):
         'profile': 'Profile'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, config_stage=None, config_state=None, result_entries=None, validation_state=None, profile=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, config_stage=None, config_state=None, result_entries=None, validation_state=None, profile=None):
         """
         ServerConfigResult - a model defined in Swagger
         """
@@ -80,7 +78,6 @@ class ServerConfigResult(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._config_stage = None
         self._config_state = None
         self._result_entries = None
@@ -105,8 +102,6 @@ class ServerConfigResult(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if config_stage is not None:
           self.config_stage = config_stage
         if config_state is not None:
@@ -324,29 +319,6 @@ class ServerConfigResult(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this ServerConfigResult.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this ServerConfigResult.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this ServerConfigResult.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this ServerConfigResult.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def config_stage(self):

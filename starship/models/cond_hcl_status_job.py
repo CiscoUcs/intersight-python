@@ -40,9 +40,7 @@ class CondHclStatusJob(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'managed_object': 'MoMoRef',
-        'mod_type': 'int',
         'registered_device': 'MoMoRef'
     }
 
@@ -56,13 +54,11 @@ class CondHclStatusJob(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'managed_object': 'ManagedObject',
-        'mod_type': 'ModType',
         'registered_device': 'RegisteredDevice'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, managed_object=None, mod_type=None, registered_device=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, managed_object=None, registered_device=None):
         """
         CondHclStatusJob - a model defined in Swagger
         """
@@ -76,9 +72,7 @@ class CondHclStatusJob(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._managed_object = None
-        self._mod_type = None
         self._registered_device = None
 
         if account_moid is not None:
@@ -99,12 +93,8 @@ class CondHclStatusJob(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if managed_object is not None:
           self.managed_object = managed_object
-        if mod_type is not None:
-          self.mod_type = mod_type
         if registered_device is not None:
           self.registered_device = registered_device
 
@@ -316,29 +306,6 @@ class CondHclStatusJob(object):
         self._tags = tags
 
     @property
-    def id(self):
-        """
-        Gets the id of this CondHclStatusJob.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this CondHclStatusJob.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this CondHclStatusJob.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this CondHclStatusJob.
-        :type: str
-        """
-
-        self._id = id
-
-    @property
     def managed_object(self):
         """
         Gets the managed_object of this CondHclStatusJob.
@@ -360,29 +327,6 @@ class CondHclStatusJob(object):
         """
 
         self._managed_object = managed_object
-
-    @property
-    def mod_type(self):
-        """
-        Gets the mod_type of this CondHclStatusJob.
-        the type of modification that is being performed. (UPDATE, DELETE)   
-
-        :return: The mod_type of this CondHclStatusJob.
-        :rtype: int
-        """
-        return self._mod_type
-
-    @mod_type.setter
-    def mod_type(self, mod_type):
-        """
-        Sets the mod_type of this CondHclStatusJob.
-        the type of modification that is being performed. (UPDATE, DELETE)   
-
-        :param mod_type: The mod_type of this CondHclStatusJob.
-        :type: int
-        """
-
-        self._mod_type = mod_type
 
     @property
     def registered_device(self):

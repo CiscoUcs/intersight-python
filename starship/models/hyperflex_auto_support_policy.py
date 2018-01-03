@@ -40,7 +40,6 @@ class HyperflexAutoSupportPolicy(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'description': 'str',
         'name': 'str',
         'account': 'MoMoRef',
@@ -59,7 +58,6 @@ class HyperflexAutoSupportPolicy(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'description': 'Description',
         'name': 'Name',
         'account': 'Account',
@@ -68,7 +66,7 @@ class HyperflexAutoSupportPolicy(object):
         'service_ticket_receipient': 'ServiceTicketReceipient'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, description=None, name=None, account=None, admin_state=None, cluster_profile=None, service_ticket_receipient=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, description=None, name=None, account=None, admin_state=None, cluster_profile=None, service_ticket_receipient=None):
         """
         HyperflexAutoSupportPolicy - a model defined in Swagger
         """
@@ -82,7 +80,6 @@ class HyperflexAutoSupportPolicy(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._description = None
         self._name = None
         self._account = None
@@ -108,8 +105,6 @@ class HyperflexAutoSupportPolicy(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if description is not None:
           self.description = description
         if name is not None:
@@ -331,29 +326,6 @@ class HyperflexAutoSupportPolicy(object):
         self._tags = tags
 
     @property
-    def id(self):
-        """
-        Gets the id of this HyperflexAutoSupportPolicy.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this HyperflexAutoSupportPolicy.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this HyperflexAutoSupportPolicy.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this HyperflexAutoSupportPolicy.
-        :type: str
-        """
-
-        self._id = id
-
-    @property
     def description(self):
         """
         Gets the description of this HyperflexAutoSupportPolicy.
@@ -424,6 +396,7 @@ class HyperflexAutoSupportPolicy(object):
     def admin_state(self):
         """
         Gets the admin_state of this HyperflexAutoSupportPolicy.
+        Flag to determine whether Auto Support is enabled or disabled  
 
         :return: The admin_state of this HyperflexAutoSupportPolicy.
         :rtype: bool
@@ -434,6 +407,7 @@ class HyperflexAutoSupportPolicy(object):
     def admin_state(self, admin_state):
         """
         Sets the admin_state of this HyperflexAutoSupportPolicy.
+        Flag to determine whether Auto Support is enabled or disabled  
 
         :param admin_state: The admin_state of this HyperflexAutoSupportPolicy.
         :type: bool
@@ -466,6 +440,7 @@ class HyperflexAutoSupportPolicy(object):
     def service_ticket_receipient(self):
         """
         Gets the service_ticket_receipient of this HyperflexAutoSupportPolicy.
+        Designated E-mail Address or E-mail alias to which notifications are sent from HX Data Platform   
 
         :return: The service_ticket_receipient of this HyperflexAutoSupportPolicy.
         :rtype: str
@@ -476,6 +451,7 @@ class HyperflexAutoSupportPolicy(object):
     def service_ticket_receipient(self, service_ticket_receipient):
         """
         Sets the service_ticket_receipient of this HyperflexAutoSupportPolicy.
+        Designated E-mail Address or E-mail alias to which notifications are sent from HX Data Platform   
 
         :param service_ticket_receipient: The service_ticket_receipient of this HyperflexAutoSupportPolicy.
         :type: str

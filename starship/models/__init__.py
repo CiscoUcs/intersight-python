@@ -20,7 +20,6 @@ from .adapter_host_eth_interface_list import AdapterHostEthInterfaceList
 from .adapter_host_fc_interface_list import AdapterHostFcInterfaceList
 from .adapter_host_iscsi_interface_list import AdapterHostIscsiInterfaceList
 from .adapter_unit_list import AdapterUnitList
-from .asset_device_registration_list import AssetDeviceRegistrationList
 from .bios_input_output import BiosInputOutput
 from .bios_lom_and_pcie_slots_configuration import BiosLomAndPcieSlotsConfiguration
 from .bios_memory import BiosMemory
@@ -88,7 +87,6 @@ from .hyperflex_cluster_storage_policy_list import HyperflexClusterStoragePolicy
 from .hyperflex_config_result_list import HyperflexConfigResultList
 from .hyperflex_ext_fc_storage_policy_list import HyperflexExtFcStoragePolicyList
 from .hyperflex_ext_iscsi_storage_policy_list import HyperflexExtIscsiStoragePolicyList
-from .hyperflex_firmware_policy_list import HyperflexFirmwarePolicyList
 from .hyperflex_ip_addr_range import HyperflexIpAddrRange
 from .hyperflex_iterator_string import HyperflexIteratorString
 from .hyperflex_local_credential_policy_list import HyperflexLocalCredentialPolicyList
@@ -140,6 +138,7 @@ from .ipmioverlan_policy_list import IpmioverlanPolicyList
 from .kvm_policy_list import KvmPolicyList
 from .license_account_license_data_list import LicenseAccountLicenseDataList
 from .license_customer_op_list import LicenseCustomerOpList
+from .license_license_info_list import LicenseLicenseInfoList
 from .license_smartlicense_token_list import LicenseSmartlicenseTokenList
 from .ls_service_profile_list import LsServiceProfileList
 from .management_controller_list import ManagementControllerList
@@ -150,6 +149,7 @@ from .memory_unit_list import MemoryUnitList
 from .meta_definition_list import MetaDefinitionList
 from .meta_prop_definition import MetaPropDefinition
 from .meta_relationship_definition import MetaRelationshipDefinition
+from .mo_base_complex_type import MoBaseComplexType
 from .mo_base_mo import MoBaseMo
 from .mo_mo_ref import MoMoRef
 from .mo_tag import MoTag
@@ -157,9 +157,6 @@ from .network_element_list import NetworkElementList
 from .network_element_summary_list import NetworkElementSummaryList
 from .networkconfig_policy_list import NetworkconfigPolicyList
 from .ntp_policy_list import NtpPolicyList
-from .packagemanagement_connector_deploy_policy_list import PackagemanagementConnectorDeployPolicyList
-from .packagemanagement_connector_image_list import PackagemanagementConnectorImageList
-from .packagemanagement_connector_install_list import PackagemanagementConnectorInstallList
 from .policy_attachable_service_object import PolicyAttachableServiceObject
 from .policy_category import PolicyCategory
 from .policy_config_context import PolicyConfigContext
@@ -168,12 +165,10 @@ from .policy_config_result_entry import PolicyConfigResultEntry
 from .policy_hardware_platform import PolicyHardwarePlatform
 from .policy_management_platform import PolicyManagementPlatform
 from .policy_policy_meta_list import PolicyPolicyMetaList
-from .policy_sample_config_profile_list import PolicySampleConfigProfileList
 from .port_group_list import PortGroupList
 from .port_sub_group_list import PortSubGroupList
 from .processor_unit_list import ProcessorUnitList
 from .search_search_item_list import SearchSearchItemList
-from .search_server_view_item_list import SearchServerViewItemList
 from .search_tag_item_list import SearchTagItemList
 from .security_unit_list import SecurityUnitList
 from .server_config_change import ServerConfigChange
@@ -190,6 +185,7 @@ from .storage_controller_list import StorageControllerList
 from .storage_disk_group_policy_list import StorageDiskGroupPolicyList
 from .storage_flex_flash_controller_list import StorageFlexFlashControllerList
 from .storage_flex_flash_physical_drive_list import StorageFlexFlashPhysicalDriveList
+from .storage_flex_util_controller_list import StorageFlexUtilControllerList
 from .storage_local_disk import StorageLocalDisk
 from .storage_physical_disk_list import StoragePhysicalDiskList
 from .storage_remote_key_setting import StorageRemoteKeySetting
@@ -197,9 +193,8 @@ from .storage_span_group import StorageSpanGroup
 from .storage_storage_policy_list import StorageStoragePolicyList
 from .storage_vd_member_ep_list import StorageVdMemberEpList
 from .storage_virtual_drive_list import StorageVirtualDriveList
-from .techsupportmanagement_download_list import TechsupportmanagementDownloadList
-from .techsupportmanagement_tech_support_bundle_list import TechsupportmanagementTechSupportBundleList
-from .techsupportmanagement_tech_support_status_list import TechsupportmanagementTechSupportStatusList
+from .task_file_download_info import TaskFileDownloadInfo
+from .task_workflow_action_list import TaskWorkflowActionList
 from .terminal_audit_log_list import TerminalAuditLogList
 from .top_system_list import TopSystemList
 from .vmedia_mapping import VmediaMapping
@@ -212,7 +207,6 @@ from .workflow_workflow_meta_list import WorkflowWorkflowMetaList
 from .workflow_workflow_task_list import WorkflowWorkflowTaskList
 from .aaa_abstract_audit_record import AaaAbstractAuditRecord
 from .asset_device_claim import AssetDeviceClaim
-from .asset_device_registration import AssetDeviceRegistration
 from .cond_alarm import CondAlarm
 from .cond_hcl_status import CondHclStatus
 from .cond_hcl_status_action import CondHclStatusAction
@@ -259,22 +253,17 @@ from .inventory_device_info import InventoryDeviceInfo
 from .inventory_dn_mo_binding import InventoryDnMoBinding
 from .license_account_license_data import LicenseAccountLicenseData
 from .license_customer_op import LicenseCustomerOp
+from .license_license_info import LicenseLicenseInfo
 from .license_smartlicense_token import LicenseSmartlicenseToken
 from .meta_definition import MetaDefinition
-from .packagemanagement_connector_deploy_policy import PackagemanagementConnectorDeployPolicy
-from .packagemanagement_connector_image import PackagemanagementConnectorImage
-from .packagemanagement_connector_install import PackagemanagementConnectorInstall
 from .policy_abstract_config_result import PolicyAbstractConfigResult
 from .policy_abstract_policy import PolicyAbstractPolicy
 from .policy_abstract_profile import PolicyAbstractProfile
 from .policy_policy_meta import PolicyPolicyMeta
 from .search_search_item import SearchSearchItem
-from .search_server_view_item import SearchServerViewItem
 from .search_suggest_item import SearchSuggestItem
 from .search_tag_item import SearchTagItem
-from .techsupportmanagement_download import TechsupportmanagementDownload
-from .techsupportmanagement_tech_support_bundle import TechsupportmanagementTechSupportBundle
-from .techsupportmanagement_tech_support_status import TechsupportmanagementTechSupportStatus
+from .task_workflow_action import TaskWorkflowAction
 from .terminal_audit_log import TerminalAuditLog
 from .views_view import ViewsView
 from .workflow_build_task_meta import WorkflowBuildTaskMeta
@@ -298,7 +287,6 @@ from .hyperflex_cluster_storage_policy import HyperflexClusterStoragePolicy
 from .hyperflex_config_result import HyperflexConfigResult
 from .hyperflex_ext_fc_storage_policy import HyperflexExtFcStoragePolicy
 from .hyperflex_ext_iscsi_storage_policy import HyperflexExtIscsiStoragePolicy
-from .hyperflex_firmware_policy import HyperflexFirmwarePolicy
 from .hyperflex_local_credential_policy import HyperflexLocalCredentialPolicy
 from .hyperflex_node_config_policy import HyperflexNodeConfigPolicy
 from .hyperflex_node_profile import HyperflexNodeProfile
@@ -328,6 +316,7 @@ from .snmp_policy import SnmpPolicy
 from .sol_policy import SolPolicy
 from .ssh_policy import SshPolicy
 from .storage_disk_group_policy import StorageDiskGroupPolicy
+from .storage_flex_util_controller import StorageFlexUtilController
 from .storage_storage_policy import StorageStoragePolicy
 from .storage_vd_member_ep import StorageVdMemberEp
 from .top_system import TopSystem
@@ -355,7 +344,6 @@ from .hyperflex_cluster_profile import HyperflexClusterProfile
 from .memory_array import MemoryArray
 from .memory_unit import MemoryUnit
 from .network_element import NetworkElement
-from .policy_sample_config_profile import PolicySampleConfigProfile
 from .processor_unit import ProcessorUnit
 from .security_unit import SecurityUnit
 from .server_profile import ServerProfile

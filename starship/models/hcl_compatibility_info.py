@@ -40,7 +40,6 @@ class HclCompatibilityInfo(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'adapter_bios': 'str',
         'driver_protocol': 'str',
         'driver_vendor': 'str',
@@ -68,7 +67,6 @@ class HclCompatibilityInfo(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'adapter_bios': 'AdapterBios',
         'driver_protocol': 'DriverProtocol',
         'driver_vendor': 'DriverVendor',
@@ -86,7 +84,7 @@ class HclCompatibilityInfo(object):
         'version_type': 'VersionType'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, adapter_bios=None, driver_protocol=None, driver_vendor=None, driver_version=None, firmware=None, notes=None, os_vendor=None, os_version=None, processor_name=None, product_id=None, product_model=None, server_model=None, server_pid=None, ucs_version=None, version_type=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, adapter_bios=None, driver_protocol=None, driver_vendor=None, driver_version=None, firmware=None, notes=None, os_vendor=None, os_version=None, processor_name=None, product_id=None, product_model=None, server_model=None, server_pid=None, ucs_version=None, version_type=None):
         """
         HclCompatibilityInfo - a model defined in Swagger
         """
@@ -100,7 +98,6 @@ class HclCompatibilityInfo(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._adapter_bios = None
         self._driver_protocol = None
         self._driver_vendor = None
@@ -135,8 +132,6 @@ class HclCompatibilityInfo(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if adapter_bios is not None:
           self.adapter_bios = adapter_bios
         if driver_protocol is not None:
@@ -374,29 +369,6 @@ class HclCompatibilityInfo(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this HclCompatibilityInfo.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this HclCompatibilityInfo.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this HclCompatibilityInfo.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this HclCompatibilityInfo.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def adapter_bios(self):

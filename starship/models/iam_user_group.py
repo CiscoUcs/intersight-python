@@ -40,7 +40,6 @@ class IamUserGroup(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'idpreference': 'MoMoRef',
         'name': 'str',
         'qualifier': 'MoMoRef',
@@ -57,14 +56,13 @@ class IamUserGroup(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'idpreference': 'Idpreference',
         'name': 'Name',
         'qualifier': 'Qualifier',
         'users': 'Users'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, idpreference=None, name=None, qualifier=None, users=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, idpreference=None, name=None, qualifier=None, users=None):
         """
         IamUserGroup - a model defined in Swagger
         """
@@ -78,7 +76,6 @@ class IamUserGroup(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._idpreference = None
         self._name = None
         self._qualifier = None
@@ -102,8 +99,6 @@ class IamUserGroup(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if idpreference is not None:
           self.idpreference = idpreference
         if name is not None:
@@ -319,29 +314,6 @@ class IamUserGroup(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this IamUserGroup.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this IamUserGroup.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this IamUserGroup.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this IamUserGroup.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def idpreference(self):

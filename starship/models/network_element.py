@@ -40,7 +40,6 @@ class NetworkElement(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'device_mo_id': 'str',
         'dn': 'str',
         'rn': 'str',
@@ -79,7 +78,6 @@ class NetworkElement(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'device_mo_id': 'DeviceMoId',
         'dn': 'Dn',
         'rn': 'Rn',
@@ -108,7 +106,7 @@ class NetworkElement(object):
         'ucsm_running_firmware': 'UcsmRunningFirmware'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, device_mo_id=None, dn=None, rn=None, model=None, revision=None, serial=None, vendor=None, admin_inband_interface_state=None, cards=None, fanmodules=None, fault_summary=None, inband_ip_address=None, inband_ip_gateway=None, inband_ip_mask=None, inband_vlan=None, management_contoller=None, management_entity=None, out_of_band_ip_address=None, out_of_band_ip_gateway=None, out_of_band_ip_mask=None, out_of_band_mac=None, psus=None, registered_device=None, switch_id=None, top_system=None, ucsm_running_firmware=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, device_mo_id=None, dn=None, rn=None, model=None, revision=None, serial=None, vendor=None, admin_inband_interface_state=None, cards=None, fanmodules=None, fault_summary=None, inband_ip_address=None, inband_ip_gateway=None, inband_ip_mask=None, inband_vlan=None, management_contoller=None, management_entity=None, out_of_band_ip_address=None, out_of_band_ip_gateway=None, out_of_band_ip_mask=None, out_of_band_mac=None, psus=None, registered_device=None, switch_id=None, top_system=None, ucsm_running_firmware=None):
         """
         NetworkElement - a model defined in Swagger
         """
@@ -122,7 +120,6 @@ class NetworkElement(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._device_mo_id = None
         self._dn = None
         self._rn = None
@@ -168,8 +165,6 @@ class NetworkElement(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if device_mo_id is not None:
           self.device_mo_id = device_mo_id
         if dn is not None:
@@ -429,29 +424,6 @@ class NetworkElement(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this NetworkElement.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this NetworkElement.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this NetworkElement.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this NetworkElement.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def device_mo_id(self):

@@ -40,7 +40,6 @@ class InventoryGenericInventory(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'device_mo_id': 'str',
         'dn': 'str',
         'rn': 'str',
@@ -61,7 +60,6 @@ class InventoryGenericInventory(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'device_mo_id': 'DeviceMoId',
         'dn': 'Dn',
         'rn': 'Rn',
@@ -72,7 +70,7 @@ class InventoryGenericInventory(object):
         'value': 'Value'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, device_mo_id=None, dn=None, rn=None, inventory_generic_inventory_holder=None, key=None, registered_device=None, type=None, value=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, device_mo_id=None, dn=None, rn=None, inventory_generic_inventory_holder=None, key=None, registered_device=None, type=None, value=None):
         """
         InventoryGenericInventory - a model defined in Swagger
         """
@@ -86,7 +84,6 @@ class InventoryGenericInventory(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._device_mo_id = None
         self._dn = None
         self._rn = None
@@ -114,8 +111,6 @@ class InventoryGenericInventory(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if device_mo_id is not None:
           self.device_mo_id = device_mo_id
         if dn is not None:
@@ -339,29 +334,6 @@ class InventoryGenericInventory(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this InventoryGenericInventory.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this InventoryGenericInventory.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this InventoryGenericInventory.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this InventoryGenericInventory.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def device_mo_id(self):

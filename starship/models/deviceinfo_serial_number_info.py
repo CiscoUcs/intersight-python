@@ -40,7 +40,6 @@ class DeviceinfoSerialNumberInfo(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'covered_product_line_end_date': 'str',
         'customer_address': 'str',
         'customer_city': 'str',
@@ -68,7 +67,6 @@ class DeviceinfoSerialNumberInfo(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'covered_product_line_end_date': 'CoveredProductLineEndDate',
         'customer_address': 'CustomerAddress',
         'customer_city': 'CustomerCity',
@@ -86,7 +84,7 @@ class DeviceinfoSerialNumberInfo(object):
         'warranty_type': 'WarrantyType'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, covered_product_line_end_date=None, customer_address=None, customer_city=None, customer_country=None, customer_name=None, customer_province=None, is_valid=None, item_description=None, orderable_pid=None, registered_device=None, serial_number=None, service_contract_number=None, service_line_descr=None, warranty_end_date=None, warranty_type=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, covered_product_line_end_date=None, customer_address=None, customer_city=None, customer_country=None, customer_name=None, customer_province=None, is_valid=None, item_description=None, orderable_pid=None, registered_device=None, serial_number=None, service_contract_number=None, service_line_descr=None, warranty_end_date=None, warranty_type=None):
         """
         DeviceinfoSerialNumberInfo - a model defined in Swagger
         """
@@ -100,7 +98,6 @@ class DeviceinfoSerialNumberInfo(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._covered_product_line_end_date = None
         self._customer_address = None
         self._customer_city = None
@@ -135,8 +132,6 @@ class DeviceinfoSerialNumberInfo(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if covered_product_line_end_date is not None:
           self.covered_product_line_end_date = covered_product_line_end_date
         if customer_address is not None:
@@ -374,29 +369,6 @@ class DeviceinfoSerialNumberInfo(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this DeviceinfoSerialNumberInfo.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this DeviceinfoSerialNumberInfo.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this DeviceinfoSerialNumberInfo.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this DeviceinfoSerialNumberInfo.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def covered_product_line_end_date(self):

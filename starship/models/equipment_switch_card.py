@@ -40,7 +40,6 @@ class EquipmentSwitchCard(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'device_mo_id': 'str',
         'dn': 'str',
         'rn': 'str',
@@ -68,7 +67,6 @@ class EquipmentSwitchCard(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'device_mo_id': 'DeviceMoId',
         'dn': 'Dn',
         'rn': 'Rn',
@@ -86,7 +84,7 @@ class EquipmentSwitchCard(object):
         'state': 'State'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, device_mo_id=None, dn=None, rn=None, model=None, revision=None, serial=None, vendor=None, description=None, network_element=None, num_ports=None, port_groups=None, presence=None, registered_device=None, slot_id=None, state=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, device_mo_id=None, dn=None, rn=None, model=None, revision=None, serial=None, vendor=None, description=None, network_element=None, num_ports=None, port_groups=None, presence=None, registered_device=None, slot_id=None, state=None):
         """
         EquipmentSwitchCard - a model defined in Swagger
         """
@@ -100,7 +98,6 @@ class EquipmentSwitchCard(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._device_mo_id = None
         self._dn = None
         self._rn = None
@@ -135,8 +132,6 @@ class EquipmentSwitchCard(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if device_mo_id is not None:
           self.device_mo_id = device_mo_id
         if dn is not None:
@@ -374,29 +369,6 @@ class EquipmentSwitchCard(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this EquipmentSwitchCard.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this EquipmentSwitchCard.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this EquipmentSwitchCard.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this EquipmentSwitchCard.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def device_mo_id(self):

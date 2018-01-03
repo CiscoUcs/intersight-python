@@ -40,9 +40,7 @@ class IamAccount(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'end_point_roles': 'list[MoMoRef]',
-        'iam_user_link': 'str',
         'idpreferences': 'list[MoMoRef]',
         'idps': 'list[MoMoRef]',
         'name': 'str',
@@ -68,9 +66,7 @@ class IamAccount(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'end_point_roles': 'EndPointRoles',
-        'iam_user_link': 'IamUserLink',
         'idpreferences': 'Idpreferences',
         'idps': 'Idps',
         'name': 'Name',
@@ -86,7 +82,7 @@ class IamAccount(object):
         'status': 'Status'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, end_point_roles=None, iam_user_link=None, idpreferences=None, idps=None, name=None, permissions=None, privilege_sets=None, privileges=None, resource_limits=None, roles=None, root_user_email=None, root_user_id=None, root_user_name=None, session_limits=None, status=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, end_point_roles=None, idpreferences=None, idps=None, name=None, permissions=None, privilege_sets=None, privileges=None, resource_limits=None, roles=None, root_user_email=None, root_user_id=None, root_user_name=None, session_limits=None, status=None):
         """
         IamAccount - a model defined in Swagger
         """
@@ -100,9 +96,7 @@ class IamAccount(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._end_point_roles = None
-        self._iam_user_link = None
         self._idpreferences = None
         self._idps = None
         self._name = None
@@ -135,12 +129,8 @@ class IamAccount(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if end_point_roles is not None:
           self.end_point_roles = end_point_roles
-        if iam_user_link is not None:
-          self.iam_user_link = iam_user_link
         if idpreferences is not None:
           self.idpreferences = idpreferences
         if idps is not None:
@@ -376,29 +366,6 @@ class IamAccount(object):
         self._tags = tags
 
     @property
-    def id(self):
-        """
-        Gets the id of this IamAccount.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this IamAccount.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this IamAccount.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this IamAccount.
-        :type: str
-        """
-
-        self._id = id
-
-    @property
     def end_point_roles(self):
         """
         Gets the end_point_roles of this IamAccount.
@@ -418,27 +385,6 @@ class IamAccount(object):
         """
 
         self._end_point_roles = end_point_roles
-
-    @property
-    def iam_user_link(self):
-        """
-        Gets the iam_user_link of this IamAccount.
-
-        :return: The iam_user_link of this IamAccount.
-        :rtype: str
-        """
-        return self._iam_user_link
-
-    @iam_user_link.setter
-    def iam_user_link(self, iam_user_link):
-        """
-        Sets the iam_user_link of this IamAccount.
-
-        :param iam_user_link: The iam_user_link of this IamAccount.
-        :type: str
-        """
-
-        self._iam_user_link = iam_user_link
 
     @property
     def idpreferences(self):

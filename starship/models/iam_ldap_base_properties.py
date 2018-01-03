@@ -60,7 +60,7 @@ class IamLdapBaseProperties(object):
         'timeout': 'Timeout'
     }
 
-    def __init__(self, attribute=None, base_dn=None, bind_dn=None, bind_method='ConfiguredCredentials', domain=None, enable_encryption=None, enable_group_authorization=None, filter=None, group_attribute=None, nested_group_search_depth=None, password=None, timeout=None):
+    def __init__(self, attribute=None, base_dn=None, bind_dn=None, bind_method='LoginCredentials', domain=None, enable_encryption=None, enable_group_authorization=None, filter=None, group_attribute=None, nested_group_search_depth=None, password=None, timeout=None):
         """
         IamLdapBaseProperties - a model defined in Swagger
         """
@@ -176,7 +176,7 @@ class IamLdapBaseProperties(object):
     def bind_method(self):
         """
         Gets the bind_method of this IamLdapBaseProperties.
-        Authentication method to access LDAP servers. By default, it is 'ConfiguredCredentials'  
+        Authentication method to access LDAP servers. By default, it is 'LoginCredentials'  
 
         :return: The bind_method of this IamLdapBaseProperties.
         :rtype: str
@@ -187,12 +187,12 @@ class IamLdapBaseProperties(object):
     def bind_method(self, bind_method):
         """
         Sets the bind_method of this IamLdapBaseProperties.
-        Authentication method to access LDAP servers. By default, it is 'ConfiguredCredentials'  
+        Authentication method to access LDAP servers. By default, it is 'LoginCredentials'  
 
         :param bind_method: The bind_method of this IamLdapBaseProperties.
         :type: str
         """
-        allowed_values = ["ConfiguredCredentials", "Anonymous", "LoginCredentials"]
+        allowed_values = ["LoginCredentials", "Anonymous", "ConfiguredCredentials"]
         if bind_method not in allowed_values:
             raise ValueError(
                 "Invalid value for `bind_method` ({0}), must be one of {1}"

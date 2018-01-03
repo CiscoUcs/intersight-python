@@ -40,7 +40,6 @@ class IamQualifier(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'name': 'str',
         'usergroup': 'MoMoRef',
         'value': 'str'
@@ -56,13 +55,12 @@ class IamQualifier(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'name': 'Name',
         'usergroup': 'Usergroup',
         'value': 'Value'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, name=None, usergroup=None, value=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, name=None, usergroup=None, value=None):
         """
         IamQualifier - a model defined in Swagger
         """
@@ -76,7 +74,6 @@ class IamQualifier(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._name = None
         self._usergroup = None
         self._value = None
@@ -99,8 +96,6 @@ class IamQualifier(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if name is not None:
           self.name = name
         if usergroup is not None:
@@ -314,29 +309,6 @@ class IamQualifier(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this IamQualifier.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this IamQualifier.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this IamQualifier.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this IamQualifier.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def name(self):

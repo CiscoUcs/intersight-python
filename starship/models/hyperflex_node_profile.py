@@ -40,7 +40,6 @@ class HyperflexNodeProfile(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'description': 'str',
         'name': 'str',
         'src_template': 'MoMoRef',
@@ -63,7 +62,6 @@ class HyperflexNodeProfile(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'description': 'Description',
         'name': 'Name',
         'src_template': 'SrcTemplate',
@@ -76,7 +74,7 @@ class HyperflexNodeProfile(object):
         'hxdp_mgmt_ip': 'HxdpMgmtIp'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, description=None, name=None, src_template=None, type='instance', assigned_server=None, cluster_profile=None, esx_data_ip=None, esx_mgmt_ip=None, hxdp_data_ip=None, hxdp_mgmt_ip=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, description=None, name=None, src_template=None, type='instance', assigned_server=None, cluster_profile=None, esx_data_ip=None, esx_mgmt_ip=None, hxdp_data_ip=None, hxdp_mgmt_ip=None):
         """
         HyperflexNodeProfile - a model defined in Swagger
         """
@@ -90,7 +88,6 @@ class HyperflexNodeProfile(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._description = None
         self._name = None
         self._src_template = None
@@ -120,8 +117,6 @@ class HyperflexNodeProfile(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if description is not None:
           self.description = description
         if name is not None:
@@ -351,29 +346,6 @@ class HyperflexNodeProfile(object):
         self._tags = tags
 
     @property
-    def id(self):
-        """
-        Gets the id of this HyperflexNodeProfile.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this HyperflexNodeProfile.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this HyperflexNodeProfile.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this HyperflexNodeProfile.
-        :type: str
-        """
-
-        self._id = id
-
-    @property
     def description(self):
         """
         Gets the description of this HyperflexNodeProfile.
@@ -515,6 +487,7 @@ class HyperflexNodeProfile(object):
     def esx_data_ip(self):
         """
         Gets the esx_data_ip of this HyperflexNodeProfile.
+        IP address for Hypervisor Data Network  
 
         :return: The esx_data_ip of this HyperflexNodeProfile.
         :rtype: str
@@ -525,6 +498,7 @@ class HyperflexNodeProfile(object):
     def esx_data_ip(self, esx_data_ip):
         """
         Sets the esx_data_ip of this HyperflexNodeProfile.
+        IP address for Hypervisor Data Network  
 
         :param esx_data_ip: The esx_data_ip of this HyperflexNodeProfile.
         :type: str
@@ -536,6 +510,7 @@ class HyperflexNodeProfile(object):
     def esx_mgmt_ip(self):
         """
         Gets the esx_mgmt_ip of this HyperflexNodeProfile.
+        IP address for Hypervisor Management  
 
         :return: The esx_mgmt_ip of this HyperflexNodeProfile.
         :rtype: str
@@ -546,6 +521,7 @@ class HyperflexNodeProfile(object):
     def esx_mgmt_ip(self, esx_mgmt_ip):
         """
         Sets the esx_mgmt_ip of this HyperflexNodeProfile.
+        IP address for Hypervisor Management  
 
         :param esx_mgmt_ip: The esx_mgmt_ip of this HyperflexNodeProfile.
         :type: str
@@ -557,6 +533,7 @@ class HyperflexNodeProfile(object):
     def hxdp_data_ip(self):
         """
         Gets the hxdp_data_ip of this HyperflexNodeProfile.
+        IP address for HX Data Platform Data Network  
 
         :return: The hxdp_data_ip of this HyperflexNodeProfile.
         :rtype: str
@@ -567,6 +544,7 @@ class HyperflexNodeProfile(object):
     def hxdp_data_ip(self, hxdp_data_ip):
         """
         Sets the hxdp_data_ip of this HyperflexNodeProfile.
+        IP address for HX Data Platform Data Network  
 
         :param hxdp_data_ip: The hxdp_data_ip of this HyperflexNodeProfile.
         :type: str
@@ -578,6 +556,7 @@ class HyperflexNodeProfile(object):
     def hxdp_mgmt_ip(self):
         """
         Gets the hxdp_mgmt_ip of this HyperflexNodeProfile.
+        IP address for HX Data Platform Management   
 
         :return: The hxdp_mgmt_ip of this HyperflexNodeProfile.
         :rtype: str
@@ -588,6 +567,7 @@ class HyperflexNodeProfile(object):
     def hxdp_mgmt_ip(self, hxdp_mgmt_ip):
         """
         Sets the hxdp_mgmt_ip of this HyperflexNodeProfile.
+        IP address for HX Data Platform Management   
 
         :param hxdp_mgmt_ip: The hxdp_mgmt_ip of this HyperflexNodeProfile.
         :type: str

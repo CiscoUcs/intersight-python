@@ -40,7 +40,6 @@ class IamResourceLimits(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'account': 'MoMoRef',
         'per_account_user_limit': 'int'
     }
@@ -55,12 +54,11 @@ class IamResourceLimits(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'account': 'Account',
         'per_account_user_limit': 'PerAccountUserLimit'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, account=None, per_account_user_limit=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, account=None, per_account_user_limit=None):
         """
         IamResourceLimits - a model defined in Swagger
         """
@@ -74,7 +72,6 @@ class IamResourceLimits(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._account = None
         self._per_account_user_limit = None
 
@@ -96,8 +93,6 @@ class IamResourceLimits(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if account is not None:
           self.account = account
         if per_account_user_limit is not None:
@@ -309,29 +304,6 @@ class IamResourceLimits(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this IamResourceLimits.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this IamResourceLimits.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this IamResourceLimits.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this IamResourceLimits.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def account(self):

@@ -40,7 +40,6 @@ class LicenseSmartlicenseToken(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'account_license_data': 'MoMoRef',
         'token': 'str'
     }
@@ -55,12 +54,11 @@ class LicenseSmartlicenseToken(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'account_license_data': 'AccountLicenseData',
         'token': 'Token'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, account_license_data=None, token=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, account_license_data=None, token=None):
         """
         LicenseSmartlicenseToken - a model defined in Swagger
         """
@@ -74,7 +72,6 @@ class LicenseSmartlicenseToken(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._account_license_data = None
         self._token = None
 
@@ -96,8 +93,6 @@ class LicenseSmartlicenseToken(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if account_license_data is not None:
           self.account_license_data = account_license_data
         if token is not None:
@@ -309,29 +304,6 @@ class LicenseSmartlicenseToken(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this LicenseSmartlicenseToken.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this LicenseSmartlicenseToken.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this LicenseSmartlicenseToken.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this LicenseSmartlicenseToken.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def account_license_data(self):

@@ -40,7 +40,6 @@ class HyperflexCluster(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'alarm': 'list[MoMoRef]',
         'cluster_name': 'str',
         'cluster_type': 'int',
@@ -66,7 +65,6 @@ class HyperflexCluster(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'alarm': 'Alarm',
         'cluster_name': 'ClusterName',
         'cluster_type': 'ClusterType',
@@ -82,7 +80,7 @@ class HyperflexCluster(object):
         'vm_count': 'VmCount'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, alarm=None, cluster_name=None, cluster_type=None, cluster_uuid=None, compute_node_count=None, converged_node_count=None, device_id=None, flt_aggr=None, hx_version=None, hypervisor_version=None, registered_device=None, summary=None, vm_count=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, alarm=None, cluster_name=None, cluster_type=None, cluster_uuid=None, compute_node_count=None, converged_node_count=None, device_id=None, flt_aggr=None, hx_version=None, hypervisor_version=None, registered_device=None, summary=None, vm_count=None):
         """
         HyperflexCluster - a model defined in Swagger
         """
@@ -96,7 +94,6 @@ class HyperflexCluster(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._alarm = None
         self._cluster_name = None
         self._cluster_type = None
@@ -129,8 +126,6 @@ class HyperflexCluster(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if alarm is not None:
           self.alarm = alarm
         if cluster_name is not None:
@@ -364,29 +359,6 @@ class HyperflexCluster(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this HyperflexCluster.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this HyperflexCluster.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this HyperflexCluster.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this HyperflexCluster.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def alarm(self):

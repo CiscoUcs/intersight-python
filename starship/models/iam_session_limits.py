@@ -40,7 +40,6 @@ class IamSessionLimits(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'account': 'MoMoRef',
         'idle_time_out': 'int',
         'maximum_limit': 'int',
@@ -58,7 +57,6 @@ class IamSessionLimits(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'account': 'Account',
         'idle_time_out': 'IdleTimeOut',
         'maximum_limit': 'MaximumLimit',
@@ -66,7 +64,7 @@ class IamSessionLimits(object):
         'session_time_out': 'SessionTimeOut'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, account=None, idle_time_out=None, maximum_limit=None, per_user_limit=None, session_time_out=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, account=None, idle_time_out=None, maximum_limit=None, per_user_limit=None, session_time_out=None):
         """
         IamSessionLimits - a model defined in Swagger
         """
@@ -80,7 +78,6 @@ class IamSessionLimits(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._account = None
         self._idle_time_out = None
         self._maximum_limit = None
@@ -105,8 +102,6 @@ class IamSessionLimits(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if account is not None:
           self.account = account
         if idle_time_out is not None:
@@ -324,29 +319,6 @@ class IamSessionLimits(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this IamSessionLimits.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this IamSessionLimits.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this IamSessionLimits.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this IamSessionLimits.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def account(self):

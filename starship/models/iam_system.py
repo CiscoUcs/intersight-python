@@ -40,7 +40,6 @@ class IamSystem(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'end_point_privileges': 'list[MoMoRef]',
         'end_point_roles': 'list[MoMoRef]',
         'idp': 'MoMoRef',
@@ -59,7 +58,6 @@ class IamSystem(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'end_point_privileges': 'EndPointPrivileges',
         'end_point_roles': 'EndPointRoles',
         'idp': 'Idp',
@@ -68,7 +66,7 @@ class IamSystem(object):
         'roles': 'Roles'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, end_point_privileges=None, end_point_roles=None, idp=None, privilege_sets=None, privileges=None, roles=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, end_point_privileges=None, end_point_roles=None, idp=None, privilege_sets=None, privileges=None, roles=None):
         """
         IamSystem - a model defined in Swagger
         """
@@ -82,7 +80,6 @@ class IamSystem(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._end_point_privileges = None
         self._end_point_roles = None
         self._idp = None
@@ -108,8 +105,6 @@ class IamSystem(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if end_point_privileges is not None:
           self.end_point_privileges = end_point_privileges
         if end_point_roles is not None:
@@ -329,29 +324,6 @@ class IamSystem(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this IamSystem.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this IamSystem.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this IamSystem.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this IamSystem.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def end_point_privileges(self):

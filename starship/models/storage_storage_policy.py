@@ -40,13 +40,13 @@ class StorageStoragePolicy(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'description': 'str',
         'name': 'str',
         'account': 'MoMoRef',
         'enable_drive_security': 'bool',
         'global_hot_spares': 'list[StorageLocalDisk]',
         'remote_key_setting': 'StorageRemoteKeySetting',
+        'retain_policy_virtual_drives': 'bool',
         'unused_disks_encryption_state': 'bool',
         'unused_disks_state': 'str',
         'virtual_drives': 'list[StorageVirtualDrive]'
@@ -62,19 +62,19 @@ class StorageStoragePolicy(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'description': 'Description',
         'name': 'Name',
         'account': 'Account',
         'enable_drive_security': 'EnableDriveSecurity',
         'global_hot_spares': 'GlobalHotSpares',
         'remote_key_setting': 'RemoteKeySetting',
+        'retain_policy_virtual_drives': 'RetainPolicyVirtualDrives',
         'unused_disks_encryption_state': 'UnusedDisksEncryptionState',
         'unused_disks_state': 'UnusedDisksState',
         'virtual_drives': 'VirtualDrives'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, description=None, name=None, account=None, enable_drive_security=None, global_hot_spares=None, remote_key_setting=None, unused_disks_encryption_state=None, unused_disks_state='UnconfiguredGood', virtual_drives=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, description=None, name=None, account=None, enable_drive_security=None, global_hot_spares=None, remote_key_setting=None, retain_policy_virtual_drives=None, unused_disks_encryption_state=None, unused_disks_state='UnconfiguredGood', virtual_drives=None):
         """
         StorageStoragePolicy - a model defined in Swagger
         """
@@ -88,13 +88,13 @@ class StorageStoragePolicy(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._description = None
         self._name = None
         self._account = None
         self._enable_drive_security = None
         self._global_hot_spares = None
         self._remote_key_setting = None
+        self._retain_policy_virtual_drives = None
         self._unused_disks_encryption_state = None
         self._unused_disks_state = None
         self._virtual_drives = None
@@ -117,8 +117,6 @@ class StorageStoragePolicy(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if description is not None:
           self.description = description
         if name is not None:
@@ -131,6 +129,8 @@ class StorageStoragePolicy(object):
           self.global_hot_spares = global_hot_spares
         if remote_key_setting is not None:
           self.remote_key_setting = remote_key_setting
+        if retain_policy_virtual_drives is not None:
+          self.retain_policy_virtual_drives = retain_policy_virtual_drives
         if unused_disks_encryption_state is not None:
           self.unused_disks_encryption_state = unused_disks_encryption_state
         if unused_disks_state is not None:
@@ -346,29 +346,6 @@ class StorageStoragePolicy(object):
         self._tags = tags
 
     @property
-    def id(self):
-        """
-        Gets the id of this StorageStoragePolicy.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this StorageStoragePolicy.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this StorageStoragePolicy.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this StorageStoragePolicy.
-        :type: str
-        """
-
-        self._id = id
-
-    @property
     def description(self):
         """
         Gets the description of this StorageStoragePolicy.
@@ -505,6 +482,29 @@ class StorageStoragePolicy(object):
         """
 
         self._remote_key_setting = remote_key_setting
+
+    @property
+    def retain_policy_virtual_drives(self):
+        """
+        Gets the retain_policy_virtual_drives of this StorageStoragePolicy.
+        Retains the virtual drives defined in policy if they exist already. If this flag is false, the existing virtual drives are removed and created again based on virtual drives in the policy  
+
+        :return: The retain_policy_virtual_drives of this StorageStoragePolicy.
+        :rtype: bool
+        """
+        return self._retain_policy_virtual_drives
+
+    @retain_policy_virtual_drives.setter
+    def retain_policy_virtual_drives(self, retain_policy_virtual_drives):
+        """
+        Sets the retain_policy_virtual_drives of this StorageStoragePolicy.
+        Retains the virtual drives defined in policy if they exist already. If this flag is false, the existing virtual drives are removed and created again based on virtual drives in the policy  
+
+        :param retain_policy_virtual_drives: The retain_policy_virtual_drives of this StorageStoragePolicy.
+        :type: bool
+        """
+
+        self._retain_policy_virtual_drives = retain_policy_virtual_drives
 
     @property
     def unused_disks_encryption_state(self):

@@ -40,7 +40,6 @@ class WorkflowTaskInfo(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'descr': 'str',
         'end_time': 'datetime',
         'failure_reason': 'str',
@@ -64,7 +63,6 @@ class WorkflowTaskInfo(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'descr': 'Descr',
         'end_time': 'EndTime',
         'failure_reason': 'FailureReason',
@@ -78,7 +76,7 @@ class WorkflowTaskInfo(object):
         'workflow_info': 'WorkflowInfo'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, descr=None, end_time=None, failure_reason=None, input=None, inst_id=None, name=None, output=None, ref_name=None, start_time=None, status=None, workflow_info=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, descr=None, end_time=None, failure_reason=None, input=None, inst_id=None, name=None, output=None, ref_name=None, start_time=None, status=None, workflow_info=None):
         """
         WorkflowTaskInfo - a model defined in Swagger
         """
@@ -92,7 +90,6 @@ class WorkflowTaskInfo(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._descr = None
         self._end_time = None
         self._failure_reason = None
@@ -123,8 +120,6 @@ class WorkflowTaskInfo(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if descr is not None:
           self.descr = descr
         if end_time is not None:
@@ -354,29 +349,6 @@ class WorkflowTaskInfo(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this WorkflowTaskInfo.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this WorkflowTaskInfo.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this WorkflowTaskInfo.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this WorkflowTaskInfo.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def descr(self):

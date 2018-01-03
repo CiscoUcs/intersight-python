@@ -40,7 +40,6 @@ class HyperflexAlarm(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'acknowledged': 'bool',
         'cluster': 'MoMoRef',
         'description': 'str',
@@ -62,7 +61,6 @@ class HyperflexAlarm(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'acknowledged': 'Acknowledged',
         'cluster': 'Cluster',
         'description': 'Description',
@@ -74,7 +72,7 @@ class HyperflexAlarm(object):
         'triggered_time': 'TriggeredTime'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, acknowledged=None, cluster=None, description=None, entity=None, entity_name=None, key=None, mor=None, status=None, triggered_time=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, acknowledged=None, cluster=None, description=None, entity=None, entity_name=None, key=None, mor=None, status=None, triggered_time=None):
         """
         HyperflexAlarm - a model defined in Swagger
         """
@@ -88,7 +86,6 @@ class HyperflexAlarm(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._acknowledged = None
         self._cluster = None
         self._description = None
@@ -117,8 +114,6 @@ class HyperflexAlarm(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if acknowledged is not None:
           self.acknowledged = acknowledged
         if cluster is not None:
@@ -344,29 +339,6 @@ class HyperflexAlarm(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this HyperflexAlarm.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this HyperflexAlarm.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this HyperflexAlarm.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this HyperflexAlarm.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def acknowledged(self):

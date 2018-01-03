@@ -40,7 +40,6 @@ class HyperflexLocalCredentialPolicy(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'description': 'str',
         'name': 'str',
         'account': 'MoMoRef',
@@ -60,7 +59,6 @@ class HyperflexLocalCredentialPolicy(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'description': 'Description',
         'name': 'Name',
         'account': 'Account',
@@ -70,7 +68,7 @@ class HyperflexLocalCredentialPolicy(object):
         'hypervisor_admin_pwd': 'HypervisorAdminPwd'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, description=None, name=None, account=None, cluster_profile=None, hxdp_root_pwd=None, hypervisor_admin=None, hypervisor_admin_pwd=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, description=None, name=None, account=None, cluster_profile=None, hxdp_root_pwd=None, hypervisor_admin=None, hypervisor_admin_pwd=None):
         """
         HyperflexLocalCredentialPolicy - a model defined in Swagger
         """
@@ -84,7 +82,6 @@ class HyperflexLocalCredentialPolicy(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._description = None
         self._name = None
         self._account = None
@@ -111,8 +108,6 @@ class HyperflexLocalCredentialPolicy(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if description is not None:
           self.description = description
         if name is not None:
@@ -336,29 +331,6 @@ class HyperflexLocalCredentialPolicy(object):
         self._tags = tags
 
     @property
-    def id(self):
-        """
-        Gets the id of this HyperflexLocalCredentialPolicy.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this HyperflexLocalCredentialPolicy.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this HyperflexLocalCredentialPolicy.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this HyperflexLocalCredentialPolicy.
-        :type: str
-        """
-
-        self._id = id
-
-    @property
     def description(self):
         """
         Gets the description of this HyperflexLocalCredentialPolicy.
@@ -450,6 +422,7 @@ class HyperflexLocalCredentialPolicy(object):
     def hxdp_root_pwd(self):
         """
         Gets the hxdp_root_pwd of this HyperflexLocalCredentialPolicy.
+        HX Storage Controller VM Password Must contain a minimum of 10 characters with at least 1 lower-case, 1 upper-case, 1 numeric, and 1 special character - !@#$%^&*  
 
         :return: The hxdp_root_pwd of this HyperflexLocalCredentialPolicy.
         :rtype: str
@@ -460,6 +433,7 @@ class HyperflexLocalCredentialPolicy(object):
     def hxdp_root_pwd(self, hxdp_root_pwd):
         """
         Sets the hxdp_root_pwd of this HyperflexLocalCredentialPolicy.
+        HX Storage Controller VM Password Must contain a minimum of 10 characters with at least 1 lower-case, 1 upper-case, 1 numeric, and 1 special character - !@#$%^&*  
 
         :param hxdp_root_pwd: The hxdp_root_pwd of this HyperflexLocalCredentialPolicy.
         :type: str
@@ -471,6 +445,7 @@ class HyperflexLocalCredentialPolicy(object):
     def hypervisor_admin(self):
         """
         Gets the hypervisor_admin of this HyperflexLocalCredentialPolicy.
+        Hypervisor administrator username Must contain only alphanumeric characters  
 
         :return: The hypervisor_admin of this HyperflexLocalCredentialPolicy.
         :rtype: str
@@ -481,6 +456,7 @@ class HyperflexLocalCredentialPolicy(object):
     def hypervisor_admin(self, hypervisor_admin):
         """
         Sets the hypervisor_admin of this HyperflexLocalCredentialPolicy.
+        Hypervisor administrator username Must contain only alphanumeric characters  
 
         :param hypervisor_admin: The hypervisor_admin of this HyperflexLocalCredentialPolicy.
         :type: str
@@ -492,6 +468,7 @@ class HyperflexLocalCredentialPolicy(object):
     def hypervisor_admin_pwd(self):
         """
         Gets the hypervisor_admin_pwd of this HyperflexLocalCredentialPolicy.
+        Hypervisor administrator password Password must be a minimum length of 6 characters. Follow the corresponding password policy governed by the hypervisor.   
 
         :return: The hypervisor_admin_pwd of this HyperflexLocalCredentialPolicy.
         :rtype: str
@@ -502,6 +479,7 @@ class HyperflexLocalCredentialPolicy(object):
     def hypervisor_admin_pwd(self, hypervisor_admin_pwd):
         """
         Sets the hypervisor_admin_pwd of this HyperflexLocalCredentialPolicy.
+        Hypervisor administrator password Password must be a minimum length of 6 characters. Follow the corresponding password policy governed by the hypervisor.   
 
         :param hypervisor_admin_pwd: The hypervisor_admin_pwd of this HyperflexLocalCredentialPolicy.
         :type: str

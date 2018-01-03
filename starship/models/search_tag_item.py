@@ -39,8 +39,7 @@ class SearchTagItem(object):
         'object_type': 'str',
         'owners': 'list[str]',
         'parent': 'MoMoRef',
-        'tags': 'list[MoTag]',
-        'id': 'str'
+        'tags': 'list[MoTag]'
     }
 
     attribute_map = {
@@ -52,11 +51,10 @@ class SearchTagItem(object):
         'object_type': 'ObjectType',
         'owners': 'Owners',
         'parent': 'Parent',
-        'tags': 'Tags',
-        'id': 'Id'
+        'tags': 'Tags'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None):
         """
         SearchTagItem - a model defined in Swagger
         """
@@ -70,7 +68,6 @@ class SearchTagItem(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
 
         if account_moid is not None:
           self.account_moid = account_moid
@@ -90,8 +87,6 @@ class SearchTagItem(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
 
     @property
     def account_moid(self):
@@ -299,29 +294,6 @@ class SearchTagItem(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this SearchTagItem.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this SearchTagItem.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this SearchTagItem.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this SearchTagItem.
-        :type: str
-        """
-
-        self._id = id
 
     def to_dict(self):
         """

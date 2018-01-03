@@ -40,7 +40,6 @@ class WorkflowTaskMeta(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'account': 'MoMoRef',
         'action_type': 'str',
         'description': 'str',
@@ -66,7 +65,6 @@ class WorkflowTaskMeta(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'account': 'Account',
         'action_type': 'ActionType',
         'description': 'Description',
@@ -82,7 +80,7 @@ class WorkflowTaskMeta(object):
         'timeout_sec': 'TimeoutSec'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, account=None, action_type=None, description=None, input_keys=None, name=None, output_keys=None, response_timeout_sec=None, retry_count=None, retry_delay_sec=None, retry_logic=None, src=None, timeout_policy=None, timeout_sec=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, account=None, action_type=None, description=None, input_keys=None, name=None, output_keys=None, response_timeout_sec=None, retry_count=None, retry_delay_sec=None, retry_logic=None, src=None, timeout_policy=None, timeout_sec=None):
         """
         WorkflowTaskMeta - a model defined in Swagger
         """
@@ -96,7 +94,6 @@ class WorkflowTaskMeta(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._account = None
         self._action_type = None
         self._description = None
@@ -129,8 +126,6 @@ class WorkflowTaskMeta(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if account is not None:
           self.account = account
         if action_type is not None:
@@ -364,29 +359,6 @@ class WorkflowTaskMeta(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this WorkflowTaskMeta.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this WorkflowTaskMeta.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this WorkflowTaskMeta.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this WorkflowTaskMeta.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def account(self):

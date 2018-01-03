@@ -40,7 +40,6 @@ class HclDataImportLog(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'catalog_name': 'str',
         'catalog_updated_date': 'str',
         'catalog_version': 'str',
@@ -61,7 +60,6 @@ class HclDataImportLog(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'catalog_name': 'CatalogName',
         'catalog_updated_date': 'CatalogUpdatedDate',
         'catalog_version': 'CatalogVersion',
@@ -72,7 +70,7 @@ class HclDataImportLog(object):
         'last_update_time': 'LastUpdateTime'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, catalog_name=None, catalog_updated_date=None, catalog_version=None, check_sum=None, file_create_date=None, import_start_time=None, import_state='None', last_update_time=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, catalog_name=None, catalog_updated_date=None, catalog_version=None, check_sum=None, file_create_date=None, import_start_time=None, import_state='None', last_update_time=None):
         """
         HclDataImportLog - a model defined in Swagger
         """
@@ -86,7 +84,6 @@ class HclDataImportLog(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._catalog_name = None
         self._catalog_updated_date = None
         self._catalog_version = None
@@ -114,8 +111,6 @@ class HclDataImportLog(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if catalog_name is not None:
           self.catalog_name = catalog_name
         if catalog_updated_date is not None:
@@ -339,29 +334,6 @@ class HclDataImportLog(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this HclDataImportLog.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this HclDataImportLog.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this HclDataImportLog.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this HclDataImportLog.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def catalog_name(self):

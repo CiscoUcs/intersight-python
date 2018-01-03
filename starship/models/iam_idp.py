@@ -40,7 +40,6 @@ class IamIdp(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'account': 'MoMoRef',
         'config_state': 'str',
         'idp_connection_name': 'str',
@@ -60,7 +59,6 @@ class IamIdp(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'account': 'Account',
         'config_state': 'ConfigState',
         'idp_connection_name': 'IdpConnectionName',
@@ -70,7 +68,7 @@ class IamIdp(object):
         'system': 'System'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, account=None, config_state=None, idp_connection_name=None, idp_entity_id=None, name=None, sp_adapter_name=None, system=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, account=None, config_state=None, idp_connection_name=None, idp_entity_id=None, name=None, sp_adapter_name=None, system=None):
         """
         IamIdp - a model defined in Swagger
         """
@@ -84,7 +82,6 @@ class IamIdp(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._account = None
         self._config_state = None
         self._idp_connection_name = None
@@ -111,8 +108,6 @@ class IamIdp(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if account is not None:
           self.account = account
         if config_state is not None:
@@ -334,29 +329,6 @@ class IamIdp(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this IamIdp.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this IamIdp.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this IamIdp.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this IamIdp.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def account(self):

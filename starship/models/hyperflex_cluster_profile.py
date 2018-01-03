@@ -40,7 +40,6 @@ class HyperflexClusterProfile(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'description': 'str',
         'name': 'str',
         'src_template': 'MoMoRef',
@@ -54,7 +53,6 @@ class HyperflexClusterProfile(object):
         'data_ip_address': 'str',
         'ext_fc_storage': 'MoMoRef',
         'ext_iscsi_storage': 'MoMoRef',
-        'firmware_config': 'MoMoRef',
         'hypervisor_type': 'str',
         'local_credential': 'MoMoRef',
         'mac_address_prefix': 'str',
@@ -80,7 +78,6 @@ class HyperflexClusterProfile(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'description': 'Description',
         'name': 'Name',
         'src_template': 'SrcTemplate',
@@ -94,7 +91,6 @@ class HyperflexClusterProfile(object):
         'data_ip_address': 'DataIpAddress',
         'ext_fc_storage': 'ExtFcStorage',
         'ext_iscsi_storage': 'ExtIscsiStorage',
-        'firmware_config': 'FirmwareConfig',
         'hypervisor_type': 'HypervisorType',
         'local_credential': 'LocalCredential',
         'mac_address_prefix': 'MacAddressPrefix',
@@ -110,7 +106,7 @@ class HyperflexClusterProfile(object):
         'vcenter_config': 'VcenterConfig'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, description=None, name=None, src_template=None, type='instance', action=None, config_context=None, account=None, advanced_storage_config=None, auto_support=None, config_result=None, data_ip_address=None, ext_fc_storage=None, ext_iscsi_storage=None, firmware_config=None, hypervisor_type=None, local_credential=None, mac_address_prefix=None, mgmt_ip_address=None, mgmt_platform=None, network_config=None, node_config=None, node_profile_config=None, replication=None, storage_data_vlan=None, sys_config=None, ucsm_config=None, vcenter_config=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, description=None, name=None, src_template=None, type='instance', action=None, config_context=None, account=None, advanced_storage_config=None, auto_support=None, config_result=None, data_ip_address=None, ext_fc_storage=None, ext_iscsi_storage=None, hypervisor_type='ESXi', local_credential=None, mac_address_prefix=None, mgmt_ip_address=None, mgmt_platform='FI', network_config=None, node_config=None, node_profile_config=None, replication=None, storage_data_vlan=None, sys_config=None, ucsm_config=None, vcenter_config=None):
         """
         HyperflexClusterProfile - a model defined in Swagger
         """
@@ -124,7 +120,6 @@ class HyperflexClusterProfile(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._description = None
         self._name = None
         self._src_template = None
@@ -138,7 +133,6 @@ class HyperflexClusterProfile(object):
         self._data_ip_address = None
         self._ext_fc_storage = None
         self._ext_iscsi_storage = None
-        self._firmware_config = None
         self._hypervisor_type = None
         self._local_credential = None
         self._mac_address_prefix = None
@@ -171,8 +165,6 @@ class HyperflexClusterProfile(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if description is not None:
           self.description = description
         if name is not None:
@@ -199,8 +191,6 @@ class HyperflexClusterProfile(object):
           self.ext_fc_storage = ext_fc_storage
         if ext_iscsi_storage is not None:
           self.ext_iscsi_storage = ext_iscsi_storage
-        if firmware_config is not None:
-          self.firmware_config = firmware_config
         if hypervisor_type is not None:
           self.hypervisor_type = hypervisor_type
         if local_credential is not None:
@@ -436,29 +426,6 @@ class HyperflexClusterProfile(object):
         self._tags = tags
 
     @property
-    def id(self):
-        """
-        Gets the id of this HyperflexClusterProfile.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this HyperflexClusterProfile.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this HyperflexClusterProfile.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this HyperflexClusterProfile.
-        :type: str
-        """
-
-        self._id = id
-
-    @property
     def description(self):
         """
         Gets the description of this HyperflexClusterProfile.
@@ -686,6 +653,7 @@ class HyperflexClusterProfile(object):
     def data_ip_address(self):
         """
         Gets the data_ip_address of this HyperflexClusterProfile.
+        Data IP address for the HyperFlex cluster  
 
         :return: The data_ip_address of this HyperflexClusterProfile.
         :rtype: str
@@ -696,6 +664,7 @@ class HyperflexClusterProfile(object):
     def data_ip_address(self, data_ip_address):
         """
         Sets the data_ip_address of this HyperflexClusterProfile.
+        Data IP address for the HyperFlex cluster  
 
         :param data_ip_address: The data_ip_address of this HyperflexClusterProfile.
         :type: str
@@ -746,30 +715,10 @@ class HyperflexClusterProfile(object):
         self._ext_iscsi_storage = ext_iscsi_storage
 
     @property
-    def firmware_config(self):
-        """
-        Gets the firmware_config of this HyperflexClusterProfile.
-
-        :return: The firmware_config of this HyperflexClusterProfile.
-        :rtype: MoMoRef
-        """
-        return self._firmware_config
-
-    @firmware_config.setter
-    def firmware_config(self, firmware_config):
-        """
-        Sets the firmware_config of this HyperflexClusterProfile.
-
-        :param firmware_config: The firmware_config of this HyperflexClusterProfile.
-        :type: MoMoRef
-        """
-
-        self._firmware_config = firmware_config
-
-    @property
     def hypervisor_type(self):
         """
         Gets the hypervisor_type of this HyperflexClusterProfile.
+        Hypervisor Type for HyperFlex cluster  
 
         :return: The hypervisor_type of this HyperflexClusterProfile.
         :rtype: str
@@ -780,10 +729,17 @@ class HyperflexClusterProfile(object):
     def hypervisor_type(self, hypervisor_type):
         """
         Sets the hypervisor_type of this HyperflexClusterProfile.
+        Hypervisor Type for HyperFlex cluster  
 
         :param hypervisor_type: The hypervisor_type of this HyperflexClusterProfile.
         :type: str
         """
+        allowed_values = ["ESXi"]
+        if hypervisor_type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `hypervisor_type` ({0}), must be one of {1}"
+                .format(hypervisor_type, allowed_values)
+            )
 
         self._hypervisor_type = hypervisor_type
 
@@ -833,6 +789,7 @@ class HyperflexClusterProfile(object):
     def mgmt_ip_address(self):
         """
         Gets the mgmt_ip_address of this HyperflexClusterProfile.
+        Management IP address for the HyperFlex cluster  
 
         :return: The mgmt_ip_address of this HyperflexClusterProfile.
         :rtype: str
@@ -843,6 +800,7 @@ class HyperflexClusterProfile(object):
     def mgmt_ip_address(self, mgmt_ip_address):
         """
         Sets the mgmt_ip_address of this HyperflexClusterProfile.
+        Management IP address for the HyperFlex cluster  
 
         :param mgmt_ip_address: The mgmt_ip_address of this HyperflexClusterProfile.
         :type: str
@@ -854,6 +812,7 @@ class HyperflexClusterProfile(object):
     def mgmt_platform(self):
         """
         Gets the mgmt_platform of this HyperflexClusterProfile.
+        Management platform for HyperFlex cluster  
 
         :return: The mgmt_platform of this HyperflexClusterProfile.
         :rtype: str
@@ -864,10 +823,17 @@ class HyperflexClusterProfile(object):
     def mgmt_platform(self, mgmt_platform):
         """
         Sets the mgmt_platform of this HyperflexClusterProfile.
+        Management platform for HyperFlex cluster  
 
         :param mgmt_platform: The mgmt_platform of this HyperflexClusterProfile.
         :type: str
         """
+        allowed_values = ["FI", "EDGE"]
+        if mgmt_platform not in allowed_values:
+            raise ValueError(
+                "Invalid value for `mgmt_platform` ({0}), must be one of {1}"
+                .format(mgmt_platform, allowed_values)
+            )
 
         self._mgmt_platform = mgmt_platform
 
@@ -938,6 +904,7 @@ class HyperflexClusterProfile(object):
     def replication(self):
         """
         Gets the replication of this HyperflexClusterProfile.
+        Defines the number of redundant replicas of data across the cluster  
 
         :return: The replication of this HyperflexClusterProfile.
         :rtype: int
@@ -948,6 +915,7 @@ class HyperflexClusterProfile(object):
     def replication(self, replication):
         """
         Sets the replication of this HyperflexClusterProfile.
+        Defines the number of redundant replicas of data across the cluster  
 
         :param replication: The replication of this HyperflexClusterProfile.
         :type: int
@@ -959,6 +927,7 @@ class HyperflexClusterProfile(object):
     def storage_data_vlan(self):
         """
         Gets the storage_data_vlan of this HyperflexClusterProfile.
+        VLAN for HyperFlex storage data traffic   
 
         :return: The storage_data_vlan of this HyperflexClusterProfile.
         :rtype: HyperflexNamedVlan
@@ -969,6 +938,7 @@ class HyperflexClusterProfile(object):
     def storage_data_vlan(self, storage_data_vlan):
         """
         Sets the storage_data_vlan of this HyperflexClusterProfile.
+        VLAN for HyperFlex storage data traffic   
 
         :param storage_data_vlan: The storage_data_vlan of this HyperflexClusterProfile.
         :type: HyperflexNamedVlan

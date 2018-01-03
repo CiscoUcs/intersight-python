@@ -40,7 +40,6 @@ class EpansibleRunner(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'account': 'MoMoRef',
         'exit_code': 'int',
         'extra_vars': 'str',
@@ -60,7 +59,6 @@ class EpansibleRunner(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'account': 'Account',
         'exit_code': 'ExitCode',
         'extra_vars': 'ExtraVars',
@@ -70,7 +68,7 @@ class EpansibleRunner(object):
         'stdout': 'Stdout'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, account=None, exit_code=None, extra_vars=None, oper_state=None, playbook=None, stderr=None, stdout=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, account=None, exit_code=None, extra_vars=None, oper_state=None, playbook=None, stderr=None, stdout=None):
         """
         EpansibleRunner - a model defined in Swagger
         """
@@ -84,7 +82,6 @@ class EpansibleRunner(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._account = None
         self._exit_code = None
         self._extra_vars = None
@@ -111,8 +108,6 @@ class EpansibleRunner(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if account is not None:
           self.account = account
         if exit_code is not None:
@@ -334,29 +329,6 @@ class EpansibleRunner(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this EpansibleRunner.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this EpansibleRunner.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this EpansibleRunner.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this EpansibleRunner.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def account(self):

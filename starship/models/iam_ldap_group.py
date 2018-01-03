@@ -40,7 +40,6 @@ class IamLdapGroup(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'domain': 'str',
         'end_point_role': 'MoMoRef',
         'ldap_policy': 'MoMoRef',
@@ -57,14 +56,13 @@ class IamLdapGroup(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'domain': 'Domain',
         'end_point_role': 'EndPointRole',
         'ldap_policy': 'LdapPolicy',
         'name': 'Name'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, domain=None, end_point_role=None, ldap_policy=None, name=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, domain=None, end_point_role=None, ldap_policy=None, name=None):
         """
         IamLdapGroup - a model defined in Swagger
         """
@@ -78,7 +76,6 @@ class IamLdapGroup(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._domain = None
         self._end_point_role = None
         self._ldap_policy = None
@@ -102,8 +99,6 @@ class IamLdapGroup(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if domain is not None:
           self.domain = domain
         if end_point_role is not None:
@@ -319,29 +314,6 @@ class IamLdapGroup(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this IamLdapGroup.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this IamLdapGroup.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this IamLdapGroup.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this IamLdapGroup.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def domain(self):

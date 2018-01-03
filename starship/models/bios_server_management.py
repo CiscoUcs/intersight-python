@@ -277,7 +277,7 @@ class BiosServerManagement(object):
         :param os_boot_watchdog_timer_policy: The os_boot_watchdog_timer_policy of this BiosServerManagement.
         :type: str
         """
-        allowed_values = ["platform-default", "do-nothing", "power-off", "reset"]
+        allowed_values = ["platform-default", "power-off", "reset"]
         if os_boot_watchdog_timer_policy not in allowed_values:
             raise ValueError(
                 "Invalid value for `os_boot_watchdog_timer_policy` ({0}), must be one of {1}"

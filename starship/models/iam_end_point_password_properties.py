@@ -100,7 +100,7 @@ class IamEndPointPasswordProperties(object):
     def enforce_strong_password(self):
         """
         Gets the enforce_strong_password of this IamEndPointPasswordProperties.
-        Enables the strong password policy on the endpoint  
+        Enables a strong password policy  
 
         :return: The enforce_strong_password of this IamEndPointPasswordProperties.
         :rtype: bool
@@ -111,7 +111,7 @@ class IamEndPointPasswordProperties(object):
     def enforce_strong_password(self, enforce_strong_password):
         """
         Sets the enforce_strong_password of this IamEndPointPasswordProperties.
-        Enables the strong password policy on the endpoint  
+        Enables a strong password policy  
 
         :param enforce_strong_password: The enforce_strong_password of this IamEndPointPasswordProperties.
         :type: bool
@@ -123,7 +123,7 @@ class IamEndPointPasswordProperties(object):
     def grace_period(self):
         """
         Gets the grace_period of this IamEndPointPasswordProperties.
-        Time period till when the existing password can still be used, after it expires  
+        Time period until when you can use the existing password, after it expires  
 
         :return: The grace_period of this IamEndPointPasswordProperties.
         :rtype: int
@@ -134,7 +134,7 @@ class IamEndPointPasswordProperties(object):
     def grace_period(self, grace_period):
         """
         Sets the grace_period of this IamEndPointPasswordProperties.
-        Time period till when the existing password can still be used, after it expires  
+        Time period until when you can use the existing password, after it expires  
 
         :param grace_period: The grace_period of this IamEndPointPasswordProperties.
         :type: int
@@ -146,7 +146,7 @@ class IamEndPointPasswordProperties(object):
     def notification_period(self):
         """
         Gets the notification_period of this IamEndPointPasswordProperties.
-        Notifies the time by when the password expires  
+        Specifies the duration by when the password will expire  
 
         :return: The notification_period of this IamEndPointPasswordProperties.
         :rtype: int
@@ -157,7 +157,7 @@ class IamEndPointPasswordProperties(object):
     def notification_period(self, notification_period):
         """
         Sets the notification_period of this IamEndPointPasswordProperties.
-        Notifies the time by when the password expires  
+        Specifies the duration by when the password will expire  
 
         :param notification_period: The notification_period of this IamEndPointPasswordProperties.
         :type: int
@@ -169,7 +169,7 @@ class IamEndPointPasswordProperties(object):
     def password_expiry_duration(self):
         """
         Gets the password_expiry_duration of this IamEndPointPasswordProperties.
-        Time period by when the password will expire when password expiry is enabled  
+        Set time period for password expiration  
 
         :return: The password_expiry_duration of this IamEndPointPasswordProperties.
         :rtype: int
@@ -180,7 +180,7 @@ class IamEndPointPasswordProperties(object):
     def password_expiry_duration(self, password_expiry_duration):
         """
         Sets the password_expiry_duration of this IamEndPointPasswordProperties.
-        Time period by when the password will expire when password expiry is enabled  
+        Set time period for password expiration  
 
         :param password_expiry_duration: The password_expiry_duration of this IamEndPointPasswordProperties.
         :type: int
@@ -192,7 +192,7 @@ class IamEndPointPasswordProperties(object):
     def password_history(self):
         """
         Gets the password_history of this IamEndPointPasswordProperties.
-        Tracks password change history. Specifies in number of instances, the new password entered should not have been used in the past   
+        Tracks password change history. Specifies in number of instances, that the new password was already used   
 
         :return: The password_history of this IamEndPointPasswordProperties.
         :rtype: int
@@ -203,7 +203,7 @@ class IamEndPointPasswordProperties(object):
     def password_history(self, password_history):
         """
         Sets the password_history of this IamEndPointPasswordProperties.
-        Tracks password change history. Specifies in number of instances, the new password entered should not have been used in the past   
+        Tracks password change history. Specifies in number of instances, that the new password was already used   
 
         :param password_history: The password_history of this IamEndPointPasswordProperties.
         :type: int

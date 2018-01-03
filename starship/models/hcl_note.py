@@ -40,7 +40,6 @@ class HclNote(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'note': 'str'
     }
 
@@ -54,11 +53,10 @@ class HclNote(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'note': 'Note'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, note=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, note=None):
         """
         HclNote - a model defined in Swagger
         """
@@ -72,7 +70,6 @@ class HclNote(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._note = None
 
         if account_moid is not None:
@@ -93,8 +90,6 @@ class HclNote(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if note is not None:
           self.note = note
 
@@ -304,29 +299,6 @@ class HclNote(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this HclNote.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this HclNote.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this HclNote.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this HclNote.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def note(self):

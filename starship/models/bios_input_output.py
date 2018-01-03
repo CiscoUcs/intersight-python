@@ -278,7 +278,7 @@ class BiosInputOutput(object):
         :param psata: The psata of this BiosInputOutput.
         :type: str
         """
-        allowed_values = ["platform-default", "AHCI", "Disabled", "LSI SW RAID"]
+        allowed_values = ["platform-default", "Disabled", "LSI SW RAID"]
         if psata not in allowed_values:
             raise ValueError(
                 "Invalid value for `psata` ({0}), must be one of {1}"

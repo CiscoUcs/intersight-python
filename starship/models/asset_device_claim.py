@@ -40,7 +40,6 @@ class AssetDeviceClaim(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'account': 'MoMoRef',
         'device': 'MoMoRef',
         'security_token': 'str',
@@ -57,14 +56,13 @@ class AssetDeviceClaim(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'account': 'Account',
         'device': 'Device',
         'security_token': 'SecurityToken',
         'serial_number': 'SerialNumber'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, account=None, device=None, security_token=None, serial_number=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, account=None, device=None, security_token=None, serial_number=None):
         """
         AssetDeviceClaim - a model defined in Swagger
         """
@@ -78,7 +76,6 @@ class AssetDeviceClaim(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._account = None
         self._device = None
         self._security_token = None
@@ -102,8 +99,6 @@ class AssetDeviceClaim(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if account is not None:
           self.account = account
         if device is not None:
@@ -319,29 +314,6 @@ class AssetDeviceClaim(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this AssetDeviceClaim.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this AssetDeviceClaim.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this AssetDeviceClaim.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this AssetDeviceClaim.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def account(self):

@@ -40,7 +40,6 @@ class StoragePhysicalDisk(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'device_mo_id': 'str',
         'dn': 'str',
         'rn': 'str',
@@ -85,7 +84,6 @@ class StoragePhysicalDisk(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'device_mo_id': 'DeviceMoId',
         'dn': 'Dn',
         'rn': 'Rn',
@@ -120,7 +118,7 @@ class StoragePhysicalDisk(object):
         'variant_type': 'VariantType'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, device_mo_id=None, dn=None, rn=None, model=None, revision=None, serial=None, vendor=None, block_size=None, bootable=None, configuration_checkpoint=None, configuration_state=None, discovered_path=None, disk_id=None, disk_state=None, drive_state=None, link_speed=None, link_state=None, locator_led=None, num_blocks=None, oper_power_state=None, oper_qualifier_reason=None, operability=None, physical_block_size=None, presence=None, protocol=None, raw_size=None, registered_device=None, size=None, storage_controller=None, thermal=None, type=None, variant_type=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, device_mo_id=None, dn=None, rn=None, model=None, revision=None, serial=None, vendor=None, block_size=None, bootable=None, configuration_checkpoint=None, configuration_state=None, discovered_path=None, disk_id=None, disk_state=None, drive_state=None, link_speed=None, link_state=None, locator_led=None, num_blocks=None, oper_power_state=None, oper_qualifier_reason=None, operability=None, physical_block_size=None, presence=None, protocol=None, raw_size=None, registered_device=None, size=None, storage_controller=None, thermal=None, type=None, variant_type=None):
         """
         StoragePhysicalDisk - a model defined in Swagger
         """
@@ -134,7 +132,6 @@ class StoragePhysicalDisk(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._device_mo_id = None
         self._dn = None
         self._rn = None
@@ -186,8 +183,6 @@ class StoragePhysicalDisk(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if device_mo_id is not None:
           self.device_mo_id = device_mo_id
         if dn is not None:
@@ -459,29 +454,6 @@ class StoragePhysicalDisk(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this StoragePhysicalDisk.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this StoragePhysicalDisk.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this StoragePhysicalDisk.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this StoragePhysicalDisk.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def device_mo_id(self):

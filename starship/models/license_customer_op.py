@@ -40,7 +40,6 @@ class LicenseCustomerOp(object):
         'owners': 'list[str]',
         'parent': 'MoMoRef',
         'tags': 'list[MoTag]',
-        'id': 'str',
         'account_license_data': 'MoMoRef',
         'deregister_device': 'bool',
         'renew_authorization': 'bool',
@@ -58,7 +57,6 @@ class LicenseCustomerOp(object):
         'owners': 'Owners',
         'parent': 'Parent',
         'tags': 'Tags',
-        'id': 'Id',
         'account_license_data': 'AccountLicenseData',
         'deregister_device': 'DeregisterDevice',
         'renew_authorization': 'RenewAuthorization',
@@ -66,7 +64,7 @@ class LicenseCustomerOp(object):
         'show_agent_tech_support': 'ShowAgentTechSupport'
     }
 
-    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, id=None, account_license_data=None, deregister_device=None, renew_authorization=None, renew_id_certificate=None, show_agent_tech_support=None):
+    def __init__(self, account_moid=None, ancestors=None, create_time=None, mod_time=None, moid=None, object_type=None, owners=None, parent=None, tags=None, account_license_data=None, deregister_device=None, renew_authorization=None, renew_id_certificate=None, show_agent_tech_support=None):
         """
         LicenseCustomerOp - a model defined in Swagger
         """
@@ -80,7 +78,6 @@ class LicenseCustomerOp(object):
         self._owners = None
         self._parent = None
         self._tags = None
-        self._id = None
         self._account_license_data = None
         self._deregister_device = None
         self._renew_authorization = None
@@ -105,8 +102,6 @@ class LicenseCustomerOp(object):
           self.parent = parent
         if tags is not None:
           self.tags = tags
-        if id is not None:
-          self.id = id
         if account_license_data is not None:
           self.account_license_data = account_license_data
         if deregister_device is not None:
@@ -324,29 +319,6 @@ class LicenseCustomerOp(object):
         """
 
         self._tags = tags
-
-    @property
-    def id(self):
-        """
-        Gets the id of this LicenseCustomerOp.
-        A unique identifier of this Managed Object instance.  
-
-        :return: The id of this LicenseCustomerOp.
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this LicenseCustomerOp.
-        A unique identifier of this Managed Object instance.  
-
-        :param id: The id of this LicenseCustomerOp.
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def account_license_data(self):
