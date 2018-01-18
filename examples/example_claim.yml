@@ -1,0 +1,24 @@
+---
+
+- hosts: ucs
+  connection: local
+  gather_facts: no
+  vars:
+    # variables for Intersight API access (common for all hosts)
+    # ----------
+    api_host: https://intersight.com/api/v1
+    api_private_key: ./SecretKey.txt
+    api_key_id: <key_id>
+    stash_json: ' { "hostname": "{{ hostname }}",
+      "username": "{{ username }}",
+      "password": "{{ password }}",
+      "device_type": "{{ device_type }}",
+      "api_host": "{{ api_host }}",
+      "api_private_key": "{{ api_private_key }}",
+      "api_key_id": "{{ api_key_id }}"
+      }'
+  tasks:
+  - name: Claim devices
+    script: claim_device.py ' {{ stash_json }}'
+    register: result
+    changed_when: '"true" in result.stdout'

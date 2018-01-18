@@ -1,0 +1,19 @@
+{
+    "api_host": "https://intersight.com/api/v1",
+    "api_key_id": "<api key id.",
+    "api_private_key": "./SecretKey.txt",
+    "hosts": [
+        {
+            "device_type": "ucsm",
+            "hostname": "10.29.131.185",
+            "password": "password",
+            "username": "admin"
+        },
+        {
+            "device_type": "ucsm",
+            "hostname": "172.28.225.20",
+            "password": "password",
+            "username": "admin"
+        }
+    ]
+}
