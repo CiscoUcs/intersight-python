@@ -1,0 +1,3 @@
+[ucs]
+cc7-r13-ucs1: hostname=172.28.225.20 username=admin password=password device_type=ucsm
+sjc02-d23-ucs1: hostname=10.29.131.185 username=admin password=password device_type=ucsm
