@@ -14,12 +14,13 @@ if __name__ == "__main__":
     try:
         # settings are pulled from the json string or JSON file passed as an arg
         parser = argparse.ArgumentParser()
-        parser.add_argument('json_arg', help='JSON settings file or JSON object as a string')
+        parser.add_argument('-i', '--id', required=True, help='Cisco ID of the user to add')
+        parser.add_argument('-f', '--file', default='settings.json', help='JSON settings file (settings.json used by default)')
         args = parser.parse_args()
-        if os.path.isfile(args.json_arg):
-            settings = json.load(open(args.json_arg, 'r'))
+        if os.path.isfile(args.file):
+            settings = json.load(open(args.file, 'r'))
         else:
-            settings = json.loads(args.json_arg)
+            settings = json.loads(args.file)
 
         # Create Intersight API instance
         # ----------------------
@@ -27,7 +28,7 @@ if __name__ == "__main__":
 
         # GET Users
         users_handle = iam_user_api.IamUserApi(api_instance)
-        kwargs = dict(filter="Name eq '%s'" % settings['cisco_id'])
+        kwargs = dict(filter="Name eq '%s'" % args.id)
         users_result = users_handle.iam_users_get(**kwargs)
 
         # GET Permissions

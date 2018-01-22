@@ -55,7 +55,7 @@ if __name__ == "__main__":
                 cookie_str = "test; tokenType=Basic; locale=en; refreshToken=%s; token=%s" % (ro_json['refresh_token'], ro_json['access_token'])
                 header = {'Cookie': cookie_str}
             else:
-                # create IMC browser session (requires encryped password)
+                # create IMC browser session (requires encrypted password)
                 # --------------------------------
                 # encrypted_password = raw_input('Enter encrypted password: ')
                 # imc_login_uri = "https://%s/data/login" % host['hostname']
