@@ -1,6 +1,6 @@
 {
     "api_host": "https://intersight.com/api/v1",
-    "api_key_id": "<api key id.",
+    "api_key_id": "<api key id>",
     "api_private_key": "./SecretKey.txt",
     "hosts": [
         {
