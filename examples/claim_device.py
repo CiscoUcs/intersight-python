@@ -17,17 +17,20 @@ if __name__ == "__main__":
     try:
         # settings are pulled from the json string or JSON file passed as an arg
         parser = argparse.ArgumentParser()
-        parser.add_argument('json_arg', help='JSON settings file or JSON object as a string')
+        parser.add_argument('-f', '--file', default='settings.json', help='JSON settings file (settings.json used by default)')
+        parser.add_argument('-j', '--json_str', help='JSON string with host access information')
         args = parser.parse_args()
-        if os.path.isfile(args.json_arg):
-            settings = json.load(open(args.json_arg, 'r'))
+        if os.path.isfile(args.file):
+            settings = json.load(open(args.file, 'r'))
         else:
-            settings = json.loads(args.json_arg)
+            settings = json.loads(args.file)
 
         if settings.get('hosts'):
+            # if a hosts list was included with settings, code will loop over the hosts
             hosts_list = settings['hosts']
         else:
-            hosts_list = [settings]
+            # if there was not a hosts list, use the json_str to load host information
+            hosts_list = [json.loads(args.json_str)]
         for host in hosts_list:
             if host['device_type'] == 'ucsm':
                 # XML API login and create session cookie
@@ -92,6 +95,36 @@ if __name__ == "__main__":
                         raise Exception("Device Connector API enable status: %s" % ro.status_code)
                     retries += 1
 
+            # if not connected, put proxy settings
+            if ro_json['ConnectionState'] != 'Connected' and host.get('proxy_host') and host.get('proxy_port'):
+                # setup defaults for proxy settings
+                if not host.get('proxy_password'):
+                    host['proxy_password'] = ''
+                if not host.get('proxy_username'):
+                    host['proxy_username'] = ''
+                proxy_payload = {
+                    'ProxyHost': host['proxy_host'],
+                    'ProxyPassword': host['proxy_password'],
+                    'ProxyPort': int(host['proxy_port']),
+                    'ProxyType': 'Manual',
+                    'ProxyUsername': host['proxy_username'],
+                }
+                proxy_uri = "%s/HttpProxies" % connector_uri
+                ro = requests.put(proxy_uri, verify=False, headers=header, json=proxy_payload)
+                if ro.status_code != 200:
+                    raise Exception("Device Connector Proxy enable status: %s" % ro.status_code)
+                retries = 0
+                while True and retries <= 10:
+                    # wait for state to report connected
+                    ro = requests.get(systems_uri, verify=False, headers=header)
+                    if ro.status_code != 200:
+                        raise Exception("Device Connector API Systems status: %s" % ro.status_code)
+                    ro_json = ro.json()[0]
+                    if ro_json['ConnectionState'] == 'Connected':
+                        break
+                    else:
+                        retries += 1
+
             result['msg'] = "  Host: %s" % host['hostname']
             result['msg'] += "  AdminState: %s" % ro_json['AdminState']
             result['msg'] += "  ConnectionState: %s" % ro_json['ConnectionState']
@@ -137,10 +170,11 @@ if __name__ == "__main__":
         print '-' * 60
         sys.exit(1)
 
-    if cookie and xml_uri:
-        # XML API session logout
-        # --------------------------------
-        xml = "<aaaLogout inCookie=\"%s\" />" % cookie
-        ro = requests.post(xml_uri, verify=False, data=xml)
+    finally:
+        if cookie and xml_uri:
+            # XML API session logout
+            # --------------------------------
+            xml = "<aaaLogout inCookie=\"%s\" />" % cookie
+            ro = requests.post(xml_uri, verify=False, data=xml)
 
     sys.exit(0)
