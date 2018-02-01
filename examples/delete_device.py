@@ -15,7 +15,7 @@ if __name__ == "__main__":
         # settings are pulled from the json string or JSON file passed as an arg
         parser = argparse.ArgumentParser()
         parser.add_argument('-f', '--file', default='settings.json', help='JSON settings file (settings.json used by default)')
-        parser.add_argument('-t', '--target_host', dest='hostname', help='target host ip to delete')
+        parser.add_argument('-t', '--target_host', dest='hostname', required=True, help='target host ip to delete')
         args = parser.parse_args()
         if os.path.isfile(args.file):
             settings = json.load(open(args.file, 'r'))
