@@ -1,0 +1,37 @@
+{
+    "api_host": "https://intersight.com/api/v1",
+    "api_key_id": "<api key id>",
+    "api_private_key": "<path to>/SecretKey.txt",
+    "devices": [
+        {
+            "device_type": "ucsm",
+            "hostname": "<hostname>",
+            "password": "password",
+            "proxy_host": "proxy-wsa.esl.cisco.com",
+            "proxy_port": 80,
+            "username": "admin"
+        },
+        {
+            "device_type": "ucsm",
+            "hostname": "<hostname>",
+            "password": "password",
+            "username": "admin"
+        },
+        {
+            "device_type": "imc",
+            "hostname": "<hostname>",
+            "password": "password",
+            "proxy_host": "proxy-wsa.esl.cisco.com",
+            "proxy_port": 80,
+            "username": "admin"
+        },
+        {
+            "device_type": "imc",
+            "hostname": "<hostname>",
+            "password": "password",
+            "proxy_host": "proxy-wsa.esl.cisco.com",
+            "proxy_port": 80,
+            "username": "admin"
+        }
+    ]
+}
