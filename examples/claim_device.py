@@ -179,7 +179,7 @@ class ImcDeviceConnector(DeviceConnector, object):
         system_type = platform.system()
         if system_type == 'Darwin':
             system_type = 'Mac'
-            version = "_v%s" % python_version
+            version = '_v2'
         elif system_type == 'Windows':
             version = 'v_27' if python_version == 2 else 'v_34'
         else:
@@ -187,14 +187,14 @@ class ImcDeviceConnector(DeviceConnector, object):
         encryption_utils_dir = 'EncryptPassword'
         encryption_exe = "%s/%s/EncryptPassword%s" % (encryption_utils_dir, system_type, version)
         try:
-            encrypted_password = subprocess.check_output([encryption_exe, self.device['hostname'], self.device['password']]).rstrip()
+            encrypted_password = subprocess.check_output([encryption_exe, self.device['username'], self.device['password']])
             imc_login_uri = "https://%s/data/login" % self.device['hostname']
             referer = "https://%s/uiconnector/index.html" % self.device['hostname']
             self.imc_header = {
                 'Referer': referer,
                 'Content-Type': 'application/x-www-form-urlencoded'
             }
-            imc_login_str = "user=%s&password=%s" % (URL.quote_plus(self.device['username']), URL.quote_plus(encrypted_password))
+            imc_login_str = "user=%s&password=%s" % (URL.quote_plus(self.device['username']), URL.quote_plus(encrypted_password.rstrip()))
             resp = requests.post(imc_login_uri, verify=False, headers=self.imc_header, data=imc_login_str)
             if re.match(r'2..', str(resp.status_code)):
                 self.imc_session_cookie = list(resp.cookies.values())[0]
