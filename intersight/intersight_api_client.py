@@ -13,11 +13,11 @@ import threading
 
 from six.moves.urllib.parse import quote
 from six.moves.urllib.parse import urlencode
+from six.moves.urllib.parse import urlparse
 from Crypto.PublicKey import RSA
 from Crypto.Signature import PKCS1_v1_5
 from Crypto.Hash import SHA256
 from base64 import b64encode
-from urlparse import urlparse
 from intersight import ApiClient
 
 class IntersightApiClient(ApiClient):
