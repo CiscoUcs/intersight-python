@@ -179,7 +179,7 @@ class ImcDeviceConnector(DeviceConnector, object):
         system_type = platform.system()
         if system_type == 'Darwin':
             system_type = 'Mac'
-            version = '_v2'
+            version = ''
         elif system_type == 'Windows':
             version = 'v_27' if python_version == 2 else 'v_34'
         else:
@@ -197,14 +197,18 @@ class ImcDeviceConnector(DeviceConnector, object):
             imc_login_str = "user=%s&password=%s" % (URL.quote_plus(self.device['username']), URL.quote_plus(encrypted_password.rstrip()))
             resp = requests.post(imc_login_uri, verify=False, headers=self.imc_header, data=imc_login_str)
             if re.match(r'2..', str(resp.status_code)):
-                self.imc_session_cookie = list(resp.cookies.values())[0]
-                xml_tree = ElementTree.fromstring(resp.content)
-                self.imc_session_id = xml_tree.find('sidValue').text
-                self.auth_header = {
-                    'Cookie': "sessionCookie=%s" % self.imc_session_cookie,
-                    'Referer': referer
-                }
-                self.logged_in = True
+                cookies = list(resp.cookies.values())
+                if cookies:
+                    self.imc_session_cookie = cookies[0]
+                    xml_tree = ElementTree.fromstring(resp.content)
+                    self.imc_session_id = xml_tree.find('sidValue').text
+                    self.auth_header = {
+                        'Cookie': "sessionCookie=%s" % self.imc_session_cookie,
+                        'Referer': referer
+                    }
+                    self.logged_in = True
+                else:
+                    print("Unable to login: ", imc_login_uri)
         except subprocess.CalledProcessError as sub_ret:
             print("Encryption exe returns ", sub_ret.returncode, sub_ret.output)
 
@@ -250,12 +254,13 @@ if __name__ == "__main__":
             elif device['device_type'] == 'imc':
                 dc_obj = ImcDeviceConnector(device)
             else:
-                result['msg'] += "Unknown device_type %s" % device['device_type']
+                result['msg'] += "  Unknown device_type %s" % device['device_type']
                 return_code = 1
                 print(json.dumps(result))
                 continue
 
             if not dc_obj.logged_in:
+                result['msg'] += "  Login error"
                 return_code = 1
                 print(json.dumps(result))
                 continue
