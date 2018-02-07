@@ -12,6 +12,8 @@
       "password": "{{ password }}",
       "device_type": "{{ device_type }}"
       }'
+  environment:
+    PYTHONPATH: "{{ playbook_dir }}"
   tasks:
   - name: Define proxy host and port if provided
     set_fact:
