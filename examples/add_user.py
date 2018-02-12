@@ -1,9 +1,8 @@
 #!/usr/bin/env python
-
+"""Add an Intersight user by providing Cisco.com user ID and role via the Intersight API."""
 import sys
 import json
 import argparse
-import os.path
 from intersight.intersight_api_client import IntersightApiClient
 from intersight.apis import iam_account_api
 from intersight.apis import iam_user_api
@@ -20,67 +19,74 @@ if __name__ == "__main__":
         parser.add_argument('-i', '--id', required=True, help='Cisco ID of the user to add')
         roles = ['Account Administrator', 'Read-Only']
         parser.add_argument('-r', '--role', choices=roles, required=True, help='Role of the user to add')
-        parser.add_argument('-f', '--file', default='settings.json', help='JSON settings file (settings.json used by default)')
+        help_str = 'JSON file with Intersight API parameters.  Default: intersight_api_params.json'
+        parser.add_argument('-a', '--api_params', default='intersight_api_params.json', help=help_str)
         args = parser.parse_args()
-        if os.path.isfile(args.file):
-            settings = json.load(open(args.file, 'r'))
-        else:
-            settings = json.loads(args.file)
+        with open(args.api_params, 'r') as api_file:
+            intersight_api_params = json.load(api_file)
 
         # Create Intersight API instance
         # ----------------------
-        api_instance = IntersightApiClient(host=settings['api_host'], private_key=settings['api_private_key'], api_key_id=settings['api_key_id'])
-
-        # GET Accounts
-        accounts_handle = iam_account_api.IamAccountApi(api_instance)
-        accounts_result = accounts_handle.iam_accounts_get()
-
-        # POST Users with Idpreference
-        users_handle = iam_user_api.IamUserApi(api_instance)
-        users_body = {
-            'Name': args.id,
-            'Idpreference': accounts_result.results[0].idpreferences[0],
-        }
-        users_result = users_handle.iam_users_post(users_body)
-        result['changed'] = True
+        api_instance = IntersightApiClient(
+            host=intersight_api_params['api_base_uri'],
+            private_key=intersight_api_params['api_private_key_file'],
+            api_key_id=intersight_api_params['api_key_id'],
+        )
 
         # GET Users
+        users_handle = iam_user_api.IamUserApi(api_instance)
         kwargs = dict(filter="Name eq '%s'" % args.id)
         users_result = users_handle.iam_users_get(**kwargs)
+        if users_result.results:
+            print("User already exists:", args.id)
+        else:
+            # GET Accounts
+            accounts_handle = iam_account_api.IamAccountApi(api_instance)
+            accounts_result = accounts_handle.iam_accounts_get()
 
-        # GET Roles
-        roles_handle = iam_role_api.IamRoleApi(api_instance)
-        roles_result = roles_handle.iam_roles_get()
-        for role in roles_result.results:
-            if role.name == args.role:
-                break
+            # POST Users with Idpreference
+            users_body = {
+                'Name': args.id,
+                'Idpreference': accounts_result.results[0].idpreferences[0],
+            }
+            users_result = users_handle.iam_users_post(users_body)
+            result['changed'] = True
 
-        # GET EndPointRoles
-        end_point_roles_handle = iam_end_point_role_api.IamEndPointRoleApi(api_instance)
-        endpoint_roles = {}
-        endpoint_roles['Read-Only'] = 'endpoint-readonly'
-        endpoint_roles['Account Administrator'] = 'endpoint-admin'
-        kwargs = dict(filter="RoleType eq '%s'" % endpoint_roles[args.role])
-        end_point_roles_result = end_point_roles_handle.iam_end_point_roles_get(**kwargs)
+            # GET Roles
+            roles_handle = iam_role_api.IamRoleApi(api_instance)
+            roles_result = roles_handle.iam_roles_get()
+            for role in roles_result.results:
+                if role.name == args.role:
+                    # GET EndPointRoles
+                    end_point_roles_handle = iam_end_point_role_api.IamEndPointRoleApi(api_instance)
+                    endpoint_roles = {}
+                    endpoint_roles['Read-Only'] = 'endpoint-readonly'
+                    endpoint_roles['Account Administrator'] = 'endpoint-admin'
+                    kwargs = dict(filter="RoleType eq '%s'" % endpoint_roles[args.role])
+                    end_point_roles_result = end_point_roles_handle.iam_end_point_roles_get(**kwargs)
 
-        # POST Permissions with EndPointRoles
-        permissions_handle = iam_permission_api.IamPermissionApi(api_instance)
-        permissions_body = {
-            'Subject': users_result.results[0].moid,
-            'Type': 'User',
-            'Account': accounts_result.results[0].account_moid,
-            'EndPointRoles': end_point_roles_result.results,
-            'Roles': [role],
-        }
-        permissions_result = permissions_handle.iam_permissions_post(permissions_body)
+                    # POST Permissions with EndPointRoles
+                    permissions_handle = iam_permission_api.IamPermissionApi(api_instance)
+                    permissions_body = {
+                        'Subject': users_result.results[0].moid,
+                        'Type': 'User',
+                        'Account': accounts_result.results[0].account_moid,
+                        'EndPointRoles': end_point_roles_result.results,
+                        'Roles': [role],
+                    }
+                    permissions_result = permissions_handle.iam_permissions_post(permissions_body)
+                    break
+            else:
+                # for loop completed without finding a role
+                print("Role not found:", args.role)
 
-    except Exception, err:
-        print "Exception:", str(err)
+    except Exception as err:
+        print("Exception:", str(err))
         import traceback
-        print '-' * 60
+        print('-' * 60)
         traceback.print_exc(file=sys.stdout)
-        print '-' * 60
+        print('-' * 60)
         sys.exit(1)
 
-    print json.dumps(result)
+    print(json.dumps(result))
     sys.exit(0)
