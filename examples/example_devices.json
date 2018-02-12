@@ -1,0 +1,51 @@
+[
+    {
+        "device_type": "ucsm",
+        "hostname": "192.12.251.140",
+        "password": "password",
+        "proxy_host": "proxy-wsa.esl.cisco.com",
+        "proxy_port": 80,
+        "username": "admin",
+        "read_only": true
+    },
+    {
+        "device_type": "ucsm",
+        "hostname": "192.18.225.20",
+        "password": "password",
+        "proxy_host": "proxy-wsa.esl.cisco.com",
+        "proxy_port": 80,
+        "username": "admin",
+        "read_only": "True"
+    },
+    {
+        "device_type": "ucsm",
+        "hostname": "10.29.131.185",
+        "password": "password",
+        "username": "admin",
+        "read_only": true
+    },
+    {
+        "device_type": "imc",
+        "hostname": "192.12.249.76",
+        "password": "password",
+        "proxy_host": "proxy-wsa.esl.cisco.com",
+        "proxy_port": 80,
+        "username": "admin"
+    },
+    {
+        "device_type": "imc",
+        "hostname": "192.18.225.122",
+        "password": "password",
+        "proxy_host": "proxy-wsa.esl.cisco.com",
+        "proxy_port": 80,
+        "username": "admin"
+    },
+    {
+        "device_type": "imc",
+        "hostname": "192.18.225.123",
+        "password": "password",
+        "proxy_host": "proxy-wsa.esl.cisco.com",
+        "proxy_port": 80,
+        "username": "admin"
+    }
+]

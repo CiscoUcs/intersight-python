@@ -1,3 +1,38 @@
-[ucs]
-cc7-r13-ucs1: hostname=172.28.225.20 username=admin password=password device_type=ucsm
-sjc02-d23-ucs1: hostname=10.29.131.185 username=admin password=password device_type=ucsm
+[sjc18]
+sjc18-l12-ucs2: hostname=192.12.251.30 device_type=ucsm read_only=true
+sjc18-l13-ucs1-hx: hostname=192.12.251.140 device_type=ucsm
+sjc18-l14-ucs1: hostname=192.12.251.106 device_type=ucsm read_only=true
+sjc18-c240m5-76: hostname=192.12.249.76 device_type=imc
+
+[sjc07]
+cc7-r13-ucs1: hostname=192.18.225.20 device_type=ucsm
+cc7-c220m5-122: hostname=192.18.225.122 device_type=imc
+cc7-c220m5-123: hostname=192.18.225.123 device_type=imc
+
+[sjc02]
+sjc02-d23-ucs1: hostname=10.29.131.185 device_type=ucsm read_only=true
+
+[sjc18:vars]
+password=password
+
+[sjc07:vars]
+password=password
+
+[sjc02:vars]
+password=password
+
+[behind_proxy:children]
+sjc18
+sjc07
+
+[behind_proxy:vars]
+proxy_host=proxy-wsa.esl.cisco.com
+proxy_port=80
+
+[ucs:children]
+sjc18
+sjc07
+sjc02
+
+[ucs:vars]
+username=admin

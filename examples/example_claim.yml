@@ -4,30 +4,35 @@
   connection: local
   gather_facts: no
   vars:
-    settings_file: settings.json
-    # JSON for each host being claimed
-    # ----------
-    stash_json: ' { "hostname": "{{ hostname }}",
-      "username": "{{ username }}",
-      "password": "{{ password }}",
-      "device_type": "{{ device_type }}"
-      }'
+    # override on command line if needed
+    api_params_file: intersight_api_params.json
   environment:
     PYTHONPATH: "{{ playbook_dir }}"
   tasks:
-  - name: Define proxy host and port if provided
+  # default values that can be overridden in inventory
+  - name: Default to no proxy settings
     set_fact:
+      proxy_host: ''
+      proxy_port: 0
+    when: proxy_host is not defined or proxy_port is not defined
+  - name: Default access mode to allow control (read-only false)
+    set_fact:
+      read_only: false
+    when: read_only is not defined
+  - name: Define JSON string passed to claim script
+    set_fact:
+      # JSON for each host being claimed.
+      # Quotes and whitespace are importantant for the JSON string passed to claim script.
+      # ----------
       stash_json: ' { "hostname": "{{ hostname }}",
         "username": "{{ username }}",
         "password": "{{ password }}",
         "device_type": "{{ device_type }}",
         "proxy_host": "{{ proxy_host }}",
-        "proxy_port": "{{ proxy_port }}"
+        "proxy_port": "{{ proxy_port }}",
+        "read_only": "{{ read_only }}"
         }'
-    when: proxy_host is defined and proxy_port is defined
   - name: Claim devices
-    # Intersight API keys provided by settings_file variable
-    # ----------
-    script: claim_device.py -f "{{ settings_file }}" -j ' {{ stash_json }}'
+    script: claim_device.py -a "{{ api_params_file }}" -d ' [{{ stash_json }}]'
     register: result
     changed_when: '"true" in result.stdout'

@@ -3,6 +3,10 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Allow specific .pyc files
+!/examples/get_data_2.pyc
+!/examples/get_data_3.pyc
+
 # C extensions
 *.so
 
