@@ -36,9 +36,9 @@ if __name__ == "__main__":
             if device.get('read_only') == None:
                 device['read_only'] = False
             else:
-                if device['read_only'] == 'True':
+                if device['read_only'] == 'True' or device['read_only'] == 'true':
                     device['read_only'] = True
-                elif device['read_only'] == 'False':
+                elif device['read_only'] == 'False' or device['read_only'] == 'false':
                     device['read_only'] = False
             # create device connector object based on device type
             if device['device_type'] == 'ucsm' or device['device_type'] == 'ucspe':
