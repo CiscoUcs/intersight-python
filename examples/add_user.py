@@ -52,6 +52,10 @@ if __name__ == "__main__":
             users_result = users_handle.iam_users_post(users_body)
             result['changed'] = True
 
+            # GET Users
+            kwargs = dict(filter="Name eq '%s'" % args.id)
+            users_result = users_handle.iam_users_get(**kwargs)
+
             # GET Roles
             roles_handle = iam_role_api.IamRoleApi(api_instance)
             roles_result = roles_handle.iam_roles_get()
