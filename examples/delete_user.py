@@ -13,7 +13,7 @@ if __name__ == "__main__":
     try:
         # settings are pulled from the json string or JSON file passed as an arg
         parser = argparse.ArgumentParser()
-        parser.add_argument('-i', '--id', required=True, help='Cisco ID of the user to add')
+        parser.add_argument('-i', '--id', required=True, help='Cisco ID of the user to delete')
         help_str = 'JSON file with Intersight API parameters.  Default: intersight_api_params.json'
         parser.add_argument('-a', '--api_params', default='intersight_api_params.json', help=help_str)
         args = parser.parse_args()
