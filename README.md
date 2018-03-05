@@ -53,9 +53,9 @@ from intersight.rest import ApiException
 from pprint import pprint
 # create an instance of the API class
 api_instance = intersight.AaaAuditRecordApi()
-count = true # bool | The $count query option allows clients to request a count of the matching resources. (optional)
-inlinecount = true # bool | The $inlinecount query option allows clients to request an inline count of the matching resources included with the resources in the response (optional)
-tags = true # bool | The 'tags' query option allows clients to request a document with tag usage summary. (optional)
+count = True # bool | The $count query option allows clients to request a count of the matching resources. (optional)
+inlinecount = True # bool | The $inlinecount query option allows clients to request an inline count of the matching resources included with the resources in the response (optional)
+tags = True # bool | The 'tags' query option allows clients to request a document with tag usage summary. (optional)
 top = 56 # int | The max number of records to return (optional)
 skip = 56 # int | The number of records to skip (optional)
 filter = 'filter_example' # str | Filter criteria for records to return. A URI with a $filter System Query Option identifies a subset of the Entries from the Collection of Entries identified by the Resource Path section of the URI. The subset is determined by selecting only the Entries that satisfy the predicate expression specified by the query option. The expression language that is used in $filter operators supports references to properties and literals. The literal values can be strings enclosed in single quotes, numbers and boolean values (true or false) or any of the additional literal representations shown in the Abstract Type System section. Query examples: $filter=Name eq 'Bob' $filter=Tags/any(t: t/Key eq 'Site') $filter=Tags/any(t: t/Key eq 'Site' and t/Value eq 'London')  (optional)
