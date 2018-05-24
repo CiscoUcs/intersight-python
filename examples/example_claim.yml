@@ -10,6 +10,10 @@
     PYTHONPATH: "{{ playbook_dir }}"
   tasks:
   # default values that can be overridden in inventory
+  - name: Set hostname
+    set_fact:
+      hostname: "{{ inventory_hostname }}"
+    when: hostname is not defined
   - name: Default to no proxy settings
     set_fact:
       proxy_host: ''
