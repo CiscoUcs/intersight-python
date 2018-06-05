@@ -41,12 +41,15 @@ if __name__ == "__main__":
                 elif device['read_only'] == 'False' or device['read_only'] == 'false':
                     device['read_only'] = False
             # create device connector object based on device type
-            if device['device_type'] == 'ucsm' or device['device_type'] == 'ucspe':
+            if device['device_type'] == 'ucs' or device['device_type'] == 'ucsm' or device['device_type'] == 'ucspe':
                 dc_obj = device_connector.UcsDeviceConnector(device)
             elif device['device_type'] == 'hx':
                 dc_obj = device_connector.HxDeviceConnector(device)
             elif device['device_type'] == 'imc':
-                dc_obj = device_connector.ImcDeviceConnector(device)
+                # attempt ucs connection and if that doesn't login revert to older imc login
+                dc_obj = device_connector.UcsDeviceConnector(device)
+                if not dc_obj.logged_in:
+                    dc_obj = device_connector.ImcDeviceConnector(device)
             else:
                 result['msg'] += "  Unknown device_type %s" % device['device_type']
                 return_code = 1
