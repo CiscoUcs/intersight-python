@@ -1,9 +1,9 @@
 # coding: utf-8
 
 """
-    UCS Starship API
+    Intersight API
 
-    This is the UCS Starship REST API
+    This is the Intersight REST API
 
     OpenAPI spec version: 1.0.0
     
@@ -28,14 +28,14 @@ REQUIRES = ["urllib3 >= 1.15", "six", "certifi", "python-dateutil", "pycrypto >=
 setup(
     name=NAME,
     version=VERSION,
-    description="UCS Starship API",
+    description="Intersight API",
     author_email="",
     url="",
-    keywords=["Swagger", "UCS Starship API"],
+    keywords=["Swagger", "Intersight API"],
     install_requires=REQUIRES,
     packages=find_packages(),
     include_package_data=True,
     long_description="""\
-    This is the UCS Starship REST API
+    This is the Intersight REST API
     """
 )
