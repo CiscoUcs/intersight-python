@@ -1,7 +1,7 @@
 certifi >= 14.05.14
-pycrypto >= 2.6.1
 six
 python_dateutil >= 2.5.3
 setuptools >= 21.0.0
 urllib3 >= 1.15.1, <= 1.22
+pycryptodome >= 3.6.1
 requests

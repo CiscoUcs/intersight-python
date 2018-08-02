@@ -5,7 +5,6 @@ import json
 import argparse
 from intersight.intersight_api_client import IntersightApiClient
 from intersight.apis import iam_user_api
-from intersight.apis import iam_permission_api
 
 if __name__ == "__main__":
     result = dict(changed=False)
@@ -30,20 +29,12 @@ if __name__ == "__main__":
 
         # GET Users
         users_handle = iam_user_api.IamUserApi(api_instance)
-        kwargs = dict(filter="Name eq '%s'" % args.id)
+        kwargs = dict(filter="Email eq '%s'" % args.id)
         users_result = users_handle.iam_users_get(**kwargs)
         if users_result.results:
-            # GET Permissions
-            permissions_handle = iam_permission_api.IamPermissionApi(api_instance)
-            kwargs = dict(filter="Subject eq '%s'" % users_result.results[0].moid)
-            permissions_result = permissions_handle.iam_permissions_get(**kwargs)
-
-            # DELETE Permissions
-            permissions_delete_result = permissions_handle.iam_permissions_moid_delete(moid=permissions_result.results[0].moid)
-            result['changed'] = True
-
             # DELETE Users
             users_delete_result = users_handle.iam_users_moid_delete(moid=users_result.results[0].moid)
+            result['changed'] = True
         else:
             print("User not found:", args.id)
 

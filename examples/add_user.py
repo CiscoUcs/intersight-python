@@ -4,11 +4,9 @@ import sys
 import json
 import argparse
 from intersight.intersight_api_client import IntersightApiClient
-from intersight.apis import iam_account_api
-from intersight.apis import iam_user_api
-from intersight.apis import iam_role_api
-from intersight.apis import iam_end_point_role_api
 from intersight.apis import iam_permission_api
+from intersight.apis import iam_idp_reference_api
+from intersight.apis import iam_user_api
 
 
 def add_user(intersight_api_params, username, user_role='Account Administrator'):
@@ -20,62 +18,45 @@ def add_user(intersight_api_params, username, user_role='Account Administrator')
         api_key_id=intersight_api_params['api_key_id'],
     )
 
-    # GET Users
-    users_handle = iam_user_api.IamUserApi(api_instance)
-    kwargs = dict(filter="Name eq '%s'" % username)
-    users_result = users_handle.iam_users_get(**kwargs)
+    # GET Permissions
+    permissions_handle = iam_permission_api.IamPermissionApi(api_instance)
+    kwargs = dict(filter="Name eq '%s'" % user_role)
+    permissions_result = permissions_handle.iam_permissions_get(**kwargs)
 
-    # GET Accounts
-    accounts_handle = iam_account_api.IamAccountApi(api_instance)
-    accounts_result = accounts_handle.iam_accounts_get()
+    if permissions_result.results:
+        # GET IdpReference
+        idp_reference_handle = iam_idp_reference_api.IamIdpReferenceApi(api_instance)
+        idp_reference_name = 'Cisco'
+        kwargs = dict(filter="Name eq '%s'" % idp_reference_name)
+        idp_reference_result = idp_reference_handle.iam_idp_references_get(**kwargs)
+        if idp_reference_result.results:
+            user_matches = False
+            # GET Users
+            users_handle = iam_user_api.IamUserApi(api_instance)
+            kwargs = dict(filter="Email eq '%s'" % username)
+            users_result = users_handle.iam_users_get(**kwargs)
+            if (
+                    users_result.results and
+                    users_result.results[0].permissions[0].moid == permissions_result.results[0].moid and
+                    users_result.results[0].idpreference.moid == idp_reference_result.results[0].moid
+               ):
+                user_matches = True
 
-    if not users_result.results:
-        # POST Users with Idpreference
-        users_body = {
-            'Name': username,
-            'Idpreference': accounts_result.results[0].idpreferences[0],
-        }
-        users_result = users_handle.iam_users_post(users_body)
-        result['changed'] = True
-
-        # GET Users again
-        kwargs = dict(filter="Name eq '%s'" % username)
-        users_result = users_handle.iam_users_get(**kwargs)
-
-    # GET Roles
-    roles_handle = iam_role_api.IamRoleApi(api_instance)
-    roles_result = roles_handle.iam_roles_get()
-    for role in roles_result.results:
-        if role.name == user_role:
-            # GET EndPointRoles
-            end_point_roles_handle = iam_end_point_role_api.IamEndPointRoleApi(api_instance)
-            endpoint_roles = {}
-            endpoint_roles['Read-Only'] = 'endpoint-readonly'
-            endpoint_roles['Account Administrator'] = 'endpoint-admin'
-            kwargs = dict(filter="RoleType eq '%s'" % endpoint_roles[user_role])
-            end_point_roles_result = end_point_roles_handle.iam_end_point_roles_get(**kwargs)
-
-            permissions_handle = iam_permission_api.IamPermissionApi(api_instance)
-            kwargs = dict(filter="Subject eq '%s'" % users_result.results[0].moid)
-            permissions_result = permissions_handle.iam_permissions_get(**kwargs)
-            
-            permissions_body = {
-                'Subject': users_result.results[0].moid,
-                'Type': 'User',
-                'Account': accounts_result.results[0].account_moid,
-                'EndPointRoles': end_point_roles_result.results,
-                'Roles': [role],
-            }
-            if permissions_result.results:
-                # PATCH Permissions with EndPointRoles
-                permissions_result = permissions_handle.iam_permissions_moid_patch(permissions_result.results[0].moid, permissions_body)
-            else:
-                # POST Permissions with EndPointRoles
-                permissions_result = permissions_handle.iam_permissions_post(permissions_body)
-            break
+            if not user_matches:
+                # POST Users with Permissions and IdpReference
+                users_body = {
+                    'Email': username,
+                    'Idpreference': idp_reference_result.results[0].moid,
+                    'Permissions': [permissions_result.results[0].moid],
+                }
+                users_result = users_handle.iam_users_post(users_body)
+                result['changed'] = True
+            else:   # user exists and IdP/Permissions match
+                print('User exists with requested role:', username)
+        else:
+            print('Could not find IdP', idp_reference_name)
     else:
-        # for loop completed without finding a role
-        print("Role not found:", user_role)
+        print('Invalid user role', user_role)
 
 
 if __name__ == "__main__":
@@ -94,7 +75,7 @@ if __name__ == "__main__":
             intersight_api_params = json.load(api_file)
 
         add_user(intersight_api_params, args.id, args.role)
-        
+
     except Exception as err:
         print("Exception:", str(err))
         import traceback
