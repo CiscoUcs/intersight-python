@@ -178,9 +178,12 @@ class ImcDeviceConnector(DeviceConnector, object):
         if sys.version_info[0] == 3:
             import urllib.parse as URL
             import get_data_3 as get_data
+            import six
+            password = six.b(self.device['password']) 
         elif sys.version_info[0] == 2:
             import urllib as URL
             import get_data_2 as get_data
+            password = str(self.device['password'])
         system_type = platform.system()
         utils_extension = ''
         if system_type == 'Darwin':
@@ -191,7 +194,7 @@ class ImcDeviceConnector(DeviceConnector, object):
         utils_exe = "%s/%s/GetData%s" % (utils_dir, system_type, utils_extension)
         try:
             passphrase = subprocess.check_output([utils_exe, self.device['username']])
-            utils_password = get_data.E(passphrase, str(self.device['password']))
+            utils_password = get_data.E(passphrase, password)
             imc_login_str = "user=%s&password=%s" % (URL.quote_plus(self.device['username']), URL.quote_plus(utils_password.rstrip()))
             imc_login_uri = "https://%s/data/login" % self.device['hostname']
             referer = "https://%s/uiconnector/index.html" % self.device['hostname']
