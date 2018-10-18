@@ -24,6 +24,10 @@ from .cond_hcl_status_api import CondHclStatusApi
 from .cond_hcl_status_detail_api import CondHclStatusDetailApi
 from .cond_hcl_status_job_api import CondHclStatusJobApi
 from .crypt_encryption_token_api import CryptEncryptionTokenApi
+from .cvd_deployment_task_api import CvdDeploymentTaskApi
+from .cvd_template_api import CvdTemplateApi
+from .cvd_validation_task_api import CvdValidationTaskApi
+from .deviceconnector_policy_api import DeviceconnectorPolicyApi
 from .deviceinfo_serial_number_info_api import DeviceinfoSerialNumberInfoApi
 from .equipment_chassis_api import EquipmentChassisApi
 from .equipment_device_summary_api import EquipmentDeviceSummaryApi
@@ -31,10 +35,14 @@ from .equipment_fan_api import EquipmentFanApi
 from .equipment_fan_module_api import EquipmentFanModuleApi
 from .equipment_fex_api import EquipmentFexApi
 from .equipment_io_card_api import EquipmentIoCardApi
+from .equipment_io_expander_api import EquipmentIoExpanderApi
 from .equipment_locator_led_api import EquipmentLocatorLedApi
 from .equipment_psu_api import EquipmentPsuApi
+from .equipment_rack_enclosure_api import EquipmentRackEnclosureApi
+from .equipment_rack_enclosure_slot_api import EquipmentRackEnclosureSlotApi
 from .equipment_switch_card_api import EquipmentSwitchCardApi
 from .equipment_system_io_controller_api import EquipmentSystemIoControllerApi
+from .equipment_tpm_api import EquipmentTpmApi
 from .ether_physical_port_api import EtherPhysicalPortApi
 from .externalsite_authorization_api import ExternalsiteAuthorizationApi
 from .fault_instance_api import FaultInstanceApi
@@ -48,7 +56,9 @@ from .firmware_upgrade_status_api import FirmwareUpgradeStatusApi
 from .graphics_card_api import GraphicsCardApi
 from .graphics_controller_api import GraphicsControllerApi
 from .hcl_compatibility_status_api import HclCompatibilityStatusApi
-from .hcl_data_import_log_api import HclDataImportLogApi
+from .hcl_driver_image_api import HclDriverImageApi
+from .hcl_operating_system_api import HclOperatingSystemApi
+from .hcl_operating_system_vendor_api import HclOperatingSystemVendorApi
 from .hcl_service_status_api import HclServiceStatusApi
 from .hcl_supported_driver_name_api import HclSupportedDriverNameApi
 from .hyperflex_alarm_api import HyperflexAlarmApi
@@ -66,6 +76,7 @@ from .hyperflex_feature_limit_external_api import HyperflexFeatureLimitExternalA
 from .hyperflex_feature_limit_internal_api import HyperflexFeatureLimitInternalApi
 from .hyperflex_hxdp_version_api import HyperflexHxdpVersionApi
 from .hyperflex_local_credential_policy_api import HyperflexLocalCredentialPolicyApi
+from .hyperflex_node_api import HyperflexNodeApi
 from .hyperflex_node_config_policy_api import HyperflexNodeConfigPolicyApi
 from .hyperflex_node_profile_api import HyperflexNodeProfileApi
 from .hyperflex_proxy_setting_policy_api import HyperflexProxySettingPolicyApi
@@ -77,7 +88,9 @@ from .hyperflex_vcenter_config_policy_api import HyperflexVcenterConfigPolicyApi
 from .iaas_connector_pack_api import IaasConnectorPackApi
 from .iaas_device_status_api import IaasDeviceStatusApi
 from .iaas_license_info_api import IaasLicenseInfoApi
+from .iaas_most_run_tasks_api import IaasMostRunTasksApi
 from .iaas_ucsd_info_api import IaasUcsdInfoApi
+from .iaas_ucsd_managed_infra_api import IaasUcsdManagedInfraApi
 from .iam_account_api import IamAccountApi
 from .iam_api_key_api import IamApiKeyApi
 from .iam_domain_group_api import IamDomainGroupApi
@@ -126,9 +139,12 @@ from .network_element_api import NetworkElementApi
 from .network_element_summary_api import NetworkElementSummaryApi
 from .networkconfig_policy_api import NetworkconfigPolicyApi
 from .ntp_policy_api import NtpPolicyApi
+from .oauth_oauth_user_api import OauthOauthUserApi
+from .pci_device_api import PciDeviceApi
 from .port_group_api import PortGroupApi
 from .port_sub_group_api import PortSubGroupApi
 from .processor_unit_api import ProcessorUnitApi
+from .resource_group_api import ResourceGroupApi
 from .sdcard_policy_api import SdcardPolicyApi
 from .search_search_item_api import SearchSearchItemApi
 from .search_suggest_item_api import SearchSuggestItemApi
@@ -140,6 +156,7 @@ from .server_config_result_entry_api import ServerConfigResultEntryApi
 from .server_profile_api import ServerProfileApi
 from .smtp_policy_api import SmtpPolicyApi
 from .snmp_policy_api import SnmpPolicyApi
+from .softwarerepository_authorization_api import SoftwarerepositoryAuthorizationApi
 from .sol_policy_api import SolPolicyApi
 from .ssh_policy_api import SshPolicyApi
 from .storage_controller_api import StorageControllerApi
@@ -159,8 +176,10 @@ from .storage_sas_expander_api import StorageSasExpanderApi
 from .storage_storage_policy_api import StorageStoragePolicyApi
 from .storage_vd_member_ep_api import StorageVdMemberEpApi
 from .storage_virtual_drive_api import StorageVirtualDriveApi
+from .storage_virtual_drive_extension_api import StorageVirtualDriveExtensionApi
 from .syslog_policy_api import SyslogPolicyApi
 from .task_workflow_action_api import TaskWorkflowActionApi
+from .telemetry_time_series_api import TelemetryTimeSeriesApi
 from .terminal_audit_log_api import TerminalAuditLogApi
 from .testcrypt_administrator_api import TestcryptAdministratorApi
 from .testcrypt_credential_api import TestcryptCredentialApi
