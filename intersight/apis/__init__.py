@@ -44,7 +44,6 @@ from .equipment_switch_card_api import EquipmentSwitchCardApi
 from .equipment_system_io_controller_api import EquipmentSystemIoControllerApi
 from .equipment_tpm_api import EquipmentTpmApi
 from .ether_physical_port_api import EtherPhysicalPortApi
-from .externalsite_authorization_api import ExternalsiteAuthorizationApi
 from .fault_instance_api import FaultInstanceApi
 from .fc_physical_port_api import FcPhysicalPortApi
 from .feedback_feedback_post_api import FeedbackFeedbackPostApi

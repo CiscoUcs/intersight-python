@@ -15,7 +15,7 @@ import sys
 from setuptools import setup, find_packages
 
 NAME = "intersight"
-VERSION = "1.0.9-228"
+VERSION = "1.0.9-255"
 # To install the library, run the following
 #
 # python setup.py install
