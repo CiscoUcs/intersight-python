@@ -4,6 +4,7 @@ import sys
 import argparse
 import os.path
 import json
+from time import sleep
 from intersight.intersight_api_client import IntersightApiClient
 from intersight.apis import asset_device_claim_api
 import device_connector
@@ -33,7 +34,7 @@ if __name__ == "__main__":
             result = dict(changed=False)
             result['msg'] = "  Host: %s" % device['hostname']
             # default access mode to allow control (Read-only False) and set to a boolean value if a string
-            if device.get('read_only') == None:
+            if not device.get('read_only'):
                 device['read_only'] = False
             else:
                 if device['read_only'] == 'True' or device['read_only'] == 'true':
@@ -62,8 +63,8 @@ if __name__ == "__main__":
                 print(json.dumps(result))
                 continue
 
-            ro_json = dc_obj.enable_connector()
-            if ro_json['AdminState'] is False:
+            ro_json = dc_obj.configure_connector()
+            if not ro_json['AdminState']:
                 return_code = 1
                 if ro_json.get('ApiError'):
                     result['msg'] += ro_json['ApiError']
@@ -71,7 +72,7 @@ if __name__ == "__main__":
                 continue
 
             # set access mode (ReadOnlyMode True/False) to desired state
-            if (ro_json.get('ReadOnlyMode') != None) and (ro_json['ReadOnlyMode'] != device['read_only']):
+            if (ro_json.get('ReadOnlyMode') is not None) and (ro_json['ReadOnlyMode'] != device['read_only']):
                 ro_json = dc_obj.configure_access_mode(ro_json)
                 if ro_json.get('ApiError'):
                     result['msg'] += ro_json['ApiError']
@@ -80,23 +81,34 @@ if __name__ == "__main__":
                     continue
                 result['changed'] = True
 
-            # if not connected, configure proxy settings if proxy settings were provided
-            if ro_json['ConnectionState'] != 'Connected' and device.get('proxy_host') and device.get('proxy_port'):
-                ro_json = dc_obj.configure_proxy(ro_json)
-                if ro_json.get('ApiError'):
-                    result['msg'] += ro_json['ApiError']
-                    return_code = 1
-                    print(json.dumps(result))
-                    continue
-                result['changed'] = True
+            # configure proxy settings (changes reported in called function)
+            ro_json = dc_obj.configure_proxy(ro_json, result)
+            if ro_json.get('ApiError'):
+                result['msg'] += ro_json['ApiError']
+                return_code = 1
+                print(json.dumps(result))
+                continue
+
+            # wait for a connection to establish before checking claim state
+            for _ in range(10):
+                if ro_json['ConnectionState'] != 'Connected':
+                    sleep(1)
+                    ro_json = dc_obj.get_status()
+                else:
+                    break
 
             result['msg'] += "  AdminState: %s" % ro_json['AdminState']
             result['msg'] += "  ConnectionState: %s" % ro_json['ConnectionState']
             result['msg'] += "  Claimed state: %s" % ro_json['AccountOwnershipState']
 
-            # if connected and unclaimed, get device id and claim code
-            if ro_json['ConnectionState'] == 'Connected' and ro_json['AccountOwnershipState'] != 'Claimed':
-                (claim_resp, device_id, claim_code) = dc_obj.get_claim_info()
+            if ro_json['ConnectionState'] != 'Connected':
+                return_code = 1
+                print(json.dumps(result))
+                continue
+
+            if ro_json['AccountOwnershipState'] != 'Claimed':
+                # attempt to claim
+                (claim_resp, device_id, claim_code) = dc_obj.get_claim_info(ro_json)
                 if claim_resp.get('ApiError'):
                     result['msg'] += claim_resp['ApiError']
                     return_code = 1
