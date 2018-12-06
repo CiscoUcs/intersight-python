@@ -4,8 +4,38 @@ import sys
 import subprocess
 import re
 from xml.etree import ElementTree
+from time import sleep
 import platform
 import requests
+
+
+def requests_op(op, uri, header, ro_json, body):
+    """perform op and retry on 5XX status errors"""
+    for _ in range(10):
+        if op == 'GET':
+            resp = requests.get(uri, verify=False, headers=header)
+        elif op == 'PUT':
+            resp = requests.put(uri, verify=False, headers=header, json=body)
+        else:
+            ro_json['ApiError'] = "unsupported op %s" % (op)
+            break
+
+        if re.match(r'2..', str(resp.status_code)):
+            ro_json.pop('ApiError', None)
+            if op == 'GET':
+                if isinstance(resp.json(), list):
+                    ro_json = resp.json()[0]
+                else:
+                    ro_json['ApiError'] = "%s %s %s" % (op, uri, resp.status_code)
+            break
+        else:
+            ro_json['ApiError'] = "%s %s %s" % (op, uri, resp.status_code)
+            if re.match(r'5..', str(resp.status_code)):
+                sleep(1)
+                continue
+            else:
+                break
+    return ro_json
 
 
 class DeviceConnector(object):
@@ -22,39 +52,44 @@ class DeviceConnector(object):
             self.connector_uri = "https://%s/connector" % self.device['hostname']
         self.systems_uri = "%s/Systems" % self.connector_uri
 
-    def enable_connector(self):
+    def get_status(self):
+        """Check current connection status."""
+        ro_json = dict(AdminState=False)
+        # get admin, connection, and claim state
+        ro_json = requests_op(op='GET', uri=self.systems_uri, header=self.auth_header, ro_json=ro_json, body={})
+        return ro_json
+
+    def configure_connector(self):
         """Check current Admin state and enable the Device Connector if not currently enabled."""
         ro_json = dict(AdminState=False)
         for _ in range(4):
-            # get admin, connection, and claim state
-            resp = requests.get(self.systems_uri, verify=False, headers=self.auth_header)
-            if re.match(r'2..', str(resp.status_code)):
-                ro_json = resp.json()[0]
-                if ro_json['AdminState'] is True:
-                    break
-                else:
-                    # enable the device connector
-                    resp = requests.put(self.systems_uri, verify=False, headers=self.auth_header, json={'AdminState': True})
-                    if not re.match(r'2..', str(resp.status_code)):
-                        ro_json['ApiError'] = "PUT %s %s" % (self.systems_uri, resp.status_code)
-                        break
-            else:
-                ro_json['ApiError'] = "GET %s %s" % (self.systems_uri, resp.status_code)
+            ro_json = self.get_status()
+            if ro_json['AdminState']:
                 break
+            else:
+                # enable the device connector
+                ro_json = requests_op(op='PUT', uri=self.systems_uri, header=self.auth_header, ro_json=ro_json, body={'AdminState': True})
+                if ro_json.get('ApiError'):
+                    break
         return ro_json
 
     def configure_access_mode(self, ro_json):
         """Configure the Device Connector access mode (ReadOnlyMode True/False)."""
-        # device read_only setting is a bool (True/False)
-        resp = requests.put(self.systems_uri, verify=False, headers=self.auth_header, json={'ReadOnlyMode': self.device['read_only']})
-        if not re.match(r'2..', str(resp.status_code)):
-            ro_json['ApiError'] = "PUT %s %s" % (self.systems_uri, resp.status_code)
+        for _ in range(4):
+            # device read_only setting is a bool (True/False)
+            ro_json = requests_op(op='PUT', uri=self.systems_uri, header=self.auth_header, ro_json=ro_json, body={'ReadOnlyMode': self.device['read_only']})
+            if ro_json.get('ApiError'):
+                break
+            # confirm setting has been applied
+            ro_json = self.get_status()
+            if ro_json['ReadOnlyMode'] == self.device['read_only']:
+                break
         return ro_json
 
-    def configure_proxy(self, ro_json):
+    def configure_proxy(self, ro_json, result):
         """Configure the Device Connector proxy if proxy settings (hostname, port) were provided)."""
-        # if not connected, put proxy settings
-        if ro_json['ConnectionState'] != 'Connected' and self.device.get('proxy_host') and self.device.get('proxy_port'):
+        # put proxy settings.  If no settings were provided the system settings are not changed
+        if self.device.get('proxy_host') and self.device.get('proxy_port'):
             # setup defaults for proxy settings
             if not self.device.get('proxy_password'):
                 self.device['proxy_password'] = ''
@@ -68,43 +103,43 @@ class DeviceConnector(object):
                 'ProxyUsername': self.device['proxy_username'],
             }
             proxy_uri = "%s/HttpProxies" % self.connector_uri
-            resp = requests.put(proxy_uri, verify=False, headers=self.auth_header, json=proxy_payload)
-            if re.match(r'2..', str(resp.status_code)):
-                for _ in range(10):
-                    # wait for state to report connected
-                    resp = requests.get(self.systems_uri, verify=False, headers=self.auth_header)
-                    if re.match(r'2..', str(resp.status_code)):
-                        ro_json = resp.json()[0]
-                        if ro_json['ConnectionState'] == 'Connected':
-                            break
-                    else:
-                        ro_json['ApiError'] = "GET %s %s" % (self.systems_uri, resp.status_code)
+            for _ in range(4):
+                # check current setting
+                ro_json = requests_op(op='GET', uri=proxy_uri, header=self.auth_header, ro_json=ro_json, body={})
+                if ro_json.get('ApiError'):
+                    break
+                if ro_json['ProxyHost'] == self.device['proxy_host'] and ro_json['ProxyPort'] == int(self.device['proxy_port']):
+                    break
+                else:
+                    result['msg'] += "  Setting proxy: %s %s" % (self.device['proxy_host'], self.device['proxy_port'])
+                    ro_json = requests_op(op='PUT', uri=proxy_uri, header=self.auth_header, ro_json=ro_json, body=proxy_payload)
+                    if ro_json.get('ApiError'):
                         break
-            else:
-                ro_json['ApiError'] = "PUT %s %s" % (proxy_uri, resp.status_code)
+                    result['changed'] = True
+            if not ro_json.get('ApiError'):
+                # get updated status
+                ro_json = self.get_status()
         return ro_json
 
-    def get_claim_info(self):
+    def get_claim_info(self, ro_json):
         """Get the Device ID and Claim Code from the Device Connector."""
         claim_resp = {}
         device_id = ''
         claim_code = ''
         # get device id and claim code
         id_uri = "%s/DeviceIdentifiers" % self.connector_uri
-        resp = requests.get(id_uri, verify=False, headers=self.auth_header)
-        if re.match(r'2..', str(resp.status_code)):
-            ro_json = resp.json()[0]
+        ro_json = requests_op(op='GET', uri=id_uri, header=self.auth_header, ro_json=ro_json, body={})
+        if not ro_json.get('ApiError'):
             device_id = ro_json['Id']
 
             claim_uri = "%s/SecurityTokens" % self.connector_uri
-            resp = requests.get(claim_uri, verify=False, headers=self.auth_header)
-            if re.match(r'2..', str(resp.status_code)):
-                ro_json = resp.json()[0]
+            ro_json = requests_op(op='GET', uri=claim_uri, header=self.auth_header, ro_json=ro_json, body={})
+            if not ro_json.get('ApiError'):
                 claim_code = ro_json['Token']
             else:
-                claim_resp['ApiError'] = "GET %s %s" % (claim_uri, resp.status_code)
+                claim_resp['ApiError'] = ro_json['ApiError']
         else:
-            claim_resp['ApiError'] = "GET %s %s" % (id_uri, resp.status_code)
+            claim_resp['ApiError'] = ro_json['ApiError']
         return(claim_resp, device_id, claim_code)
 
 
@@ -179,7 +214,7 @@ class ImcDeviceConnector(DeviceConnector, object):
             import urllib.parse as URL
             import get_data_3 as get_data
             import six
-            password = six.b(self.device['password']) 
+            password = six.b(self.device['password'])
         elif sys.version_info[0] == 2:
             import urllib as URL
             import get_data_2 as get_data
