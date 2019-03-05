@@ -605,7 +605,7 @@ class HyperflexCluster(object):
         :param hypervisor_type: The hypervisor_type of this HyperflexCluster.
         :type: str
         """
-        allowed_values = ["Unknown", "HyperV", "ESXi"]
+        allowed_values = ["Unknown", "HyperV", "Hyper-V", "ESXi"]
         if hypervisor_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `hypervisor_type` ({0}), must be one of {1}"
