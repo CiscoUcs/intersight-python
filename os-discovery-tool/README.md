@@ -48,7 +48,7 @@ total 124
   ---
   ### II. Pre-requisites/dependent components for Target Servers
   1. **Claim your servers:** Ensure that all your linux servers are claimed in Cisco Intersight. We will call these **Target Servers**. This toolset validates only the claimed servers by their serial numbers and their connectivity to Intersight.  
-  2. **Install necessary packages:** Make sure the **lsmod**, **lspci** (pci-utils) and **lshw** commands are installed and available on the **Target servers**.
+  2. **Install necessary packages:** Make sure the **lsmod**, **lspci** (pci-utils) and **lshw** commands are installed and available on the **Target servers**. Supported Linux flavors: **RHEL, Ubuntu Sever and CentOS**
   3. **User access**: Ensure that the odt-user has sudo access to **Target Servers** using the ssh **authorized keys** listing the odt-user's public key (sudoer access must be password-less).
   ---
   ### III. Setup configurations
