@@ -120,7 +120,7 @@ total 124
     [centos-server]: Server MO Identity: 5bce7116683663343218ed96
     [centos-server]: Changes detected in OS Inventory, pushing to intersight...
     --------------------------------------------------------------
-    [INFO]: ODT push to Intersight competed!
+    [INFO]: ODT push to Intersight completed!
     --------------------------------------------------------------
 
   ```
