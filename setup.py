@@ -23,7 +23,7 @@ VERSION = "1.0.9-255"
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
 
-REQUIRES = ["pycryptodome >= 3.6.1", "urllib3 >= 1.15, <= 1.22", "six", "certifi", "python-dateutil", "requests"]
+REQUIRES = ["pycryptodome >= 3.6.1", "urllib3 >= 1.23", "six", "certifi", "python-dateutil", "requests"]
 
 setup(
     name=NAME,
