@@ -56,7 +56,7 @@ class QueryType(Enum):
 
 class OsType:
     """This class broadly identifies OS categories."""
-    SUSE = ["SUSE"]
+    SUSE = ["Suse", "Sles"]
     DEBIAN = ["Ubuntu"]
     REDHAT = ["Red Hat", "Rhel", "Centos"]
 
@@ -83,9 +83,12 @@ class HostManager:
         self.num_hosts = len(self.hosts)
 
     @staticmethod
-    def host_tools_validated(host):
+    def host_tools_validated(host, os_type):
         """Validates that the necessary tools are installed on the target servers."""
-        cmd = "ssh " + host.strip() + " \'bash -s\' < validate-tools.sh"
+        if os_type == OsType.SUSE:
+            cmd = "ssh " + host.strip() + " \'bash -s\' < suse-validate-tools.sh"
+        else:
+            cmd = "ssh " + host.strip() + " \'bash -s\' < validate-tools.sh"
         validation_result = (subprocess.check_output(['bash', '-c', cmd])).strip()
         if validation_result == ValidationResult.FAILURE:
             return False
@@ -99,9 +102,9 @@ class HostManager:
             print("--------------------------------------------------------------")
             try:
                 server_moid = intersight_connection.lookup_server_by_serial(host)
-                if server_moid and HostManager.host_tools_validated(host):
-                    os_inv_reader = OsInvReader(host)
-                    os_inv_reader.get_os_inv()
+                os_inv_reader = OsInvReader(host)
+                os_inv_reader.get_os_inv()
+                if server_moid and HostManager.host_tools_validated(host, os_inv_reader.os_type):
                     driver_inv_reader = DriverInvReader(host, os_inv_reader.os_type, intersight_connection.host_type)
                     driver_inv_reader.get_driver_inv()
                     os_inv_collection = os_inv_reader.os_inv_collection + driver_inv_reader.os_inv_collection
@@ -140,7 +143,8 @@ class HostManager:
                 else:
                     print(Bcolors.FAIL + "[ERROR]: Tools validation for host failed: " + host.strip() + Bcolors.ENDC)
                     print(Bcolors.BOLD + "[ERROR-DETAIL]: Please ensure that '" + host.strip() +
-                          "' has 'lshw', 'pci-utils(lspci)' and 'modinfo' installed and available." + Bcolors.ENDC)
+                          "' has 'lshw'(RHEL/Ubuntu/Centos)/'hwinfo'(SLES), 'pci-utils(lspci)' "
+                          "and 'modinfo' installed and available." + Bcolors.ENDC)
                     continue
 
             except ApiException as api_error:
@@ -232,6 +236,9 @@ class OsInvReader(InvReader):
         if os_vendor in OsType.DEBIAN:
             self.os_type = OsType.DEBIAN
             os_flavor = (self.invoke_shell(ExecType.SCRIPT, QueryType.OS, "debian-os-version.sh")).rstrip(",")
+        elif os_vendor in OsType.SUSE:
+            self.os_type = OsType.SUSE
+            os_flavor = (self.invoke_shell(ExecType.SCRIPT, QueryType.OS, "suse-os-version.sh"))
         elif not os_vendor:
             os_vendor = (self.invoke_shell(ExecType.SCRIPT, QueryType.OS, "osvendor-legacy.sh")).lower().title()
             self.os_type = OsType.REDHAT
@@ -243,8 +250,10 @@ class OsInvReader(InvReader):
                 os_name = self.invoke_shell(ExecType.SCRIPT, QueryType.OS, "centos-os-name.sh")
             else:
                 os_name = self.invoke_shell(ExecType.SCRIPT, QueryType.OS, "redhat-os-name.sh")
-        else:
+        elif self.os_type == OsType.DEBIAN:
             os_name = self.invoke_shell(ExecType.SCRIPT, QueryType.OS, "debian-os-name.sh")
+        else:
+            os_name = "SuSE"
 
         if not os_name and os_vendor in OsType.REDHAT:
             os_name = self.invoke_shell(ExecType.SCRIPT, QueryType.OS, "centos-os-name-legacy.sh")
@@ -253,6 +262,8 @@ class OsInvReader(InvReader):
             os_vendor = "Red Hat"
         elif os_vendor == "Centos":
             os_vendor = "CentOS"
+        elif os_vendor == "Sles":
+            os_vendor = "SuSE"
 
         self.add_item(QueryType.OS, "updateTimestamp", self.iso_8601_time)
         self.add_item(QueryType.OS, "kernelVersionString",
@@ -275,19 +286,28 @@ class DriverInvReader(InvReader):
     def get_driver_inv(self):
         """Collect device and driver data."""
         print("[" + self.host.strip() + "]: Extracting driver Inventory... ")
-        drivers = self.invoke_shell(ExecType.SCRIPT, QueryType.DRIVER, "netdriver.sh")
-        versions = self.invoke_shell(ExecType.SCRIPT, QueryType.DRIVER, "netversions.sh")
-        descriptions = self.invoke_shell(ExecType.SCRIPT, QueryType.DRIVER, "netdev.sh")
-        fc_dev = self.invoke_shell(ExecType.SCRIPT, QueryType.DRIVER, "fcdev.sh")
+        if self.os_type == OsType.SUSE:
+            drivers = self.invoke_shell(ExecType.SCRIPT, QueryType.DRIVER, "suse-netdriver.sh")
+            versions = self.invoke_shell(ExecType.SCRIPT, QueryType.DRIVER, "suse-netversions.sh")
+            descriptions = self.invoke_shell(ExecType.SCRIPT, QueryType.DRIVER, "suse-netdev.sh")
 
-        if fc_dev:
-            descriptions += fc_dev
-            drivers += self.invoke_shell(ExecType.SCRIPT, QueryType.DRIVER, "fcdriver.sh")
-            versions += self.invoke_shell(ExecType.SCRIPT, QueryType.DRIVER, "fcversions.sh")
+            drivers += self.invoke_shell(ExecType.SCRIPT, QueryType.DRIVER, "suse-storagedriver.sh")
+            versions += self.invoke_shell(ExecType.SCRIPT, QueryType.DRIVER, "suse-storageversions.sh")
+            descriptions += self.invoke_shell(ExecType.SCRIPT, QueryType.DRIVER, "suse-storagedev.sh")
+        else:
+            drivers = self.invoke_shell(ExecType.SCRIPT, QueryType.DRIVER, "netdriver.sh")
+            versions = self.invoke_shell(ExecType.SCRIPT, QueryType.DRIVER, "netversions.sh")
+            descriptions = self.invoke_shell(ExecType.SCRIPT, QueryType.DRIVER, "netdev.sh")
+            fc_dev = self.invoke_shell(ExecType.SCRIPT, QueryType.DRIVER, "fcdev.sh")
 
-        drivers += self.invoke_shell(ExecType.SCRIPT, QueryType.DRIVER, "storagedriver.sh")
-        versions += self.invoke_shell(ExecType.SCRIPT, QueryType.DRIVER, "storageversions.sh")
-        descriptions += self.invoke_shell(ExecType.SCRIPT, QueryType.DRIVER, "storagedev.sh")
+            if fc_dev:
+                descriptions += fc_dev
+                drivers += self.invoke_shell(ExecType.SCRIPT, QueryType.DRIVER, "fcdriver.sh")
+                versions += self.invoke_shell(ExecType.SCRIPT, QueryType.DRIVER, "fcversions.sh")
+
+            drivers += self.invoke_shell(ExecType.SCRIPT, QueryType.DRIVER, "storagedriver.sh")
+            versions += self.invoke_shell(ExecType.SCRIPT, QueryType.DRIVER, "storageversions.sh")
+            descriptions += self.invoke_shell(ExecType.SCRIPT, QueryType.DRIVER, "storagedev.sh")
         added_drivers = set()
         driver_count = 0
 
@@ -302,7 +322,8 @@ class DriverInvReader(InvReader):
 
             self.add_item(QueryType.DRIVER,
                           "driver." + str(driver_count) + ".name",
-                          "RAID" if drivers[i] == "megaraid_sas" and "UCSB" in self.host_type else value)
+                          "RAID" if "megaraid_sas" in drivers[i] and "UCSB" in self.host_type
+                          else value.replace('"', ''))
             self.add_item(QueryType.DRIVER, "driver." + str(driver_count) + ".version", versions[i].lstrip("0"))
             self.add_item(QueryType.DRIVER, "driver." + str(driver_count) + ".description", descriptions[i])
             driver_count += 1
@@ -457,6 +478,7 @@ class EnvironmentConfigurator:
 
     @staticmethod
     def check_python_ver():
+        """Check Python version (this utility only supports python2)"""
         if sys.version_info[0] > 2:
             print(Bcolors.FAIL + "[ERROR]: Must use Python 2 (2.7 or higher), "
                                  "this utility does not support Python 3" + Bcolors.ENDC)

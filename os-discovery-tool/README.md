@@ -9,29 +9,37 @@
 ```Bash
 
 [odt-user@host: ~/intersight-python/os-discovery-tool]$ ls -l
-total 124
--rwxrwxr-x. 1 odt-user odt-user    72 Feb  8 14:45 centos-os-name-legacy.sh
--rwxrwxr-x. 1 odt-user odt-user   103 Dec 14 13:56 centos-os-name.sh
--rwxrwxr-x. 1 odt-user odt-user   125 Dec 14 13:56 debian-os-name.sh
--rwxrwxr-x. 1 odt-user odt-user   135 Feb  8 14:45 debian-os-version.sh
--rw-rw-r--. 1 odt-user odt-user   150 Feb  8 14:45 discovery_config_linux.json
--rwxrwxr-x. 1 odt-user odt-user   294 Feb  8 14:45 fcdev.sh
--rwxrwxr-x. 1 odt-user odt-user   200 Feb  8 14:45 fcdriver.sh
--rwxrwxr-x. 1 odt-user odt-user   263 Feb  8 14:45 fcversions.sh
--rwxrwxr-x. 1 odt-user odt-user 25028 Feb 23 22:30 get_linux_inv_to_intersight.py
--rwxrwxr-x. 1 odt-user odt-user   291 Feb  8 14:45 gpu.sh
--rw-rw-r--. 1 odt-user odt-user    60 Feb  8 14:45 hosts
--rwxrwxr-x. 1 odt-user odt-user   287 Feb  8 14:45 netdev.sh
--rwxrwxr-x. 1 odt-user odt-user   291 Feb  8 14:45 netdriver.sh
--rwxrwxr-x. 1 odt-user odt-user   412 Feb  8 14:45 netversions.sh
--rwxrwxr-x. 1 odt-user odt-user    82 Feb  8 14:45 osvendor-legacy.sh
--rwxrwxr-x. 1 odt-user odt-user   100 Dec 14 13:56 osvendor.sh
--rw-rw-r--. 1 odt-user odt-user 13578 Feb 23 22:30 README.md
--rwxrwxr-x. 1 odt-user odt-user    88 Feb  8 14:45 redhat-os-name.sh
--rwxrwxr-x. 1 odt-user odt-user   286 Feb  8 14:45 storagedev.sh
--rwxrwxr-x. 1 odt-user odt-user   291 Feb  8 14:45 storagedriver.sh
--rwxrwxr-x. 1 odt-user odt-user   407 Feb  8 14:45 storageversions.sh
--rwxrwxr-x. 1 odt-user odt-user   313 Feb  8 14:45 validate-tools.sh
+total 468
+-rwxr-xr-x. 1 odt-user odt-user     72 Feb  5 15:07 centos-os-name-legacy.sh
+-rwxr-xr-x. 1 odt-user odt-user    103 Nov 30 11:46 centos-os-name.sh
+-rwxr-xr-x. 1 odt-user odt-user    125 Nov 30 11:38 debian-os-name.sh
+-rwxr-xr-x. 1 odt-user odt-user    135 Jan 23 15:05 debian-os-version.sh
+-rw-rw-r--. 1 odt-user odt-user    150 Jan  7 17:44 discovery_config_linux.json
+-rwxr-xr-x. 1 odt-user odt-user    294 Jan 17 16:52 fcdev.sh
+-rwxr-xr-x. 1 odt-user odt-user    200 Jan 28 12:34 fcdriver.sh
+-rwxr-xr-x. 1 odt-user odt-user    263 Jan 30 15:34 fcversions.sh
+-rwxrwxr-x. 1 odt-user odt-user  26176 Apr  3 17:23 get_linux_inv_to_intersight.py
+-rwxr-xr-x. 1 odt-user odt-user    291 Jan 17 16:57 gpu.sh
+-rw-r--r--. 1 odt-user odt-user     48 Feb 21 11:11 hosts
+-rwxr-xr-x. 1 odt-user odt-user    287 Jan 17 16:58 netdev.sh
+-rwxr-xr-x. 1 odt-user odt-user    291 Jan 17 16:59 netdriver.sh
+-rwxr-xr-x. 1 odt-user odt-user    412 Jan 30 15:34 netversions.sh
+-rw-rw-r--. 1 odt-user odt-user 316722 Feb 25 12:38 odt-linux-overview.png
+-rwxr-xr-x. 1 odt-user odt-user     82 Feb  5 15:07 osvendor-legacy.sh
+-rwxrwxr-x. 1 odt-user odt-user    101 Apr  3 16:40 osvendor.sh
+-rw-rw-r--. 1 odt-user odt-user  19729 Apr  3 16:40 README.md
+-rwxr-xr-x. 1 odt-user odt-user     88 Feb  5 15:07 redhat-os-name.sh
+-rwxr-xr-x. 1 odt-user odt-user    286 Jan 17 17:00 storagedev.sh
+-rwxr-xr-x. 1 odt-user odt-user    291 Jan 17 17:01 storagedriver.sh
+-rwxr-xr-x. 1 odt-user odt-user    407 Jan 30 15:34 storageversions.sh
+-rwxrwxr-x. 1 odt-user odt-user    238 Apr  3 16:40 suse-netdev.sh
+-rwxrwxr-x. 1 odt-user odt-user    129 Apr  3 16:40 suse-netdriver.sh
+-rwxrwxr-x. 1 odt-user odt-user    234 Apr  3 16:40 suse-netversions.sh
+-rwxrwxr-x. 1 odt-user odt-user     84 Apr  3 16:40 suse-os-version.sh
+-rwxrwxr-x. 1 odt-user odt-user    235 Apr  3 16:40 suse-storagedev.sh
+-rwxrwxr-x. 1 odt-user odt-user    129 Apr  3 16:40 suse-storagedriver.sh
+-rwxrwxr-x. 1 odt-user odt-user    231 Apr  3 16:40 suse-storageversions.sh
+-rwxr-xr-x. 1 odt-user odt-user    313 Jan 25 11:00 validate-tools.sh
 
 ```
 ---
@@ -48,7 +56,7 @@ total 124
   ---
   ### II. Pre-requisites/dependent components for Target Servers
   1. **Claim your servers:** Ensure that all your linux servers are claimed in Cisco Intersight. We will call these **Target Servers**. This toolset validates only the claimed servers by their serial numbers and their connectivity to Intersight.  
-  2. **Install necessary packages:** Make sure the **lsmod**, **lspci** (pci-utils) and **lshw** commands are installed and available on the **Target servers**. Supported Linux flavors: **RHEL, Ubuntu Sever and CentOS**
+  2. **Install necessary packages:** Make sure the **lsmod**, **lspci** (pci-utils) and **lshw** (**hwinfo** for SuSE) commands are installed and available on the **Target servers**. Supported Linux flavors: RHEL, SLES, Ubuntu Sever and CentOS
   3. **User access**: Ensure that the odt-user has sudo access to **Target Servers** using the ssh **authorized keys** listing the odt-user's public key (sudoer access must be password-less).
   ---
   ### III. Setup configurations
@@ -71,6 +79,7 @@ total 124
     }
    ```
   ---
+  You can either edit the hosts file included in the branch to include the FQDN hostname of each target server on separate lines or create a new hosts file with a different name. Make sure that the correct hosts file is added in the discovery_config_linux.json file.
   ### IV. Run toolset
   #### i. get_linux_inv_to_intersight.py
   ```Bash
@@ -120,7 +129,20 @@ total 124
     [centos-server]: Server MO Identity: 5bce7116683663343218ed96
     [centos-server]: Changes detected in OS Inventory, pushing to intersight...
     --------------------------------------------------------------
-    [INFO]: ODT push to Intersight completed!
+    [INFO]: Processing host: suse-server
+    --------------------------------------------------------------
+    [suse-server]: Extracting Server Serial Number... 
+    [suse-server]: Host Serial Number: FCH17427P4K
+    [suse-server]: Host Model: UCSB-B22-M3
+    [suse-server]: Extracting Server MO Identity from Intersight... 
+    [suse-server]: Server MO Identity: 5c8ae0426176752d31a99718
+    [suse-server]: Extracting OS Inventory... 
+    [suse-server]: Extracting driver Inventory... 
+    [suse-server]: Changes detected in OS Inventory, pushing to intersight...
+    [suse-server]: Patching Server MO with OS Inventory... 
+    --------------------------------------------------------------
+    --------------------------------------------------------------
+    [INFO]: ODT push to Intersight competed!
     --------------------------------------------------------------
 
   ```
@@ -250,7 +272,76 @@ total 124
         }
     ]
     [2018-12-10 20:25:25.880344]--------------------------------------------------------------
-    [2018-12-10 20:25:25.881761]-----------------------END-TIMESTAMP--------------------------
+    [2019-04-04 00:40:09.486403][suse-server]: Intersight MO Identifier: 5c8ae0426176752d31a99718
+    [2019-04-04 00:40:09.486506][suse-server]: Building OS Inventory Collection... 
+    [2019-04-04 00:40:09.487065][
+        {
+            "Key": "intersight.server.os.updateTimestamp",
+            "Value": "2019-04-04T00:39:59.484Z"
+        },
+        {
+            "Key": "intersight.server.os.kernelVersionString",
+            "Value": "SUSE Linux Enterprise Server 15"
+        },
+        {
+            "Key": "intersight.server.os.releaseVersionString",
+            "Value": "4.12.14-23-default"
+        },
+        {
+            "Key": "intersight.server.os.type",
+            "Value": "Linux"
+        },
+        {
+            "Key": "intersight.server.os.vendor",
+            "Value": "SuSE"
+        },
+        {
+            "Key": "intersight.server.os.name",
+            "Value": "SuSE"
+        },
+        {
+            "Key": "intersight.server.os.arch",
+            "Value": "x86_64"
+        },
+        {
+            "Key": "intersight.server.os.driver.0.name",
+            "Value": "enic"
+        },
+        {
+            "Key": "intersight.server.os.driver.0.version",
+            "Value": "2.3.0.45"
+        },
+        {
+            "Key": "intersight.server.os.driver.0.description",
+            "Value": "Cisco VIC Ethernet NIC Driver"
+        },
+        {
+            "Key": "intersight.server.os.driver.1.name",
+            "Value": "fnic"
+        },
+        {
+            "Key": "intersight.server.os.driver.1.version",
+            "Value": "1.6.0.34"
+        },
+        {
+            "Key": "intersight.server.os.driver.1.description",
+            "Value": "Cisco FCoE HBA Driver"
+        },
+        {
+            "Key": "intersight.server.os.driver.2.name",
+            "Value": "RAID"
+        },
+        {
+            "Key": "intersight.server.os.driver.2.version",
+            "Value": "7.704.04.00-rc1"
+        },
+        {
+            "Key": "intersight.server.os.driver.2.description",
+            "Value": "Avago MegaRAID SAS Driver"
+        }
+    ]
+    [2019-04-04 00:40:09.487141]--------------------------------------------------------------
+    [2019-04-04 00:40:09.489029]-----------------------END-TIMESTAMP--------------------------
   ```
   ---
   ## Troubleshooting common issues
