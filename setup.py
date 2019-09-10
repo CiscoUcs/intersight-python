@@ -15,7 +15,7 @@ import sys
 from setuptools import setup, find_packages
 
 NAME = "intersight"
-VERSION = "1.0.9-255"
+VERSION = "1.0.0"
 # To install the library, run the following
 #
 # python setup.py install
@@ -23,7 +23,7 @@ VERSION = "1.0.9-255"
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
 
-REQUIRES = ["pycryptodome >= 3.6.1", "urllib3 >= 1.23", "six", "certifi", "python-dateutil", "requests"]
+REQUIRES = ["pycryptodome >= 3.6.1", "urllib3 >= 1.15", "six >= 1.10", "certifi", "python-dateutil"]
 
 setup(
     name=NAME,
