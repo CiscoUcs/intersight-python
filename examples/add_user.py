@@ -50,7 +50,6 @@ def add_user(intersight_api_params, username, user_role='Account Administrator')
                     'Permissions': [permissions_result.results[0].moid],
                 }
                 users_result = users_handle.iam_users_post(users_body)
-                result['changed'] = True
             else:   # user exists and IdP/Permissions match
                 print('User exists with requested role:', username)
         else:
@@ -60,22 +59,19 @@ def add_user(intersight_api_params, username, user_role='Account Administrator')
 
 
 if __name__ == "__main__":
-    result = dict(changed=False)
+    # settings are pulled from the json string or JSON file passed as an arg
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-i', '--id', required=True, help='Cisco ID of the user to add')
+    roles = ['Account Administrator', 'Read-Only']
+    parser.add_argument('-r', '--role', choices=roles, required=True, help='Role of the user to add')
+    help_str = 'JSON file with Intersight API parameters.  Default: intersight_api_params.json'
+    parser.add_argument('-a', '--api_params', default='intersight_api_params.json', help=help_str)
+    args = parser.parse_args()
+    with open(args.api_params, 'r') as api_file:
+        intersight_api_params = json.load(api_file)
 
     try:
-        # settings are pulled from the json string or JSON file passed as an arg
-        parser = argparse.ArgumentParser()
-        parser.add_argument('-i', '--id', required=True, help='Cisco ID of the user to add')
-        roles = ['Account Administrator', 'Read-Only']
-        parser.add_argument('-r', '--role', choices=roles, required=True, help='Role of the user to add')
-        help_str = 'JSON file with Intersight API parameters.  Default: intersight_api_params.json'
-        parser.add_argument('-a', '--api_params', default='intersight_api_params.json', help=help_str)
-        args = parser.parse_args()
-        with open(args.api_params, 'r') as api_file:
-            intersight_api_params = json.load(api_file)
-
         add_user(intersight_api_params, args.id, args.role)
-
     except Exception as err:
         print("Exception:", str(err))
         import traceback
@@ -84,5 +80,4 @@ if __name__ == "__main__":
         print('-' * 60)
         sys.exit(1)
 
-    print(json.dumps(result))
     sys.exit(0)
