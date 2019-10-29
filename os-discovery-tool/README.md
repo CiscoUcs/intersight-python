@@ -25,6 +25,8 @@ total 468
 -rwxr-xr-x. 1 odt-user odt-user    291 Jan 17 16:59 netdriver.sh
 -rwxr-xr-x. 1 odt-user odt-user    412 Jan 30 15:34 netversions.sh
 -rw-rw-r--. 1 odt-user odt-user 316722 Feb 25 12:38 odt-linux-overview.png
+-rw-r--r--. 1 odt-user odt-user     87 Oct  2 15:34 oracle-os-name.sh
+-rw-r--r--. 1 odt-user odt-user    381 Oct  2 15:34 oracle-os-version.sh
 -rwxr-xr-x. 1 odt-user odt-user     82 Feb  5 15:07 osvendor-legacy.sh
 -rwxrwxr-x. 1 odt-user odt-user    101 Apr  3 16:40 osvendor.sh
 -rw-rw-r--. 1 odt-user odt-user  19729 Apr  3 16:40 README.md
@@ -46,8 +48,8 @@ total 468
 ## Setup Steps
 ---  
   ### I. Pre-requisites/dependent components for setting up the Control Node 
-  1. A Linux machine (Virtual/Physical) with access to your on-prem network. We will call this the **Control Node**. Check that you have the latest version of python 2 (2.7 or later) installed. 
-     - Please NOTE: This utility does not support python 3.
+  1. A Virtual/Physical Linux machine with access to your on-prem network. **We will call this the Control Node**. Ensure that you have the latest version of Python 2 (2.7 or later) installed.
+     - Note: This utility does not support Python 3.
   2. **Generate Intersight API keys** with your user account from the Cisco Intersight GUI and use them as described in the next section.
   3. **Install Intersight Python SDK**: Clone this repository on the **Control Node** as described below and follow the build instructions available here: https://github.com/CiscoUcs/intersight-python. 
    ```Bash
@@ -56,8 +58,18 @@ total 468
   ---
   ### II. Pre-requisites/dependent components for Target Servers
   1. **Claim your servers:** Ensure that all your linux servers are claimed in Cisco Intersight. We will call these **Target Servers**. This toolset validates only the claimed servers by their serial numbers and their connectivity to Intersight.  
-  2. **Install necessary packages:** Make sure the **lsmod**, **lspci** (pci-utils) and **lshw** (**hwinfo** for SuSE) commands are installed and available on the **Target servers**. Supported Linux flavors: RHEL, SLES, Ubuntu Sever and CentOS
-  3. **User access**: Ensure that the odt-user has sudo access to **Target Servers** using the ssh **authorized keys** listing the odt-user's public key (sudoer access must be password-less).
+  2. **Install necessary packages:** Make sure the **lsmod**, **lspci** (pci-utils) and **lshw** (**hwinfo** for SuSE) commands are installed and available on the **Target servers**. 
+  3. **Supported Linux flavors:**
+        - Red Hat Enterprise Linux(RHEL)
+        - SUSE Linux Enterprise Server(SLES)
+        - Ubuntu Sever
+        - CentOS 
+        - Oracle Linux: 
+            - Oracle Linux with the Unbreakable Enterprise Kernel(UEK)
+            - Oracle Linux with Red Hat Compatible Kernel(RHCK)
+            - Oracle VM (OVM) Server is not supported
+  4. **User access**: We are going to use <odt-user> henceforth to refer to the User ID for which the script will run. Ensure that the <odt-user> has sudo access to **Target Servers** using the ssh **authorized keys** listing the <odt-user>'s public key (sudoer access must be password-less).
+
   ---
   ### III. Setup configurations
   Edit discovery_config_linux.json to include details as described below. Refer to the comments for additional help. NOTE: Comments are not supported in JSON; please don't leave comments in your configuration files.
@@ -396,7 +408,7 @@ total 468
     [centos-server]: Extracting Server MO Identity from Intersight...
     [centos-server]: Server MO Identity: 5bce7116683663343218ed96
     [centos-server]: Changes detected in OS Inventory, pushing to intersight...
-    ERROR]: Communication with Intersight failed with return code.
+    [ERROR]: Communication with Intersight failed with return code.
     [ERROR-DETAIL]: Communication with Intersight failed with response: (400)
     Reason: Bad Request
     HTTP response headers: HTTPHeaderDict({'Content-Length': '400', 'X-XSS-Protection': '1; mode=block;', 'X-Cache': 'Error from cloudfront', 'X-Content-Type-Options': 'nosniff', 'Set-Cookie': 'AWSALB=/7FTcJcaTQ9jomfiCgxrXudCRdj647LVh03E/xOIh+H0elvnkm47hkCTwV4XTJ9wiSX69WxU/RYnBJA8Ob912dphx+MiYGPrdW93NUkMEEUmkWP1gbQVsPUqHZF7; Expires=Sat, 23 Feb 2019 00:31:11 GMT; Path=/', 'Strict-Transport-Security': 'max-age=63072000; includeSubDomains', 'Server': 'nginx', 'Connection': 'keep-alive', 'Via': '1.1 063a9ddbb93cf698306df937132cd318.cloudfront.net (CloudFront)', 'X-Amz-Cf-Id': 'KLhB_iHaDTc7KpP5NBpl36hIGapd0NLitF6OhY2u1SDjc7Rfep4KZw==', 'Pragma': 'no-cache', 'Cache-Control': 'no-cache, no-store, must-revalidate', 'Date': 'Sat, 16 Feb 2019 00:31:12 GMT', 'X-Starship-TraceId': 'NB1fad0ec8fec41f5aa6d059c479529e66', 'Content-Type': 'application/json; charset=utf-8'})
@@ -405,6 +417,24 @@ total 468
     [ERROR]: Could not complete ODT update (Intersight API failed) for server: centos-server
   ```
   
+  #### IV. RedHat Linux servers throw a TTY error statement
+  This could happen in a Redhat Linux Server or an Oracle Linux Server with a RedHat Kernel. Solution to this is to modify your sudoers file(found at /etc/sudoers) and replace the line ```Defaults    requiretty``` with ```Defaults    !requiretty```, and it would fix the problem. 
+   ```Bash
+    ======================================================
+    [INFO]: Processing host: redhat-server
+    --------------------------------------------------------------                     
+    [redhat-server]: Extracting Server Serial Number... 
+    [redhat-server]: Host Serial Number: FCH17427NSL
+    [redhat-server]: Host Model: UCSB-B22-M3
+    [redhat-server]: Extracting Server MO Identity from Intersight... 
+    [redhat-server]: Server MO Identity: 5cddfacb6176752d3173972e
+    [redhat-server]: Extracting OS Inventory... 
+    [redhat-server]: Extracting driver Inventory...
+    sudo sorry you must have a tty
+    sudo sorry you must have a tty
+    sudo sorry you must have a tty
+    [redhat-server]: No Changes detected in OS Inventory, skipping...     
+   ```
   ---
   ## Other applications
   #### Scheduling with CRON Jobs   
@@ -419,6 +449,4 @@ total 468
 55 23 * * * /home/odt-user/intersight-python/os-discovery-tool/get_linux_inv_to_intersight.py --log-inventory --configfile=/home/odt-user/Documents/discovery_config_linux.json >> /tmp/odt_out.log
   $
   
-  
   ```
-  

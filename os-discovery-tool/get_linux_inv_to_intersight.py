@@ -59,6 +59,7 @@ class OsType:
     SUSE = ["Suse", "Sles"]
     DEBIAN = ["Ubuntu"]
     REDHAT = ["Red Hat", "Rhel", "Centos"]
+    ORACLE = ["Ol"]
 
 
 class ValidationResult(Enum):
@@ -66,6 +67,10 @@ class ValidationResult(Enum):
     FAILURE = 'VALIDATION_FAILED'
     SUCCESS = 'VALIDATION_SUCCESS'
 
+class FileHandlingException(RuntimeError):
+    """Custom Exception to catch any exception while handling file operations."""
+    def __init__(self, arg):
+        self.message = arg
 
 class HostManager:
     """Blueprint of interaction with the Host OS of Servers listed in the hosts file."""
@@ -76,11 +81,14 @@ class HostManager:
 
     def get_hosts(self):
         """Extract a list of hosts from the specified hosts file."""
-        hosts_file = codecs.open(self.hosts_file, "r")
-        for host in hosts_file.readlines():
-            if host.strip():
-                self.hosts.append(host.strip())
-        self.num_hosts = len(self.hosts)
+        try:
+            hosts_file = codecs.open(self.hosts_file, "r")
+            for host in hosts_file.readlines():
+                if host.strip():
+                    self.hosts.append(host.strip())
+            self.num_hosts = len(self.hosts)
+        except:
+            raise FileHandlingException(Bcolors.FAIL + "[ERROR]: Unable to open the hosts file. Please ensure that correct hosts file path is specified in the Config file." + Bcolors.ENDC)
 
     @staticmethod
     def host_tools_validated(host, os_type):
@@ -95,7 +103,7 @@ class HostManager:
         return True
 
     def process_hosts(self, intersight_connection, env_config):
-        """Core function to process hosts i.e., collect inventory, diff and push changes to Intersight."""
+        """Core functions to process hosts i.e., collect inventory, diff and push changes to Intersight."""
         for host in self.hosts:
             print("--------------------------------------------------------------")
             print(Bcolors.BOLD + "[INFO]: Processing host: " + host.strip() + Bcolors.ENDC)
@@ -121,12 +129,6 @@ class HostManager:
                     else:
                         print("[" + host.strip() + "]: Intersight MO Identifier: " + str(server_moid))
                         print("[" + host.strip() + "]: Building OS Inventory Collection... ")
-                        print(json.dumps(os_inv_collection,
-                                         indent=4,
-                                         sort_keys=True,
-                                         separators=(',', ': '),
-                                         ensure_ascii=True))
-                        print("--------------------------------------------------------------")
 
                     if intersight_connection.server_tags_differ(os_inv_collection):
                         print(Bcolors.OKBLUE + "[" + host.strip() +
@@ -170,7 +172,7 @@ class HostManager:
 
 
 class InvReader:
-    """Base class for reading the Inventopry."""
+    """Base class for reading the Inventory."""
     def __init__(self):
         self.host = ""
         self.os_type = ""
@@ -183,7 +185,7 @@ class InvReader:
 
     @property
     def iso_8601_time(self):
-        """Compute Timestamp to use for the updateTimestamp tag."""
+        """Compute Time stamp to use for the updateTimestamp tag."""
         date_str = str(datetime.datetime.utcnow().isoformat())
         date_str = date_str[:-3] + "Z"  # type: str
         return date_str
@@ -219,13 +221,13 @@ class InvReader:
 
 
 class OsInvReader(InvReader):
-    """Collect OS specific data (other that device and driver data)."""
+    """Collect OS specific data (other than device and driver data)."""
     def __init__(self, host_name):
         InvReader.__init__(self)
         self.host = host_name
 
     def get_os_inv(self):
-        """Collect OS specific data (other that device and driver data)."""
+        """Collect OS specific data (other than device and driver data)."""
         print("["+self.host.strip() + "]: Extracting OS Inventory... ")
         kernel_version = self.invoke_shell(ExecType.COMMAND, QueryType.OS, " uname -r | awk '{print $1}'")
         os_type = self.invoke_shell(ExecType.COMMAND, QueryType.OS, " uname -s | awk '{print $1}'")
@@ -239,6 +241,9 @@ class OsInvReader(InvReader):
         elif os_vendor in OsType.SUSE:
             self.os_type = OsType.SUSE
             os_flavor = (self.invoke_shell(ExecType.SCRIPT, QueryType.OS, "suse-os-version.sh"))
+        elif os_vendor in OsType.ORACLE:
+            self.os_type = OsType.ORACLE
+            os_flavor = (self.invoke_shell(ExecType.SCRIPT, QueryType.OS, "oracle-os-version.sh"))
         elif not os_vendor:
             os_vendor = (self.invoke_shell(ExecType.SCRIPT, QueryType.OS, "osvendor-legacy.sh")).lower().title()
             self.os_type = OsType.REDHAT
@@ -252,6 +257,8 @@ class OsInvReader(InvReader):
                 os_name = self.invoke_shell(ExecType.SCRIPT, QueryType.OS, "redhat-os-name.sh")
         elif self.os_type == OsType.DEBIAN:
             os_name = self.invoke_shell(ExecType.SCRIPT, QueryType.OS, "debian-os-name.sh")
+        elif self.os_type == OsType.ORACLE:
+            os_name = self.invoke_shell(ExecType.SCRIPT, QueryType.OS, "oracle-os-name.sh")
         else:
             os_name = "SuSE"
 
@@ -264,6 +271,8 @@ class OsInvReader(InvReader):
             os_vendor = "CentOS"
         elif os_vendor == "Sles":
             os_vendor = "SuSE"
+        elif os_vendor == "Ol":
+            os_vendor = "Oracle Linux"
 
         self.add_item(QueryType.OS, "updateTimestamp", self.iso_8601_time)
         self.add_item(QueryType.OS, "kernelVersionString",
@@ -330,7 +339,7 @@ class DriverInvReader(InvReader):
 
 
 class IntersightConnectionManager:
-    """high level support for doing this and that."""
+    """Connect to Intersight and check for the differences in OS Inventory"""
     def __init__(self, api_key, api_secret_path, intersight_url):
         self.api_key = api_key
         self.api_secret_path = api_secret_path
@@ -453,19 +462,22 @@ class EnvironmentConfigurator:
 
     def init_log_file(self):
         """Open log file in specified location."""
-        if self.logging is not None and self.logging is True:
-            print(Bcolors.WARNING + '[INFO]: Using logging mode...' + Bcolors.ENDC)
-            print(Bcolors.WARNING + '[INFO]: Using log file: ' + self.logfile_path + Bcolors.ENDC)
-            self.log_file = codecs.open(self.logfile_path, 'w', encoding='utf-8')
-        else:
-            print(Bcolors.WARNING + '[INFO]: Logging disabled...' + Bcolors.ENDC)
+        try:
+            if self.logging is not None and self.logging is True:
+                print(Bcolors.WARNING + '[INFO]: Using logging mode...' + Bcolors.ENDC)
+                print(Bcolors.WARNING + '[INFO]: Using log file: ' + self.logfile_path + Bcolors.ENDC)
+                self.log_file = codecs.open(self.logfile_path, 'w', encoding='utf-8')
+            else:
+                print(Bcolors.WARNING + '[INFO]: Logging disabled...' + Bcolors.ENDC)
+        except:
+            raise FileHandlingException(Bcolors.FAIL + "[ERROR]: Unable to find the log file path. Please ensure that correct log file path is specified in the Config file." + Bcolors.ENDC)
 
     def close_log_file(self):
         """Close already opened log file."""
         self.log_file.close()
 
     def write_log(self, log_line):
-        """Write a log file entried prefixed by timestamp."""
+        """Write log file entries prefixed by timestamp."""
         timestamped_log_line = "[" + str(datetime.datetime.utcnow()) + "]" + log_line + '\n'
         self.log_file.write(timestamped_log_line.encode('utf8'))
 
@@ -505,10 +517,18 @@ class EnvironmentConfigurator:
     @staticmethod
     def read_configs(configfile):
         """Read configuration from specified config file."""
-        json_data = codecs.open(configfile.strip()).read()
-        configs = json.loads(json_data)
-        return configs
+        json_data = None
+        configs = None
+        try:
+            json_data = codecs.open(configfile.strip()).read()
+        except:
+            raise FileHandlingException(Bcolors.FAIL + "[ERROR]: Unable to find the config file path. Please ensure that correct config file path is specified." + Bcolors.ENDC)
+        try:
+            configs = json.loads(json_data)
+        except:
+            raise FileHandlingException(Bcolors.FAIL + "[ERROR]: Unable to process the config file. Please ensure that config file is in proper JSON format." + Bcolors.ENDC)
 
+        return configs
 
 def do_discovery():
     """Main Execution flow for ODT."""
@@ -553,4 +573,12 @@ def do_discovery():
 
 
 if __name__ == '__main__':
-    do_discovery()
+    try:
+        do_discovery()
+    except FileHandlingException,e:
+        print(e.message)
+        exit()
+    except Exception as err:
+        print(Bcolors.FAIL + "[ERROR]: An error has occured while processing the given information: " + Bcolors.ENDC)
+        print(Bcolors.BOLD + "[ERROR-DETAIL]: " + str(err) + Bcolors.ENDC)
+        exit()
