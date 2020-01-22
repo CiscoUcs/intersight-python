@@ -48,10 +48,14 @@ total 468
 ## Setup Steps
 ---  
   ### I. Pre-requisites/dependent components for setting up the Control Node 
-  1. A Virtual/Physical Linux machine with access to your on-prem network. **We will call this the Control Node**. Ensure that you have the latest version of Python 2 (2.7 or later) installed.
-     - Note: This utility does not support Python 3.
+  1. A Virtual/Physical Linux machine with access to your on-prem network. **We will call this the Control Node**. Ensure that you have Python 3 (3.7 or later) installed.
+     - Note: Using Python 3 is highly recommended to run this utility. To continue using Python 2, use the get_linux_inv_to_intersight.py2 file.
   2. **Generate Intersight API keys** with your user account from the Cisco Intersight GUI and use them as described in the next section.
-  3. **Install Intersight Python SDK**: Clone this repository on the **Control Node** as described below and follow the build instructions available here: https://github.com/CiscoUcs/intersight-python. 
+  3. **Install Enum module**: Ensure Enum module is installed. If Enum module is not installed, you can install using:
+   ```Bash
+     $ pip install enum34
+   ```
+  4. **Install Intersight Python SDK**: Clone this repository on the **Control Node** as described below and follow the build instructions available here: https://github.com/CiscoUcs/intersight-python.
    ```Bash
   	 $ git clone https://github.com/CiscoUcs/intersight-python.git
    ```  
