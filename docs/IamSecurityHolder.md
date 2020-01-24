@@ -1,0 +1,12 @@
+# IamSecurityHolder
+
+Holder for organization aggregated permissions and global account permissions. User configures permissions for entire account or subset of organizations and specifies associated roles with each organization. Intersight aggregates all the permissions and stores per organization aggregate permissions in iam.ResourcePermission object. 
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**account** | [**IamAccount**](.md) |  | [optional] 
+**resource_permissions** | [**list[IamResourcePermission]**](IamResourcePermission.md) | A reference to a iamResourcePermission resource. When the $expand query parameter is specified, the referenced resource is returned inline. Per resource (organization) aggregate permissions and associated roles.  | [optional] [readonly] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

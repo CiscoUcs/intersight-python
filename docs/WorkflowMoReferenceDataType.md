@@ -1,0 +1,11 @@
+# WorkflowMoReferenceDataType
+
+Data type to capture an Intersight Managed object reference. 
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**properties** | [**list[WorkflowMoReferenceProperty]**](WorkflowMoReferenceProperty.md) |  | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
