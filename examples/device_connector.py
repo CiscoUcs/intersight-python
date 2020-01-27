@@ -187,6 +187,8 @@ class UcsDeviceConnector(DeviceConnector, object):
         resp = requests.post(self.xml_uri, verify=False, data=xml_body)
         if re.match(r'2..', str(resp.status_code)):
             xml_tree = ElementTree.fromstring(resp.content)
+            if not xml_tree.attrib.get('outCookie'):
+                return
             self.xml_cookie = xml_tree.attrib['outCookie']
             self.auth_header = {'ucsmcookie': "ucsm-cookie=%s" % self.xml_cookie}
             self.logged_in = True
