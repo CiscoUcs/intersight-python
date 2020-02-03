@@ -17,12 +17,11 @@ from Crypto.Signature import PKCS1_v1_5
 from Crypto.Hash import SHA256
 from base64 import b64encode
 from intersight import ApiClient
-from intersight.configuration import Configuration
 
 class IntersightApiClient(ApiClient):
     '''
-    Intersight API client for Swagger client library builds. Its defined as
-    a child to ApiClient class which is auto-generated as part of Intersight Python SDK
+    Intersight API client for OpenAPI client library builds. It is defined as
+    a child of the ApiClient class which is auto-generated as part of the Intersight Python SDK.
     
     This client handles the support for api keys feature for Intersight project.
 
@@ -38,13 +37,7 @@ class IntersightApiClient(ApiClient):
         '''
         Constructor of the class IntersightApiClient
         '''
-        super(IntersightApiClient, self).__init__(
-            configuration=Configuration(host=host),
-            header_name=header_name,
-            header_value=header_value,
-            cookie=cookie,
-        )
-        self.host = host
+        super(IntersightApiClient, self).__init__(host, header_name, header_value, cookie)
         self.private_key_file = private_key
         self.api_key_id = api_key_id
         self.digest_algorithm = "rsa-sha256"
