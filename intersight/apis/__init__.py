@@ -16,6 +16,7 @@ from .appliance_device_claim_api import ApplianceDeviceClaimApi
 from .appliance_diag_setting_api import ApplianceDiagSettingApi
 from .appliance_image_bundle_api import ApplianceImageBundleApi
 from .appliance_node_info_api import ApplianceNodeInfoApi
+from .appliance_release_note_api import ApplianceReleaseNoteApi
 from .appliance_restore_api import ApplianceRestoreApi
 from .appliance_setup_info_api import ApplianceSetupInfoApi
 from .appliance_system_info_api import ApplianceSystemInfoApi
@@ -236,6 +237,7 @@ from .smtp_policy_api import SmtpPolicyApi
 from .snmp_policy_api import SnmpPolicyApi
 from .software_hcl_meta_api import SoftwareHclMetaApi
 from .software_hyperflex_distributable_api import SoftwareHyperflexDistributableApi
+from .software_solution_distributable_api import SoftwareSolutionDistributableApi
 from .softwarerepository_authorization_api import SoftwarerepositoryAuthorizationApi
 from .softwarerepository_catalog_api import SoftwarerepositoryCatalogApi
 from .softwarerepository_operating_system_file_api import SoftwarerepositoryOperatingSystemFileApi
