@@ -224,6 +224,10 @@ from .resource_license_resource_count_api import ResourceLicenseResourceCountApi
 from .resource_membership_api import ResourceMembershipApi
 from .resource_membership_holder_api import ResourceMembershipHolderApi
 from .sdcard_policy_api import SdcardPolicyApi
+from .sdwan_profile_api import SdwanProfileApi
+from .sdwan_router_node_api import SdwanRouterNodeApi
+from .sdwan_router_policy_api import SdwanRouterPolicyApi
+from .sdwan_vmanage_account_policy_api import SdwanVmanageAccountPolicyApi
 from .search_search_item_api import SearchSearchItemApi
 from .search_suggest_item_api import SearchSuggestItemApi
 from .search_tag_item_api import SearchTagItemApi
