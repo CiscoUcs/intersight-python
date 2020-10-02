@@ -453,6 +453,26 @@ class DriverInvReader(InvReader):
                                           QueryType.DRIVER, "storageversions.sh")
             descriptions += self.invoke_shell(ExecType.SCRIPT,
                                               QueryType.DRIVER, "storagedev.sh")
+
+            os_vendor = self.invoke_shell(ExecType.SCRIPT,
+                                          QueryType.OS, 'osvendor.sh').lower().title()
+
+            # Invoke GPU scripts for OSes: Ubuntu, CentOS, Redhat
+            if os_vendor in OsType.DEBIAN or os_vendor in OsType.REDHAT:
+                gpu_info = self.invoke_shell(ExecType.SCRIPT,
+                                             QueryType.DRIVER, 'gpudriver.sh')
+                gpu_desc = self.invoke_shell(ExecType.SCRIPT,
+                                             QueryType.DRIVER, 'gpudev.sh')
+
+                if gpu_info:
+                    for value in gpu_info:
+                        if len(value) > 0:
+                            drivers.append(value.split(',')[0].strip())
+                            versions.append(value.split(',')[1].strip())
+                    for value in gpu_desc:
+                        if len(value) > 0:
+                            descriptions.append(value)
+
         added_drivers = set()
         driver_count = 0
 
@@ -467,12 +487,7 @@ class DriverInvReader(InvReader):
 
             self.add_item(
                 QueryType.DRIVER,
-                "driver." +
-                str(driver_count) +
-                ".name",
-                "RAID" if "megaraid_sas" in drivers[i] and "UCSB" in self.host_type else value.replace(
-                    '"',
-                    ''))
+                "driver." + str(driver_count) + ".name", value.replace('"', ''))
             self.add_item(
                 QueryType.DRIVER,
                 "driver." +

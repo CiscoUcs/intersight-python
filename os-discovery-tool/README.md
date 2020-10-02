@@ -72,7 +72,11 @@ total 468
             - Oracle Linux with the Unbreakable Enterprise Kernel(UEK)
             - Oracle Linux with Red Hat Compatible Kernel(RHCK)
             - Oracle VM (OVM) Server is not supported
-  4. **User access**: We are going to use <odt-user> henceforth to refer to the User ID for which the script will run. Ensure that the <odt-user> has sudo access to **Target Servers** using the ssh **authorized keys** listing the <odt-user>'s public key (sudoer access must be password-less).
+  4. **Supported Linux flavors for GPUs:**
+        - Red Hat Enterprise Linux(RHEL)
+        - Ubuntu Sever
+        - CentOS
+  5. **User access**: We are going to use "**odt-user**" henceforth to refer to the User ID for which the script will run. Ensure that the "**odt-user**" has sudo access to **Target Servers** using the ssh **authorized keys** listing the "**odt-user's**" public key (sudoer access must be password-less).
 
   ---
   ### III. Setup configurations
