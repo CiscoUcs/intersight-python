@@ -567,11 +567,17 @@ class IntersightConnectionManager:
                     self.api_instance)
                 self.results = self.server_api.compute_blades_get(
                     inlinecount='allpages', top=100, filter='Serial eq ' + self.serial_number)
-            elif 'UCSC' in self.host_type or 'HX' in self.host_type:
-                self.server_api = computeRackUnit.ComputeRackUnitApi(
-                    self.api_instance)
-                self.results = self.server_api.compute_rack_units_get(
-                    inlinecount='allpages', top=100, filter='Serial eq ' + self.serial_number)
+            elif 'UCSC' in self.host_type or 'UCS' in self.host_type or 'HX' in self.host_type:
+                # Support for Colussa Servers
+                if 'UCS-S3260' in self.host_type or 'UCSC-C3K' in self.host_type:
+                    self.server_api = computeBlade.ComputeBladeApi(self.api_instance)
+                    self.results = self.server_api.compute_blades_get(inlinecount='allpages',
+                                                                      top=100, filter='Serial eq ' + self.serial_number)
+                elif 'UCSC-C' in self.host_type:
+                    self.server_api = computeRackUnit.ComputeRackUnitApi(
+                        self.api_instance)
+                    self.results = self.server_api.compute_rack_units_get(
+                        inlinecount='allpages', top=100, filter='Serial eq ' + self.serial_number)
 
             if self.results:
                 print(("[" +
@@ -596,7 +602,7 @@ class IntersightConnectionManager:
         compute = intersight.ComputeBlade()
         compute.tags = os_inv_collection + self.user_tags
         print(("[" + hostname.strip() + "]: Patching Server MO with OS Inventory... "))
-        if 'UCSB' in self.host_type:
+        if 'UCSB' in self.host_type or 'UCS-S3260' in self.host_type or 'UCSC-C3K' in self.host_type:
             result = self.server_api.compute_blades_moid_patch(moid, compute)
         elif 'UCSC' in self.host_type or 'HX' in self.host_type:
             result = self.server_api.compute_rack_units_moid_patch(
@@ -826,11 +832,14 @@ if __name__ == '__main__':
     try:
         do_discovery()
     except FileHandlingException as e:
-        print((e.message))
+        print((Bcolors.FAIL +
+               "[ERROR]: A File Handling error has occurred: " +
+               Bcolors.ENDC))
+        print((Bcolors.BOLD + "[ERROR-DETAIL]: " + str(e.message) + Bcolors.ENDC))
         exit()
     except Exception as err:
         print((Bcolors.FAIL +
-               "[ERROR]: An error has occured while processing the given information: " +
+               "[ERROR]: An error has occurred while processing the given information: " +
                Bcolors.ENDC))
         print((Bcolors.BOLD + "[ERROR-DETAIL]: " + str(err) + Bcolors.ENDC))
         exit()
